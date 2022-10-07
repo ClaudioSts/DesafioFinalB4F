@@ -1,4 +1,5 @@
 //Login - GET
+//URL - /api/login/company
 //DTO
 //req: {email: string, password: string}
 //res: status(200), {id: ObjectID}
