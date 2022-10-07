@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
-import loginUser from "../styles/loginUser.css";
 
-export default function Home() {
+export default function LoginForm() {
   return (
     <div className="loginUser">
       <div className="userHead">
