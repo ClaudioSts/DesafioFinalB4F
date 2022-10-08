@@ -18,7 +18,7 @@ export default function Home() {
         <div className="userId">
           Mail:
           <br />
-          <input type="email" name="Email" placeholder="" />
+          <input type="email" id="email" name="email" placeholder="" />
           <br />
         </div>
         <div className="pswdUser">
@@ -31,7 +31,7 @@ export default function Home() {
           <button type="submit">Create/Login</button>
         </div>
         <div>
-        <input type="button" value="Cancel" onclick="window.location='file:///C:/Users/HP/Desktop/Bytes4future/Final%20Project/DesafioFinalB4F/pages/index.js'"/>
+        <input type="button" value="Cancel" onclick="window.location=''"/>
         </div>
       </form>
     </div>
