@@ -1,12 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-export default function CustomButtonWithModal(props) {
+export default function CustomDivWithModal(props) {
 
     // Get the component Children
     const childrenElements = React.Children.toArray(props.children)
     
-    const {buttonTitle, modalTitle} = props;
+    const {divText, modalTitle} = props;
     const [modalIsOpen, setIsOpen] = React.useState(false);
         
     // React Component: http://reactcommunity.org/react-modal/
@@ -46,8 +46,8 @@ export default function CustomButtonWithModal(props) {
 
     return (
         <div>
-            <h1>Custom Button With Modal</h1> {/* TODO: remove */}
-            <button onClick={openModal}>{buttonTitle ?? "Set Button Title" }</button>
+            <h1>Custom Div With Modal</h1> {/* TODO: remove */}
+            <div onClick={openModal}>{divText ?? "Set Div Text"}</div>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
