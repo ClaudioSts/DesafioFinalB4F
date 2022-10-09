@@ -5,7 +5,7 @@ export default function LoginCompany() {
 
         <div className="loginCom">
             <form>
-                <h1> Company</h1>
+                <h1 className="head"> Company</h1>
                 <div className="userId">
                     Company:
                     <br />
