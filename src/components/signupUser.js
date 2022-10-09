@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import signUpUser from "../styles/signUpUser.css";
+//import signUpUser from "../styles/signUpUser.css";
 
 export default function Home() {
   return (

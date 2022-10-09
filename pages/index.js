@@ -5,24 +5,18 @@ import LoginUser from "../src/components/loginUser";
 import LoginCom from "../src/components/loginCompany";
 import Overlay from "../src/components/overlay";
 import SignUpUser from "../src/components/SignUpUser";
-import signUpCompanies from "../src/components/SignUpCompanies";
+import FormularioComSubmit from "../src/components/submitFile";
+//import signUpCompanies from "../src/components/signUpCompanies";
 
 export default function Home() {
   return (
     <div className={styles.container}>
-          <LoginUser />
-          <LoginCom />
+      <LoginUser />
+      <LoginCom />
+      <SignUpUser />
+      <signUpCompanies />
+      <FormularioComSubmit />
       <Overlay />
     </div>
   );
 }
-export default function Home() {
-  return (
-    <div className={styles.container}>
-          <SignUpUser />
-          <SignUpCompanies />
-      <Overlay />
-    </div>
-  );
-}
-
