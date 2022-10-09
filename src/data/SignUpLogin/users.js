@@ -4,9 +4,9 @@ import { getMongoCollection } from "../mongodb"
 const DB_NAME = "DesafioFinal"
 const COLLECTION_NAME = "users"
 
-async function getUserByEmail(userEmail) {
+async function getUserByEmail(email) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    const resultado = await collection.findOne({ userEmail })
+    const resultado = await collection.findOne({ email })
     return resultado
 }
 async function getUserById(userId) {
@@ -15,11 +15,11 @@ async function getUserById(userId) {
     return resultado
 }
 
-async function checkMatchPassword(userEmail, password) {
+async function checkMatchPassword(email, password) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     const resultado = await collection.findOne({
         $and:
-            [{ userEmail, password }]
+            [{ email, password }]
     })
     return resultado
 }
@@ -30,7 +30,7 @@ async function addUser(user) {
     return result.insertedId
 }
 
-async function checkIfEmailExists(email) {
+async function checkIfUserEmailExists(email) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     const result = await collection.find({ email }).toArray()
     return result
@@ -44,7 +44,7 @@ async function findUser(id) {
 export {
     getUserByEmail,
     addUser,
-    checkIfEmailExists,
+    checkIfUserEmailExists,
     findUser,
     checkMatchPassword,
     getUserById

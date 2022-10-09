@@ -1,25 +1,24 @@
 import { getMongoCollection } from "../mongodb"
 
-
 const DB_NAME = "DesafioFinal"
 const COLLECTION_NAME = "companies"
 
-async function getCompanyByEmail(companyEmail) {
+async function getCompanyByEmail(email) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    const resultado = await collection.findOne({ companyEmail })
+    const resultado = await collection.findOne({ email })
     return resultado
 }
-async function getUserById(userId) {
+async function getCompanyById(companyId) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    const resultado = await collection.findOne({ _id: userId })
+    const resultado = await collection.findOne({ _id: companyId })
     return resultado
 }
 
-async function checkMatchPassword(companyEmail, password) {
+async function checkMatchPassword(email, password) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     const resultado = await collection.findOne({
         $and:
-            [{ companyEmail, password }]
+            [{ email, password }]
     })
     return resultado
 }
@@ -30,7 +29,7 @@ async function addCompany(company) {
     return result.insertedId
 }
 
-async function checkIfEmailExists(email) {
+async function checkIfCompanyEmailExists(email) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     const result = await collection.find({ email }).toArray()
     return result
@@ -44,8 +43,8 @@ async function findCompany(id) {
 export {
     getCompanyByEmail,
     addCompany,
-    checkIfEmailExists,
+    checkIfCompanyEmailExists,
     findCompany,
     checkMatchPassword,
-    getUserById
+    getCompanyById
 }
