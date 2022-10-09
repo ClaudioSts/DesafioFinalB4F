@@ -30,7 +30,7 @@ export default function Home() {
         <div className="pswdUser">
           Confirm Password:
           <br />
-          <input type="password" name="password" placeholder="Confirm Password" id="confirm_password" required />
+           <input type="password" name="password" placeholder="Confirm Password" id="confirm_password" value="Submit" onclick="return Validate()" required />
           <br />
         </div>
         <div>
