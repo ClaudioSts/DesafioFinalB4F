@@ -8,18 +8,20 @@ import FormularioComSubmit from "../src/components/submitFile";
 import styles from "../styles/Home.module.css";
 import LogoPrincipal from "../src/components/logoPrincipal";
 import SearchBar from "../src/components/searchBar";
+
 import { useState } from "react";
 
 export default function Home() {
   return (
     <div className={styles.container}>
+      <LogoPrincipal />
+      <SearchBar />
       <LoginUser />
       <LoginCompany />
       <SignUpUser />
-      <signUpCompanies />
+      <SignUpCompanies />
       <FormularioComSubmit />
       <CustomButtonWithModal buttonTitle="Login Modal" modalTitle="Login Modal">
-        <Login />
       </CustomButtonWithModal>
       <CustomDivWithModal divText="Check the applications here...">
         Check the applications here...
