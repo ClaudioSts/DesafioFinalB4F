@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 export const companies = [
   { name: "Belgium", continent: "Europe" },
@@ -39,22 +38,24 @@ const searchBar = () => {
     });
   }
 
-
   return (
     <div className="srcContainer">
       <div className="src">
-        <input type="text-search" className="srcInput"
+        <input
+          type="text-search"
+          className="srcInput"
           placeholder="Search"
           onChange={(e) => {
             e.preventDefault();
             setSearchInput(e.target.value);
           }}
-          value={searchInput} />
+          value={searchInput}
+        />
 
         <button className="button2" type="submit">
-          <img src='/img/lupa.png' height={18} />
+          <img src="/img/lupa.png" height={18} />
         </button>
       </div>
-      </div>
+    </div>
   );
-}
+};

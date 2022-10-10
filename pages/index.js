@@ -13,18 +13,20 @@ import { useState } from "react";
 export default function Home() {
   return (
     <div className={styles.container}>
+      <SearchBar />
+      <LogoPrincipal />
       <LoginUser />
       <LoginCompany />
       <SignUpUser />
       <signUpCompanies />
       <FormularioComSubmit />
-      <CustomButtonWithModal buttonTitle="Login Modal" modalTitle="Login Modal">
-        <Login />
-      </CustomButtonWithModal>
+      <CustomButtonWithModal
+        buttonTitle="Login Modal"
+        modalTitle="Login Modal"
+      ></CustomButtonWithModal>
       <CustomDivWithModal divText="Check the applications here...">
         Check the applications here...
       </CustomDivWithModal>
-
     </div>
-  )
+  );
 }
