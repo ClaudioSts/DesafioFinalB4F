@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 //import signUpUser from "../styles/signUpUser.css";
 
-export default function Home() {
+export default function SignUpUser() {
   return (
     <div className="signUpUser">
       <div className="userHead">
