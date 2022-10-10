@@ -1,9 +1,10 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: lightgray
+
 }
 
 a {
@@ -23,4 +24,29 @@ a {
     color: white;
     background: black;
   }
+}
+.loginUser{
+    margin:10rem;
+   
+    border:5px solid black;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+.head{
+    background-color:blue;
+   width:100%;
+   height:100%;
+}
+.loginCom {
+    margin: 10rem;
+    
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.button1{
+    border:1px solid double;
 }
