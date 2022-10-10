@@ -11,19 +11,19 @@ async function findJobById (id) {
     return jobOffer
 }
 
-async function createJob(jobOffer) {
-    const createdJobOffer = await insertJob(jobOffer)
-    return createdJobOffer.insertedId
+async function createJob(newJobOffer) {
+    const createdJobOffer = await insertJob(newJobOffer)
+    return createdJobOffer
 }
 
 async function changeJobById(jobOffer, id) {
-    const jobOffer = await updateJobById(jobOffer, id)
-    return jobOffer
+    const offer = await updateJobById(jobOffer, id)
+    return offer
 }
 
 async function deleteJobById(id) {
-    const jobOffer = await removeJobById(id)
-    return jobOffer
+    const offer = await removeJobById(id)
+    return offer
 }
 
 export {

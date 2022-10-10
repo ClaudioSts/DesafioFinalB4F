@@ -1,5 +1,56 @@
 html,
 body {
+  margin: 0vh;
+  padding: 0;
+}
+
+.container {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #3e6add;
+  max-width: 200vh;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: initial;
+  margin: 0vh;
+}
+
+.logo {
+  justify-content: flex;
+  margin-left: 5vh;
+  height: 19vh;
+}
+
+.log {
+  color: white;
+  background-color: #004aad;
+  width: 10vh;
+  height: 5vh;
+  border-radius: 40vh;
+  margin-right: 10vh;
+  font-size: 2vh;
+}
+
+.loginUser {
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.head {
+  background-color: blue;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -43,6 +94,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .loginCom {
   border: 2px solid #004aad;
   display: flex;
@@ -57,6 +109,59 @@ body {
   border: 2px solid #3e6add;
   border-radius: 1rem;
   width: 5rem;
+
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button1 {
+  border: 1px solid double;
+}
+
+.srcContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.src {
+  margin-top: 2%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.srcInput {
+  width: 100%;
+  height: 2.8rem;
+  background: transparent;
+  outline: none;
+  border: solid 2px #004aad;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+.button2 {
+  width: 3.5rem;
+  height: 2.8rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.button2:hover {
+  cursor: pointer;
+}
+
+.button1:hover {
+  transform: 0.7s;
 }
 .button:hover {
   background-color: transparent;

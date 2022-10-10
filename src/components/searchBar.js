@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 export const companies = [
   { name: "Belgium", continent: "Europe" },
@@ -31,34 +32,29 @@ const searchBar = () => {
     e.preventDefault();
     setSearchInput(e.target.value);
   };
+
   if (searchInput.length > 0) {
     companies.filter((company) => {
       return company.name.match(searchInput);
     });
   }
+
+
   return (
-    <div>
-      <input
-        type="search"
-        placeholder="Search here"
-        onChange={handleChange}
-        value={searchInput}
-      />
-      <table>
-        <tr>
-          <th>company</th>
-          <th>Continent</th>
-        </tr>
-        {countries.map((country, index) => {
-          <div>
-            <tr>
-              <td>{country.name}</td>
-              <td>{country.continent}</td>
-            </tr>
-          </div>;
-        })}
-      </table>
-    </div>
+    <div className="srcContainer">
+      <div className="src">
+        <input type="text-search" className="srcInput"
+          placeholder="Search"
+          onChange={(e) => {
+            e.preventDefault();
+            setSearchInput(e.target.value);
+          }}
+          value={searchInput} />
+
+        <button className="button2" type="submit">
+          <img src='/img/lupa.png' height={18} />
+        </button>
+      </div>
+      </div>
   );
-};
-export default searchBar;
+}
