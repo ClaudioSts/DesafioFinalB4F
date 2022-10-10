@@ -1,5 +1,6 @@
 html,
 body {
+<<<<<<< HEAD
     margin: 0vh;
     padding: 0;
 }
@@ -57,9 +58,60 @@ body {
     background-color: blue;
     width: 100%;
     height: 100%;
+=======
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: lightgray;
+}
+.userHead {
+  background-color: #3e6add;
+  height: 3rem;
+}
+.userId {
+  background-color: #d9d9d9;
+}
+.formbody {
+  padding: 50px 50px;
+  text-align: center;
+}
+.formbody fieldset {
+  margin: 50px 0;
+}
+
+.formbody {
+  background-color: #d9d9d9;
+}
+
+.body {
+  color: white;
+  background: black;
+}
+
+.loginUser {
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headuser {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
+}
+.headcom {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
+>>>>>>> 4d0f21c4dd09a7bfaf56e95b24a0f30d2e9d2fdf
 }
 
 .loginCom {
+<<<<<<< HEAD
     margin: 10rem;
 
     border: 5px solid black;
@@ -111,3 +163,18 @@ body {
 .button2:hover {
     cursor: pointer;
 }
+=======
+  margin: 10rem;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button1:hover {
+  transform: 0.7s;
+}
+.button1 {
+  color: #3e6add;
+}
+>>>>>>> 4d0f21c4dd09a7bfaf56e95b24a0f30d2e9d2fdf

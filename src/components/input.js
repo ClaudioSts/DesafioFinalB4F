@@ -1,7 +1,9 @@
 import { useState } from "react";
-function input() {
-  const [inputs, setInputs] = React.useState({
-    User: "",
-    Password: "",
+
+export function input(evt) {
+  const value = evt.target.value;
+  setInputs({
+    ...input,
+    [evt.target.name]: value,
   });
 }
