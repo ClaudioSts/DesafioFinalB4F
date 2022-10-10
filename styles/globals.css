@@ -1,52 +1,180 @@
 html,
 body {
+<<<<<<< HEAD
+    margin: 0vh;
     padding: 0;
+}
+
+.container {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: lightgray
+}
+
+
+.main {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3E6ADD;
+    max-width: 200vh;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: initial;
+    margin: 0vh;
 
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.logo {
+    justify-content: flex;
+    margin-left: 5vh;
+    height: 19vh;
+
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
+.log {
     color: white;
-    background: black;
-  }
-}
-.loginUser{
-    margin:10rem;
-   
-    border:5px solid black;
-    display:flex;
-    align-items:center;
-    flex-direction:column;
+    background-color: #004AAD;
+    width: 10vh;
+    height: 5vh;
+    border-radius: 40vh;
+    margin-right: 10vh;
+    font-size: 2vh;
+
+
 }
 
-.head{
-    background-color:blue;
-   width:100%;
-   height:100%;
-}
-.loginCom {
+.loginUser {
     margin: 10rem;
-    
+
     border: 5px solid black;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.button1{
-    border:1px solid double;
+
+.head {
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+=======
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: lightgray;
 }
+.userHead {
+  background-color: #3e6add;
+  height: 3rem;
+}
+.userId {
+  background-color: #d9d9d9;
+}
+.formbody {
+  padding: 50px 50px;
+  text-align: center;
+}
+.formbody fieldset {
+  margin: 50px 0;
+}
+
+.formbody {
+  background-color: #d9d9d9;
+}
+
+.body {
+  color: white;
+  background: black;
+}
+
+.loginUser {
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headuser {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
+}
+.headcom {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
+>>>>>>> 4d0f21c4dd09a7bfaf56e95b24a0f30d2e9d2fdf
+}
+
+.loginCom {
+<<<<<<< HEAD
+    margin: 10rem;
+
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button1 {
+    border: 1px solid double;
+}
+
+.srcContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.src {
+    margin-top: 2%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.srcInput {
+    width: 100%;
+    height: 2.8rem;
+    background: transparent;
+    outline: none;
+    border: solid 2px #004AAD;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+    
+
+}
+
+.button2 {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.button2:hover {
+    cursor: pointer;
+}
+=======
+  margin: 10rem;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button1:hover {
+  transform: 0.7s;
+}
+.button1 {
+  color: #3e6add;
+}
+>>>>>>> 4d0f21c4dd09a7bfaf56e95b24a0f30d2e9d2fdf

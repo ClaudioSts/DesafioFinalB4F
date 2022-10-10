@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-//import signUpUser from "../styles/signUpUser.css";
+//import signUpCompanies from "../styles/signUpCompanies.css";
 
-export default function SignUpUser() {
+export default function SignUpCompanies() {
   return (
-    <div className="signUpUser">
-      <div className="userHead">
-        <h1> SignUp User</h1>
+    <div className="signCompanies">
+      <div className="companiesHead">
+        <h1> SignUp Company</h1>
       </div>
       <form>
         <div className="userId">
@@ -16,9 +16,15 @@ export default function SignUpUser() {
           <br />
         </div>
         <div className="userId">
-          Mail:
+          NISS:
           <br />
-          <input type="email" id="email" name="email" placeholder="" required />
+          <input
+            type="number"
+            placeholder="x11"
+            min="0"
+            max="99999999999"
+            required
+          />
           <br />
         </div>
         <div className="pswdUser">
