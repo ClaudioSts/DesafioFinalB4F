@@ -11,15 +11,17 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         const {
             email,
+            NIF,
             password,
             passwordConfirmation,
-            acceptsTerms
+            acceptsTerms,
         } = req.body
 
         const validation = await validateFields(req.body)
         if (validation.success) {
             const id = await addCompany({
                 email,
+                NIF,
                 password,
                 passwordConfirmation,
                 acceptsTerms
