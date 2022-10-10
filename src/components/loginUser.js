@@ -1,4 +1,10 @@
+import { input } from "./input";
+import React, { useState } from "react";
 export default function LoginUser() {
+  const [inputs, setInputs] = React.useState({
+    User: "",
+    Password: "",
+  });
   return (
     <div className="loginUser">
       <div className="headuser">
@@ -9,13 +15,18 @@ export default function LoginUser() {
         <div className="userId">
           User:
           <br />
-          <input id="username" name="username" placeholder="" />
+          <input id="username" name="username" onChange={inputs} />
           <br />
         </div>
         <div className="pswdUser">
           Password:
           <br />
-          <input type="password" id="password" name="password" placeholder="" />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={inputs}
+          />
           <br />
         </div>
         <div className="button1">

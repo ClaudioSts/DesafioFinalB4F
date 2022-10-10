@@ -51,12 +51,15 @@ body {
 }
 .loginCom {
   margin: 10rem;
-
   border: 5px solid black;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
+.button1:hover {
+  transform: 0.7s;
+}
 .button1 {
-  border: 1px solid double;
+  color: #3e6add;
 }
