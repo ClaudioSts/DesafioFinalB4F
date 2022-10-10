@@ -1,52 +1,62 @@
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: lightgray
-
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: lightgray;
+}
+.userHead {
+  background-color: #3e6add;
+  height: 3rem;
+}
+.userId {
+  background-color: #d9d9d9;
+}
+.formbody {
+  padding: 50px 50px;
+  text-align: center;
+}
+.formbody fieldset {
+  margin: 50px 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.formbody {
+  background-color: #d9d9d9;
 }
 
-* {
-  box-sizing: border-box;
+.body {
+  color: white;
+  background: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
-.loginUser{
-    margin:10rem;
-   
-    border:5px solid black;
-    display:flex;
-    align-items:center;
-    flex-direction:column;
+.loginUser {
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.head{
-    background-color:blue;
-   width:100%;
-   height:100%;
+.headuser {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
+}
+.headcom {
+  background-color: #3e6add;
+  width: 100%;
+  height: 100%;
 }
 .loginCom {
-    margin: 10rem;
-    
-    border: 5px solid black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  margin: 10rem;
+
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.button1{
-    border:1px solid double;
+.button1 {
+  border: 1px solid double;
 }

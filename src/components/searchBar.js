@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 export const companies = [
   { name: "Belgium", continent: "Europe" },
   { name: "India", continent: "Asia" },
@@ -23,39 +23,42 @@ export const companies = [
   { name: "Tanzania", continent: "Africa" },
   { name: "Bangladesh", continent: "Asia" },
   { name: "Portugal", continent: "Europe" },
-  { name: "Pakistan", continent: "Asia"},
+  { name: "Pakistan", continent: "Asia" },
 ];
 const searchBar = () => {
- const [searchInput, setSearchInput] = useState("");
-const handleChange = (e) => {
-  e.preventDefault();
-  setSearchInput(e.target.value);
-};
-if (searchInput.length > 0) {
+  const [searchInput, setSearchInput] = useState("");
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+  if (searchInput.length > 0) {
     companies.filter((company) => {
-    return company.name.match(searchInput);
-});
-}
-return <div>
-<input
-   type="search"
-   placeholder="Search here"
-   onChange={handleChange}
-   value={searchInput} />
-<table>
-  <tr>
-    <th>company</th>
-    <th>Continent</th>
-  </tr>
-{countries.map((country, index) => {
-<div>
-  <tr>
-    <td>{country.name}</td>
-    <td>{country.continent}</td>
-  </tr>
-</div>
-})}
-</table>
-</div>
+      return company.name.match(searchInput);
+    });
+  }
+  return (
+    <div>
+      <input
+        type="search"
+        placeholder="Search here"
+        onChange={handleChange}
+        value={searchInput}
+      />
+      <table>
+        <tr>
+          <th>company</th>
+          <th>Continent</th>
+        </tr>
+        {countries.map((country, index) => {
+          <div>
+            <tr>
+              <td>{country.name}</td>
+              <td>{country.continent}</td>
+            </tr>
+          </div>;
+        })}
+      </table>
+    </div>
+  );
 };
 export default searchBar;
