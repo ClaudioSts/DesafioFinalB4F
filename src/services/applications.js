@@ -13,17 +13,17 @@ async function findApplicationById (id) {
 
 async function createApplication(application) {
     const createdApplication = await insertApplication(application)
-    return createdApplication.insertedId
+    return createdApplication
 }
 
 async function changeApplicationById(application, id) {
-    const application = await updateApplicationById(application, id)
-    return application
+    const applications = await updateApplicationById(application, id)
+    return applications
 }
 
 async function deleteApplicationById(id) {
-    const application = await removeApplicationById(id)
-    return application
+    const DeleteApplication = await removeApplicationById(id)
+    return DeleteApplication
 }
 
 export {
