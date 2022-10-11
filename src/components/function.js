@@ -15,8 +15,8 @@ const CompSearch = () => {
 
   const handleClick = () => {
     const val = inputRef.current.value; // 3. Get the value
-    a = countries.filter(c => c.name.includes(val))
-    console.log(val)
+    a = countries.filter((c) => c.name.includes(val));
+    console.log(val);
     setSearchField(val);
 
     if (val === "") {
@@ -43,7 +43,7 @@ const CompSearch = () => {
         <input
           type="search"
           placeholder="search Company Title"
-          ref={inputRef} 
+          ref={inputRef}
         />
         <button onClick={handleClick}>Enter</button>
       </div>
@@ -52,4 +52,4 @@ const CompSearch = () => {
   );
 };
 
-export default CompSearch
+export default CompSearch;
