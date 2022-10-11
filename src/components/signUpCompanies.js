@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 //import signUpCompanies from "../styles/signUpCompanies.css";
 
 export default function SignUpCompanies() {
 
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     username: "",
     email: "",
     NIF: "",
@@ -22,6 +22,7 @@ export default function SignUpCompanies() {
 
   const submitHandler = async e => {
     e.preventDefault();
+    e.stopPropagation()
     console.log(data);
 
     const login = "/api/signup/company"
@@ -30,7 +31,7 @@ export default function SignUpCompanies() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        Username: data.username,
+        username: data.username,
         email: data.email,
         NIF: data.NIF,
         password: data.password,
@@ -43,7 +44,7 @@ export default function SignUpCompanies() {
       alert(json);
     }
 
-    if (answer.status === 200) {
+    if (answer.status === 201) {
       alert("Company account created successfully!");
     }
 

@@ -43,7 +43,7 @@ export default function SignUpUser() {
       alert(json);
     }
 
-    if (answer.status === 200) {
+    if (answer.status === 201) {
       alert("User account created successfully!");
     }
 
