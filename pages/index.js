@@ -177,12 +177,13 @@ export default function Home(props) {
                 : ""
               }
               
-              {/* Album layout */}
               <TextField
                 fullWidth
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
+                label="Search for a Job :)"   
+                sx={{ zIndex: 0}} 
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
