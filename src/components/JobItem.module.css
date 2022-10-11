@@ -2,11 +2,11 @@
   border: 1px solid black;
   margin-top: 1rem;
   width: 40%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  contain: content;
 }
 
 .jobContainer p {

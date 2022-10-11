@@ -1,3 +1,7 @@
+.listContainer {
+  
+}
+
 .jobsList {
   display: flex;
   flex-direction: column;
