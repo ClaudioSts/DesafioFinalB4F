@@ -1,12 +1,14 @@
 import React from "react";
 import Modal from "react-modal";
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import { Grid } from '@mui/material';
 
 export default function CustomButtonWithModal(props) {
   // Get the component Children
   const childrenElements = React.Children.toArray(props.children);
 
   const { buttonTitle, modalTitle } = props;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   // React Component: http://reactcommunity.org/react-modal/
   const modalStyle = {
@@ -18,7 +20,7 @@ export default function CustomButtonWithModal(props) {
       // marginLeft: '35px',
       // marginRight: 'auto',
       // transform: 'translate(-50%, -0%)',
-      backgroundColor: "rgba(0, 0, 0, 0.75)",
+      backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
     },
     content: {
@@ -27,33 +29,40 @@ export default function CustomButtonWithModal(props) {
       // left: '0px',
       // right: '0px',
       // bottom: '0px',
-      background: "#000000",
+      background: "#ffffff",
       // overflow: 'auto',
       // WebkitOverflowScrolling: 'touch',
       // padding: '10px',
       // border: 'none',
+      // maxWidth: "800px"
     },
   };
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const [open, setOpen] = React.useState(false);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <h1>Custom Button With Modal</h1> {/* TODO: remove */}
-      <button onClick={openModal}>{buttonTitle ?? "Set Button Title"}</button>
+      <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleOpen}>Login</Button>
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        isOpen={open}
+        onRequestClose={handleClose}
+        ariaHideApp={false}
         contentLabel={modalTitle ?? "Set Modal Title"}
         style={modalStyle}
       >
-        <button onClick={closeModal}>close</button>
+        <Box
+          m={1}
+        //margin
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+        >
+          <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
+        </Box>
+
         <h1>{modalTitle ?? "Set Modal Title"}</h1>
         <hr />
         <div>{childrenElements}</div>

@@ -1,13 +1,14 @@
+import Button from '@mui/material/Button';
+
 export default function LoginUser() {
   return (
-    <div className="Main">
-      <div className="loginUser">
-        <div className="headuser">
-          <h1> User</h1>
+    <div>
+      <div>
+        <div>
+          <h1 style={{color: "#1976d2"}}> User</h1>
         </div>
-
         <form>
-          <div className="userId">
+          <div >
             User:
             <br />
             <input
@@ -18,7 +19,7 @@ export default function LoginUser() {
             />
             <br />
           </div>
-          <div className="pswdUser">
+          <div >
             Password:
             <br />
             <input
@@ -29,10 +30,9 @@ export default function LoginUser() {
             />
             <br />
           </div>
-          <button type="submit" className="button">
-            Login
-          </button>
           <br />
+          <Button type="submit" variant='outlined' color='primary' size="small" sx={ { borderRadius: 28 } } >Login</Button>
+          <br /><br />
           <span>
             <a href="#" target="_blank" color="purple">
               Forgot Your Password?
