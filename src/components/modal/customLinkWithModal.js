@@ -1,14 +1,15 @@
 import React from "react";
 import Modal from "react-modal";
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
 
-export default function CustomButtonWithModal(props) {
+export default function CustomLinkWithModal(props) {
   // Get the component Children
   const childrenElements = React.Children.toArray(props.children);
 
-  const { buttonTitle, modalTitle } = props;
+  const { linkTitle, modalTitle } = props;
 
   // React Component: http://reactcommunity.org/react-modal/
   const modalStyle = {
@@ -45,7 +46,9 @@ export default function CustomButtonWithModal(props) {
 
   return (
     <div>
-      <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleOpen}>{buttonTitle}</Button>
+      <Link href="#" underline="always" onClick={handleOpen}>
+        {linkTitle}
+      </Link>
       <Modal
         isOpen={open}
         onRequestClose={handleClose}
@@ -62,9 +65,8 @@ export default function CustomButtonWithModal(props) {
         >
           <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
         </Box>
-
-        <h1>{modalTitle ?? "Set Modal Title"}</h1>
         <hr />
+        <h1>{modalTitle ?? "Set Modal Title"}</h1>
         <div>{childrenElements}</div>
       </Modal>
     </div>

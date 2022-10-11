@@ -1,5 +1,9 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import CustomLinkWithModal from './modal/customLinkWithModal';
+import SignUpCompanies from './signUpCompanies';
+
+
 
 export default function LoginCompany() {
   const [data, setData] = useState({
@@ -75,11 +79,13 @@ export default function LoginCompany() {
           <br />
           <br />
           <span>
-            <a href="#" target="_blank" color="purple">
-              Forgot Your Password?
-            </a>
+            <CustomLinkWithModal linkTitle="Forgot your password?" modalTitle="Forgot Password">
+
+            </CustomLinkWithModal>
             <br />
-            <a href="#">Not a user?</a>
+            <CustomLinkWithModal linkTitle="Not an user?" modalTitle="Sign Up Company">
+              <SignUpCompanies></SignUpCompanies>
+            </CustomLinkWithModal>
           </span>
         </form>
       </div>

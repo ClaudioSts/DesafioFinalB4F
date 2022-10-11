@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import Button from '@mui/material/Button';
 //import signUpCompanies from "../styles/signUpCompanies.css";
 
 export default function SignUpCompanies() {
@@ -39,13 +40,11 @@ export default function SignUpCompanies() {
   }
 
   return (
-    <div className="Main">
-      <div className="signCompanies">
-        <div className="companiesHead">
-          <h1>SignUp Company</h1>
-        </div>
+    <div>
+      <div>
+        
         <form>
-          <div className="userForm">
+          <div>
             Name:
             <br />
             <input
@@ -58,7 +57,7 @@ export default function SignUpCompanies() {
             />
             <br />
           </div>
-          <div className="userId">
+          <div >
             Email:
             <br />
             <input
@@ -70,7 +69,7 @@ export default function SignUpCompanies() {
               onChange={changeHandler} />
             <br />
           </div>
-          <div className="userId">
+          <div >
             NIF:
             <br />
             <input
@@ -81,7 +80,7 @@ export default function SignUpCompanies() {
               onChange={changeHandler} />
             <br />
           </div>
-          <div className="pswdUser">
+          <div>
             Password:
             <br />
             <input
@@ -94,7 +93,7 @@ export default function SignUpCompanies() {
             />
             <br />
           </div>
-          <div className="pswdUser">
+          <div>
             Confirm Password:
             <br />
             <input
@@ -108,18 +107,9 @@ export default function SignUpCompanies() {
             <br />
           </div>
           <div>
-            <button type="submit" className="button">
-              Create Account
-            </button>
+          <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Create Account</Button>
           </div>
-          <div>
-            <button
-              type="button"
-              value="Cancel"
-              onclick="window.location=''"
-              className="button"
-            />
-          </div>
+      
         </form>
       </div>
     </div>

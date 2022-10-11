@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 //import signUpUser from "../styles/signUpUser.css";
+import React from "react";
+import Button from '@mui/material/Button';
 
 export default function SignUpUser() {
 
 
-  const [data, setData] = useState({
+  const [data, setData] = React.useState({
     username: "",
     email: "",
     password: "",
@@ -37,13 +39,11 @@ export default function SignUpUser() {
   }
 
   return (
-    <div className="Main">
-      <div className="signUpUser">
-        <div className="user">
-          <h1>SignUp User</h1>
-
+    <div>
+      <div>
+        <div>
           <form onSubmit={submitHandler}>
-            <div className="userForm">
+            <div>
               Name:
               <br />
               <input
@@ -56,7 +56,7 @@ export default function SignUpUser() {
               />
               <br />
             </div>
-            <div className="userId">
+            <div>
               Email:
               <br />
               <input
@@ -69,7 +69,7 @@ export default function SignUpUser() {
               />
               <br />
             </div>
-            <div className="pswdUser">
+            <div >
               Password:
               <br />
               <input
@@ -82,7 +82,7 @@ export default function SignUpUser() {
               />
               <br />
             </div>
-            <div className="pswdUser">
+            <div>
               Confirm Password:
               <br />
               <input
@@ -93,19 +93,10 @@ export default function SignUpUser() {
                 onChange={changeHandler}
               />
               <br />
+              <br />
             </div>
             <div>
-              <button type="submit" className="button">
-                Create Account
-              </button>
-            </div>
-            <div>
-              <input
-                type="button"
-                value="Cancel"
-                onclick="window.location=''"
-                className="button"
-              />
+              <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Create Account</Button>
             </div>
           </form>
         </div>

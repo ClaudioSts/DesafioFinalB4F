@@ -1,5 +1,7 @@
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import CustomLinkWithModal from './modal/customLinkWithModal';
+import SignUpUser from './signupUser';
 
 
 export default function LoginUser() {
@@ -69,11 +71,13 @@ export default function LoginUser() {
           <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Login</Button>
           <br /><br />
           <span>
-            <a href="#" target="_blank" color="purple">
-              Forgot Your Password?
-            </a>
+            <CustomLinkWithModal linkTitle="Forgot your password?" modalTitle="Forgot Password">
+
+            </CustomLinkWithModal>
             <br />
-            <a href="#">Not a user?</a>
+            <CustomLinkWithModal linkTitle="Not an user?" modalTitle="Sign Up User">
+              <SignUpUser></SignUpUser>
+            </CustomLinkWithModal>
           </span>
         </form>
       </div>
