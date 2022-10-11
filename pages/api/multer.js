@@ -6,7 +6,7 @@ import multer from "multer";
 export const config = {
     //Neste caso dizemos que na API
     api: {
-O NextJS não é fantástico com middlewares portanto criamos
+//O NextJS não é fantástico com middlewares portanto criamos
 //  uma função que recebe um middleware como argumento e retorna uma função
 //  
 export function correMiddleware(req, res, middleware) {
