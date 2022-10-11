@@ -1,45 +1,43 @@
-import Button from '@mui/material/Button';
-import { useState } from 'react';
+import Button from "@mui/material/Button";
+import { useState } from "react";
 
 export default function LoginCompany() {
-
-
   const [data, setData] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  const { email, password } = data
+  const { email, password } = data;
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-  }
+  };
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     console.log(data);
 
-    const login = "/api/login/company"
+    const login = "/api/login/company";
 
     fetch(login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: data.email,
-        password: data.password
-      })
-    })
-  }
+        password: data.password,
+      }),
+    });
+  };
 
   return (
-    <div >
-      <div >
-        <div >
+    <div>
+      <div>
+        <div>
           <h1 style={{ color: "#1976d2" }}>Company</h1>
         </div>
 
         <form onSubmit={submitHandler}>
-          <div >
+          <div>
             Email:
             <br />
             <input
@@ -52,7 +50,7 @@ export default function LoginCompany() {
             />
             <br />
           </div>
-          <div >
+          <div>
             Password:
             <br />
             <input
@@ -65,8 +63,17 @@ export default function LoginCompany() {
             <br />
           </div>
           <br />
-          <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Login</Button>
-          <br /><br />
+          <Button
+            type="submit"
+            variant="outlined"
+            color="primary"
+            size="small"
+            sx={{ borderRadius: 28 }}
+          >
+            Login
+          </Button>
+          <br />
+          <br />
           <span>
             <a href="#" target="_blank" color="purple">
               Forgot Your Password?

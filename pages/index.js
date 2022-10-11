@@ -10,24 +10,22 @@ import LogoPrincipal from "../src/components/logoPrincipal";
 import SearchBar from "../src/components/searchBar";
 import CardsList from "../src/components/applicationsList/cardsList";
 
-
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import { Grid, Item } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Grid, Item } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
-import Card from '@mui/material/Card';
-
+import Card from "@mui/material/Card";
 
 import { useState } from "react";
 import JobList from "../src/components/JobList";
@@ -64,39 +62,71 @@ export default function Home(props) {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            <img className="logo" src='/img/logo.png' alt="logo" />
+            <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>
-          </Box>
+          <Box sx={{ flexGrow: 1 }}></Box>
 
-          {loggedUser ?
-            <div>Welcome, User! <a href="">Logout</a> </div> :
+          {loggedUser ? (
+            <div>
+              Welcome, User! <a href="">Logout</a>{" "}
+            </div>
+          ) : (
             <CustomButtonWithModal buttonTitle="Login" modalTitle="">
-              <Grid container spacing={2} display="flex"
+              <Grid
+                container
+                spacing={2}
+                display="flex"
                 justifyContent="center"
-                alignItems="center">
-                <Grid item xs={6}
-                  onMouseOver={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(true); }}
-                  onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); }}
-                  style={loginUserDisabled ? { pointerEvents: "none", opacity: "0.4" } : {}}>
+                alignItems="center"
+              >
+                <Grid
+                  item
+                  xs={6}
+                  onMouseOver={(e) => {
+                    setLoginUserDisabled(false);
+                    setLoginCompanyDisabled(true);
+                  }}
+                  onMouseOut={(e) => {
+                    setLoginUserDisabled(false);
+                    setLoginCompanyDisabled(false);
+                  }}
+                  style={
+                    loginUserDisabled
+                      ? { pointerEvents: "none", opacity: "0.4" }
+                      : {}
+                  }
+                >
                   <LoginUser></LoginUser>
                 </Grid>
-                <Grid item xs={2}
-                  onMouseOver={(e) => { setLoginUserDisabled(true); setLoginCompanyDisabled(false); }}
-                  onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); }}
-                  style={loginCompanyDisabled ? { pointerEvents: "none", opacity: "0.4" } : {}}>
+                <Grid
+                  item
+                  xs={2}
+                  onMouseOver={(e) => {
+                    setLoginUserDisabled(true);
+                    setLoginCompanyDisabled(false);
+                  }}
+                  onMouseOut={(e) => {
+                    setLoginUserDisabled(false);
+                    setLoginCompanyDisabled(false);
+                  }}
+                  style={
+                    loginCompanyDisabled
+                      ? { pointerEvents: "none", opacity: "0.4" }
+                      : {}
+                  }
+                >
                   <LoginCompany></LoginCompany>
                 </Grid>
               </Grid>
             </CustomButtonWithModal>
-          }
+          )}
         </Toolbar>
       </AppBar>
       <main>
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
+            bgcolor: "background.paper",
             pt: 8,
             pb: 6,
           }}
@@ -110,7 +140,8 @@ export default function Home(props) {
               gutterBottom
             >
               {/* Album layout */}
-              <TextField fullWidth
+              <TextField
+                fullWidth
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
@@ -121,18 +152,18 @@ export default function Home(props) {
                         <SearchIcon />
                       </IconButton>
                     </InputAdornment>
-                  )
+                  ),
                 }}
               />
 
-              {/* <Grid container
+              <Grid
+                container
                 display="flex"
                 justifyContent="center"
-                alignItems="center">
+                alignItems="center"
+              >
                 <CardsList loggedUser={loggedUser} filter={searchText} />
-              </Grid> */}
-              <JobList />
-
+              </Grid>
             </Typography>
 
             <Stack
@@ -143,16 +174,13 @@ export default function Home(props) {
             >
               {/* <Button variant="contained">Main call to action</Button>
               <Button variant="outlined">Secondary action</Button> */}
-
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
 
-          <Grid container spacing={4}>
-
-          </Grid>
+          <Grid container spacing={4}></Grid>
         </Container>
       </main>
       {/* Footer */}
