@@ -70,7 +70,7 @@ export default function CustomLinkWithModal(props) {
         >
           <Button
             variant="outlined"
-            color="inherit"
+            color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleClose}
           >

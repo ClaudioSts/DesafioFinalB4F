@@ -48,26 +48,26 @@ export default function CardItemWithModal(props) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const { company, position, description} = props
+    const { title, location, description} = props
     return (
         <>
         <Card sx={{ minWidth: 500 }} onClick={handleOpen}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Company: {company}
+                {location}
                 </Typography>
                 <Typography variant="h6" component="div">
-                Position: {position}
+                {title}
                 </Typography>
                 <Typography variant="body2">
-                Description: {description.substring(0, 50)}...
+                {description.substring(0, 50)}...
                 </Typography>
             </CardContent>
         </Card>
         <Modal
             isOpen={open}
             onRequestClose={handleClose}
-            contentLabel={position}
+            contentLabel={title}
             style={modalStyle}>
             <Box
               m={1}
@@ -79,8 +79,8 @@ export default function CardItemWithModal(props) {
               <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
             </Box>
             <hr />
-            <h1>{company}</h1>
-            <h2>{position}</h2>
+            <h1>{location}</h1>
+            <h2>{title}</h2>
             <div>{description}</div>
             <br />
             
@@ -107,7 +107,6 @@ export default function CardItemWithModal(props) {
                 </Accordion>
               </div>
             </Grid>
-            
         </Modal>
         </>
         

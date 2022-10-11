@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import JobItem from "./JobItem";
 import styles from "./JobList.module.css";
+import CardItemWithModal from './applicationsList/cardItemWithModal';
 
 function JobList(props) {
 
@@ -8,8 +9,20 @@ function JobList(props) {
     title: "", description: "", location: ""
   }])
 
+  const {loggedUser, filter} = props
 
   const list = "api/users"
+
+  const filterPredicate = (el) => {
+    if (filter != "") {
+        let filterUppercase = filter.toUpperCase();
+        return el.title.toUpperCase().includes(filterUppercase) || 
+            el.description.toUpperCase().includes(filterUppercase) || 
+            el.location.toUpperCase().includes(filterUppercase);
+    } else {
+        return true;
+    }
+}
 
   const fetchData = () => {
     console.log("FETCHING")
@@ -17,7 +30,7 @@ function JobList(props) {
       .then((res) => res.json())
       .then((result) => {
         console.log(result)
-        setData(result)
+        setData(result.filter(filterPredicate))
       })
       .catch((err) => console.log("error"));
   };
@@ -33,12 +46,14 @@ function JobList(props) {
     <div className={styles.listContainer}>
       <ul className={styles.jobsList}>
         {data.map((job, index) => (
-          <JobItem
-            key={index}
-            title={job.title}
-            description={job.description}
-            location={job.location}
-          />
+          <div key={index} style={{marginBottom: "1%"}}>
+              <CardItemWithModal style={{marginBottom: "1%"}}
+                  key={index}
+                  title={job.title}
+                  description={job.description}
+                  location={job.location}
+                  loggedUser={loggedUser} />
+          </div>
         ))}
       </ul>
     </div>

@@ -1,23 +1,12 @@
 import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
-
-import CustomDivWithModal from "../src/components/modal/customDivWithModal";
-import SignUpCompanies from "../src/components/signUpCompanies";
-import SignUpUser from "../src/components/signupUser";
-import FormularioComSubmit from "../src/components/submitFile";
-import styles from "../styles/Home.module.css";
-import LogoPrincipal from "../src/components/logoPrincipal";
-import SearchBar from "../src/components/searchBar";
-import CardsList from "../src/components/applicationsList/cardsList";
-
 import React, { useState, useEffect } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import ButtonGroup from '@mui/material/ButtonGroup';
-
 import CssBaseline from "@mui/material/CssBaseline";
-import { Grid, Item } from "@mui/material";
+import { Grid } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -28,7 +17,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
-import Card from "@mui/material/Card";
 import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
 import Modal from "react-modal";
@@ -206,13 +194,13 @@ export default function Home(props) {
                 }}
               />
 
-              {/* <Grid container
+              <Grid container
                 display="flex"
                 justifyContent="center"
                 alignItems="center">
-                <CardsList loggedUser={loggedUser} filter={searchText} />
-              </Grid> */}
-              <JobList />
+                <JobList loggedUser={loggedUser} filter={searchText} />
+              </Grid>
+              
 
             </Typography>
 
@@ -266,7 +254,7 @@ export default function Home(props) {
         >
           <Button
             variant="outlined"
-            color="inherit"
+            color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyApplicationsModal}
           >
@@ -295,7 +283,7 @@ export default function Home(props) {
         >
           <Button
             variant="outlined"
-            color="inherit"
+            color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyPostJobModal}
           >
@@ -324,7 +312,7 @@ export default function Home(props) {
         >
           <Button
             variant="outlined"
-            color="inherit"
+            color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseUserApplicationsModal}
           >
