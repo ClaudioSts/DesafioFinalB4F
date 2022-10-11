@@ -1,25 +1,84 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useState } from "react";
 //import signUpCompanies from "../styles/signUpCompanies.css";
 
 export default function SignUpCompanies() {
+
+  const [data, setData] = useState({
+    username: "",
+    email: "",
+    NIF: "",
+    password: "",
+    passwordConfirmation: ""
+  })
+
+  const { username, email, NIF, password, passwordConfirmation } = data
+
+  const changeHandler = e => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  }
+
+  const submitHandler = e => {
+    e.preventDefault();
+    console.log(data);
+
+    const login = "/api/signup/company"
+
+    fetch(login, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        Username: data.username,
+        email: data.email,
+        NIF: data.NIF,
+        password: data.password,
+        passwordConfirmation: data.passwordConfirmation
+      })
+    })
+  }
+
   return (
     <div className="Main">
       <div className="signCompanies">
         <div className="companiesHead">
-          <h1> SignUp Company</h1>
+          <h1>SignUp Company</h1>
         </div>
         <form>
-          <div className="userId">
+          <div className="userForm">
             Name:
             <br />
-            <input id="username" name="username" placeholder="username" />
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              required
+              value={username}
+              onChange={changeHandler}
+            />
             <br />
           </div>
           <div className="userId">
-            NISS:
+            Email:
             <br />
-            <input id="niss" name="niss" placeholder="NISS" required />
+            <input
+              id="username"
+              name="username"
+              placeholder="username"
+              required
+              value={email}
+              onChange={changeHandler} />
+            <br />
+          </div>
+          <div className="userId">
+            NIF:
+            <br />
+            <input
+              name="NIF"
+              placeholder="NIF"
+              required
+              value={NIF}
+              onChange={changeHandler} />
             <br />
           </div>
           <div className="pswdUser">
@@ -27,10 +86,11 @@ export default function SignUpCompanies() {
             <br />
             <input
               type="password"
-              id="password"
               name="password"
               placeholder="Password"
               required
+              value={password}
+              onChange={changeHandler}
             />
             <br />
           </div>
@@ -41,16 +101,15 @@ export default function SignUpCompanies() {
               type="password"
               name="password"
               placeholder="Confirm Password"
-              id="confirm_password"
-              value="Submit"
-              onclick="return Validate()"
               required
+              value={passwordConfirmation}
+              onChange={changeHandler}
             />
             <br />
           </div>
           <div>
             <button type="submit" className="button">
-              Create/Login
+              Create Account
             </button>
           </div>
           <div>
