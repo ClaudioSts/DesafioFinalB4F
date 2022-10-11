@@ -1,8 +1,9 @@
 import React from "react";
 import Modal from "react-modal";
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { Grid } from '@mui/material';
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import { Grid } from "@mui/material";
+import { height } from "@mui/system";
 
 export default function CustomButtonWithModal(props) {
   // Get the component Children
@@ -14,27 +15,29 @@ export default function CustomButtonWithModal(props) {
   const modalStyle = {
     overlay: {
       // position: 'absolute',
-      // top: '95px',
-      // bottom: '70px',
-      // left: '50%',
-      // marginLeft: '35px',
+
       // marginRight: 'auto',
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
+      width: "70%",
+      height: "70%",
+      marginLeft: "15%",
+      marginTop: "10%",
+      marginBottom: "5%",
     },
     content: {
       // position: 'absolute',
       // top: '0px',
       // left: '0px',
-      // right: '0px',
+
       // bottom: '0px',
       background: "#ffffff",
       // overflow: 'auto',
       // WebkitOverflowScrolling: 'touch',
       // padding: '10px',
       // border: 'none',
-      // maxWidth: "800px"
+      // maxWidth: "800px"dis
     },
   };
 
@@ -45,7 +48,14 @@ export default function CustomButtonWithModal(props) {
 
   return (
     <div>
-      <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleOpen}>{buttonTitle}</Button>
+      <Button
+        variant="outlined"
+        color="inherit"
+        sx={{ borderRadius: 28 }}
+        onClick={handleOpen}
+      >
+        {buttonTitle}
+      </Button>
       <Modal
         isOpen={open}
         onRequestClose={handleClose}
@@ -55,12 +65,19 @@ export default function CustomButtonWithModal(props) {
       >
         <Box
           m={1}
-        //margin
+          //margin
           display="flex"
           justifyContent="flex-end"
           alignItems="flex-end"
         >
-          <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
+          <Button
+            variant="outlined"
+            color="inherit"
+            sx={{ borderRadius: 28 }}
+            onClick={handleClose}
+          >
+            Close
+          </Button>
         </Box>
 
         <h1>{modalTitle ?? "Set Modal Title"}</h1>

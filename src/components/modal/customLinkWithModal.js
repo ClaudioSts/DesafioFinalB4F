@@ -1,9 +1,9 @@
 import React from "react";
 import Modal from "react-modal";
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-import { Grid } from '@mui/material';
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import { Grid } from "@mui/material";
 
 export default function CustomLinkWithModal(props) {
   // Get the component Children
@@ -36,6 +36,11 @@ export default function CustomLinkWithModal(props) {
       // padding: '10px',
       // border: 'none',
       // maxWidth: "800px"
+      width: "70%",
+      height: "70%",
+      marginLeft: "15%",
+      marginTop: "10%",
+      marginBottom: "5%",
     },
   };
 
@@ -58,12 +63,19 @@ export default function CustomLinkWithModal(props) {
       >
         <Box
           m={1}
-        //margin
+          //margin
           display="flex"
           justifyContent="flex-end"
           alignItems="flex-end"
         >
-          <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
+          <Button
+            variant="outlined"
+            color="inherit"
+            sx={{ borderRadius: 28 }}
+            onClick={handleClose}
+          >
+            Close
+          </Button>
         </Box>
         <hr />
         <h1>{modalTitle ?? "Set Modal Title"}</h1>
