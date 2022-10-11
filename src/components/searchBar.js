@@ -25,13 +25,9 @@ export const companies = [
   { name: "Portugal", continent: "Europe" },
   { name: "Pakistan", continent: "Asia" },
 ];
-const searchBar = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
 
+export default function SearchBar() {
+  const [searchInput, setSearchInput] = useState("");
   if (searchInput.length > 0) {
     companies.filter((company) => {
       return company.name.match(searchInput);
@@ -53,9 +49,9 @@ const searchBar = () => {
         />
 
         <button className="button2" type="submit">
-          <img src="/img/lupa.png" height={18} />
+          <img src="./img/lupa.png" height={18} />
         </button>
       </div>
     </div>
   );
-};
+}
