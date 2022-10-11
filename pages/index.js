@@ -1,6 +1,7 @@
 import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
+
 import CustomDivWithModal from "../src/components/modal/customDivWithModal";
 import SignUpCompanies from "../src/components/signUpCompanies";
 import SignUpUser from "../src/components/signupUser";
@@ -13,6 +14,8 @@ import CardsList from "../src/components/applicationsList/cardsList";
 import React, { useState, useEffect } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
+import ButtonGroup from '@mui/material/ButtonGroup';
+
 import CssBaseline from "@mui/material/CssBaseline";
 import { Grid, Item } from "@mui/material";
 import Stack from "@mui/material/Stack";
@@ -28,34 +31,32 @@ import SearchIcon from "@mui/icons-material/Search";
 import Card from "@mui/material/Card";
 import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
+import Modal from "react-modal";
 
 const theme = createTheme();
 
 export default function Home(props) {
-  
-  // return (
-  //   <div className={styles.container}>
-  //     <LogoPrincipal />
-  //     <SearchBar />
-  //     <LoginUser />
-  //     <LoginCompany />
-  //     <SignUpUser />
-  //     <SignUpCompanies />
-  //     <FormularioComSubmit />
-  //     <CustomButtonWithModal buttonTitle="Login Modal" modalTitle="Login Modal">
-  //     </CustomButtonWithModal>
-  //     <CustomDivWithModal divText="Check the applications here...">
-  //       Check the applications here...
-  //     </CustomDivWithModal>
-
-  //   </div>
-  // )
 
   const [loginUserDisabled, setLoginUserDisabled] = useState(false);
   const [loginCompanyDisabled, setLoginCompanyDisabled] = useState(false);
   
   const [loggedUser, setLoggedUser] = useState("");
+  const [isCompany, setIsCompany] = useState(false);
   const [searchText, setSearchText] = useState("");
+
+  // Company Modals
+  const [openCompanyApplicationsModal, setOpenCompanyApplicationsModal] = React.useState(false);
+  const handleOpenCompanyApplicationsModal = () => setOpenCompanyApplicationsModal(true);
+  const handleCloseCompanyApplicationsModal = () => setOpenCompanyApplicationsModal(false);
+
+  const [openCompanyPostJobModal, setOpenCompanyPostJobModal] = React.useState(false);
+  const handleOpenCompanyPostJobModal = () => setOpenCompanyPostJobModal(true);
+  const handleCloseCompanyPostJobModal = () => setOpenCompanyPostJobModal(false);
+
+  // User Modal
+  const [openUserApplicationsModal, setOpenUserApplicationsModal] = React.useState(false);
+  const handleOpenUserApplicationsModal = () => setOpenUserApplicationsModal(true);
+  const handleCloseUserApplicationsModal = () => setOpenUserApplicationsModal(false);
 
   const handleLogout = () => {
     setLoggedUser("");
@@ -69,7 +70,13 @@ export default function Home(props) {
       setLoggedUser(loggedInUser);
     } else {
       setLoggedUser("");
+    }
 
+    const isCompany = localStorage.getItem("isCompany");
+    if(isCompany){
+      setIsCompany(true)
+    } else {
+      setIsCompany(false)
     }
   }, []);
 
@@ -81,10 +88,14 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
-          <Box sx={{ flexGrow: 1 }}></Box>
-
+          <Box sx={{ flexGrow: 1 }}>
+          
+          </Box>
+          
+          
           {loggedUser ? (
-            <div >
+            
+            <div>
               Welcome, {loggedUser}! &nbsp;
               <Link href="#" underline="always" color="#ffffff" onClick={handleLogout}>
                 Logout
@@ -152,6 +163,9 @@ export default function Home(props) {
           }}
         >
           <Container maxWidth="sm">
+            
+          </Container>
+          <Container maxWidth="sm">
             <Typography
               component="h1"
               variant="h2"
@@ -159,6 +173,22 @@ export default function Home(props) {
               color="text.primary"
               gutterBottom
             >
+              {loggedUser ? 
+                  isCompany ? 
+                  <div style={{marginTop: "-10%", marginBottom: "5%"}}>
+                    <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                      <Button style={{minWidth: "200px"}} onClick={handleOpenCompanyApplicationsModal}>Applications</Button>
+                      <Button style={{minWidth: "200px"}} onClick={handleOpenCompanyPostJobModal}>Post Job</Button>
+                    </ButtonGroup>
+                  </div> : 
+                  <div style={{marginTop: "-15%", marginBottom: "5%"}}>
+                  <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                  <Button style={{minWidth: "200px"}} onClick={handleOpenUserApplicationsModal}>My Applications</Button>
+                  </ButtonGroup>
+                  </div>
+                : ""
+              }
+              
               {/* Album layout */}
               <TextField
                 fullWidth
@@ -218,6 +248,93 @@ export default function Home(props) {
         </Typography>
       </Box> */}
       {/* End footer */}
+
+      {/* Company Applications Modal */}
+      <Modal
+        isOpen={openCompanyApplicationsModal}
+        onRequestClose={handleCloseCompanyApplicationsModal}
+        ariaHideApp={false}
+        contentLabel={"Company Applications"}
+        
+      >
+        <Box
+          m={1}
+          //margin
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+        >
+          <Button
+            variant="outlined"
+            color="inherit"
+            sx={{ borderRadius: 28 }}
+            onClick={handleCloseCompanyApplicationsModal}
+          >
+            Close
+          </Button>
+        </Box>
+        <hr />
+        <h1>{"Company Applications"}</h1>
+        <div>{}</div>
+      </Modal>
+
+      {/* Company Post Job */}
+      <Modal
+        isOpen={openCompanyPostJobModal}
+        onRequestClose={handleCloseCompanyPostJobModal}
+        ariaHideApp={false}
+        contentLabel={"Post Job"}
+        
+      >
+        <Box
+          m={1}
+          //margin
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+        >
+          <Button
+            variant="outlined"
+            color="inherit"
+            sx={{ borderRadius: 28 }}
+            onClick={handleCloseCompanyPostJobModal}
+          >
+            Close
+          </Button>
+        </Box>
+        <hr />
+        <h1>{"Post Job"}</h1>
+        <div>{}</div>
+      </Modal>
+
+      {/* User Applications */}
+      <Modal
+        isOpen={openUserApplicationsModal}
+        onRequestClose={handleCloseUserApplicationsModal}
+        ariaHideApp={false}
+        contentLabel={"Post Job"}
+        
+      >
+        <Box
+          m={1}
+          //margin
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+        >
+          <Button
+            variant="outlined"
+            color="inherit"
+            sx={{ borderRadius: 28 }}
+            onClick={handleCloseUserApplicationsModal}
+          >
+            Close
+          </Button>
+        </Box>
+        <hr />
+        <h1>{"My Applications"}</h1>
+        <div>{}</div>
+      </Modal>
     </ThemeProvider>
   );
 }
