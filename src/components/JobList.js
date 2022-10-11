@@ -32,8 +32,9 @@ function JobList(props) {
   return (
     <div className={styles.listContainer}>
       <ul className={styles.jobsList}>
-        {data.map((job) => (
+        {data.map((job, index) => (
           <JobItem
+            key={index}
             title={job.title}
             description={job.description}
             location={job.location}

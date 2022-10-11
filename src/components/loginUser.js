@@ -35,7 +35,11 @@ export default function LoginUser() {
 
     if (answer.status === 200) {
       const json = await answer.json()
-      window.localStorage.setItem('token', json.token)
+      localStorage.setItem('token', json.token)
+      localStorage.setItem('username', json.username)
+      window.location = "/"
+    } else {
+      alert("Invalid credentials!");
     }
   }
 

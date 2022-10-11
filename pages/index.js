@@ -10,7 +10,7 @@ import LogoPrincipal from "../src/components/logoPrincipal";
 import SearchBar from "../src/components/searchBar";
 import CardsList from "../src/components/applicationsList/cardsList";
 
-import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -26,13 +26,13 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Card from "@mui/material/Card";
-
-import { useState } from "react";
 import JobList from "../src/components/JobList";
+import Link from "@mui/material/Link";
 
 const theme = createTheme();
 
 export default function Home(props) {
+  
   // return (
   //   <div className={styles.container}>
   //     <LogoPrincipal />
@@ -51,10 +51,27 @@ export default function Home(props) {
   //   </div>
   // )
 
-  const [loginUserDisabled, setLoginUserDisabled] = React.useState(false);
-  const [loginCompanyDisabled, setLoginCompanyDisabled] = React.useState(false);
-  const [loggedUser, setLoggedUser] = React.useState(props.loggedUser ?? false);
-  const [searchText, setSearchText] = React.useState("");
+  const [loginUserDisabled, setLoginUserDisabled] = useState(false);
+  const [loginCompanyDisabled, setLoginCompanyDisabled] = useState(false);
+  
+  const [loggedUser, setLoggedUser] = useState("");
+  const [searchText, setSearchText] = useState("");
+
+  const handleLogout = () => {
+    setLoggedUser("");
+    localStorage.clear();
+    window.location = "/"
+  };
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("username");
+    if (loggedInUser !== "undefined" && loggedInUser !== "" && loggedInUser !== null) {
+      setLoggedUser(loggedInUser);
+    } else {
+      setLoggedUser("");
+
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,8 +84,11 @@ export default function Home(props) {
           <Box sx={{ flexGrow: 1 }}></Box>
 
           {loggedUser ? (
-            <div>
-              Welcome, User! <a href="">Logout</a>{" "}
+            <div >
+              Welcome, {loggedUser}! &nbsp;
+              <Link href="#" underline="always" color="#ffffff" onClick={handleLogout}>
+                Logout
+              </Link>
             </div>
           ) : (
             <CustomButtonWithModal buttonTitle="Login" modalTitle="">
