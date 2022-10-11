@@ -87,7 +87,7 @@ export default function SignUpUser() {
               <br />
               <input
                 type="password"
-                name="password"
+                name="passwordConfirmation"
                 placeholder="Confirm Password"
                 value={passwordConfirmation}
                 onChange={changeHandler}
