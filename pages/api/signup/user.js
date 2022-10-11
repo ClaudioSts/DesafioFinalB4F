@@ -14,9 +14,10 @@ export default async function handler(req, res) {
             password,
             passwordConfirmation
         } = req.body
-
+        console.log("TRYING")
         const validation = await validateFields(req.body)
         if (validation.success) {
+            console.log("ADDING USER")
             const id = await addUser({
                 username,
                 email,

@@ -14,28 +14,36 @@ export default function SignUpUser() {
     passwordConfirmation: ""
   })
 
-  const {username, email, password, passwordConfirmation } = data
+  const { username, email, password, passwordConfirmation } = data
 
   const changeHandler = e => {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
+    e.stopPropagation()
     console.log(data);
 
     const login = "/api/signup/user"
 
-    fetch(login, {
+    const answer = await fetch(login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        Username: data.username,
+        username: data.username,
         email: data.email,
         password: data.password,
         passwordConfirmation: data.passwordConfirmation
-  })
+      })
     })
+
+    if (answer.status === 400) {
+      const json = await answer.json()
+      console.log(json)
+    }
+
+
   }
 
   return (
@@ -52,7 +60,7 @@ export default function SignUpUser() {
                 placeholder="username"
                 required
                 value={username}
-              onChange={changeHandler}
+                onChange={changeHandler}
               />
               <br />
             </div>
@@ -65,7 +73,7 @@ export default function SignUpUser() {
                 placeholder="Email"
                 required
                 value={email}
-              onChange={changeHandler}
+                onChange={changeHandler}
               />
               <br />
             </div>
@@ -78,7 +86,7 @@ export default function SignUpUser() {
                 placeholder="password"
                 required
                 value={password}
-              onChange={changeHandler}
+                onChange={changeHandler}
               />
               <br />
             </div>
