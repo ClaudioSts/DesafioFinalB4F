@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 
         const token = await addSessionCompany(user._id)
         res.status(200)
-            .json({ token: token })
+            .json({ token: token, username: user.username})
 
     } else {
         res.status(404)

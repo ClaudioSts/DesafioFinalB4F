@@ -20,13 +20,13 @@ export default function SignUpCompanies() {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
     console.log(data);
 
     const login = "/api/signup/company"
 
-    fetch(login, {
+    const answer = await fetch(login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -36,14 +36,24 @@ export default function SignUpCompanies() {
         password: data.password,
         passwordConfirmation: data.passwordConfirmation
       })
-    })
+    });
+
+    if (answer.status === 400) {
+      const json = await answer.json()
+      alert(json);
+    }
+
+    if (answer.status === 200) {
+      alert("Company account created successfully!");
+    }
+
   }
 
   return (
     <div>
       <div>
         
-        <form>
+        <form onSubmit={submitHandler}>
           <div>
             Name:
             <br />
@@ -74,7 +84,7 @@ export default function SignUpCompanies() {
             <input
               name="NIF"
               type="text" 
-              maxlength="9"
+              maxLength="9"
               placeholder="NIF"
               required
               value={NIF}

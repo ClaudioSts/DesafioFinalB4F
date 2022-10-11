@@ -40,7 +40,11 @@ export default function SignUpUser() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      console.log(json)
+      alert(json);
+    }
+
+    if (answer.status === 200) {
+      alert("User account created successfully!");
     }
 
 

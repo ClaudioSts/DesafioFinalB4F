@@ -17,13 +17,13 @@ export default function LoginCompany() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     console.log(data);
 
     const login = "/api/login/company";
 
-    fetch(login, {
+    const answer = await fetch(login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -31,6 +31,16 @@ export default function LoginCompany() {
         password: data.password,
       }),
     });
+
+    if (answer.status === 200) {
+      const json = await answer.json()
+      localStorage.setItem('token', json.token)
+      localStorage.setItem('username', json.username)
+      localStorage.setItem('isCompany', true)
+      window.location = "/"
+    } else {
+      alert("Invalid credentials!");
+    }
   };
 
   return (
