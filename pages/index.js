@@ -156,14 +156,14 @@ export default function Home(props) {
                 }}
               />
 
-              <Grid
-                container
+              {/* <Grid container
                 display="flex"
                 justifyContent="center"
-                alignItems="center"
-              >
+                alignItems="center">
                 <CardsList loggedUser={loggedUser} filter={searchText} />
-              </Grid>
+              </Grid> */}
+              <JobList />
+
             </Typography>
 
             <Stack
