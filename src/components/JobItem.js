@@ -5,9 +5,11 @@ const JobItem = (props) => {
   // TO DO: Probably better divs, for easier CSS
   return (
     <div className={styles.jobContainer}>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
+      <h6>Title: {props.title}</h6>
+      <p>Description: {props.description}</p>
+      <br />
       <p>Location: {props.location}</p>
+      <br />
     </div>
   );
 };
