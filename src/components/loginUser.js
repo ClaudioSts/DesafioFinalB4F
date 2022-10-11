@@ -18,20 +18,25 @@ export default function LoginUser() {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
     console.log(data);
 
     const login = "/api/login/user"
 
-    fetch(login, {
+    const answer = await fetch(login, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: data.email,
         password: data.password
-  })
+      })
     })
+
+    if (answer.status === 200) {
+      const json = await answer.json()
+      window.localStorage.setItem('token', json.token)
+    }
   }
 
   return (
