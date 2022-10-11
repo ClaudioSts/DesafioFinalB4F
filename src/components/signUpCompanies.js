@@ -61,9 +61,8 @@ export default function SignUpCompanies() {
             Email:
             <br />
             <input
-              id="username"
-              name="username"
-              placeholder="username"
+              name="email"
+              placeholder="email"
               required
               value={email}
               onChange={changeHandler} />
@@ -74,6 +73,8 @@ export default function SignUpCompanies() {
             <br />
             <input
               name="NIF"
+              type="text" 
+              maxlength="9"
               placeholder="NIF"
               required
               value={NIF}
@@ -98,7 +99,7 @@ export default function SignUpCompanies() {
             <br />
             <input
               type="password"
-              name="password"
+              name="passwordConfirmation"
               placeholder="Confirm Password"
               required
               value={passwordConfirmation}
