@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
-import { generateToken } from "../services/common"
+//import { generateToken } from "../services/common"
 import { getMongoCollection } from "../mongodb"
-import { getCompanyByEmail } from "../companies"
+//import { getCompanyByEmail } from "../companies"
 
 const DB_NAME = "DesafioFinal"
 const COLLECTION_NAME = "CompanySession"
