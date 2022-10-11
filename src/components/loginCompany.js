@@ -1,39 +1,48 @@
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 export default function LoginCompany() {
   return (
-    <div >
-      <div >
-        <div >
-          <h1 style={{color: "#1976d2"}}>Company</h1>
+    <div>
+      <div>
+        <div>
+          <h1 style={{ color: "#1976d2" }}>Company</h1>
         </div>
 
         <form>
-          <div >
+          <div>
             Company:
             <br />
             <input
               id="username"
               name="username"
-              placeholder="username"
+              placeholder="Username"
               required
             />
             <br />
           </div>
-          <div >
+          <div>
             Password:
             <br />
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="password"
+              placeholder="Password"
             />
             <br />
           </div>
           <br />
-          <Button type="submit" variant='outlined' color='primary' size="small" sx={ { borderRadius: 28 } } >Login</Button>
-          <br /><br />
+          <Button
+            type="submit"
+            variant="outlined"
+            color="primary"
+            size="small"
+            sx={{ borderRadius: 28 }}
+          >
+            Login
+          </Button>
+          <br />
+          <br />
           <span>
             <a href="#" target="_blank" color="purple">
               Forgot Your Password?
