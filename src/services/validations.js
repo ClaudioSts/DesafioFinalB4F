@@ -6,14 +6,12 @@ import { checkPasswordStrength, validateEmail } from "./common"
 async function validateFields({
     email,
     password,
-    passwordConfirmation,
-    acceptsTerms
+    passwordConfirmation
 }) {
     const errors = cleanUndefinedProperties({
         email: await getEmailErrors(email),
         password: getPasswordErrors(password),
-        passwordConfirmation: getPasswordConfirmationErrors(passwordConfirmation, password),
-        acceptsTerms: getAcceptsTermsErrors(acceptsTerms),
+        passwordConfirmation: getPasswordConfirmationErrors(passwordConfirmation, password)
     })
 
     const success = Object.keys(errors).length === 0
@@ -63,11 +61,6 @@ function getPasswordConfirmationErrors(passwordConfirmation, password) {
     }
 }
 
-function getAcceptsTermsErrors(acceptsTerms) {
-    if (!acceptsTerms) {
-        return "Tem de aceitar os termos e condições para criar a sua conta."
-    }
-}
 
 function cleanUndefinedProperties(obj) {
     return Object.keys(obj)

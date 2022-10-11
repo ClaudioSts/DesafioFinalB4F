@@ -9,21 +9,19 @@ import { addUser } from "../../../src/data/SignUpLogin/users"
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const {
+            username,
             email,
-            nif,
             password,
-            passwordConfirmation,
-            acceptsTerms
+            passwordConfirmation
         } = req.body
 
         const validation = await validateFields(req.body)
         if (validation.success) {
             const id = await addUser({
+                username,
                 email,
-                nif,
                 password,
-                passwordConfirmation,
-                acceptsTerms
+                passwordConfirmation
             })
             res.status(201)
                 .json({

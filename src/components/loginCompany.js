@@ -1,6 +1,34 @@
 import Button from "@mui/material/Button";
+import { useState } from "react";
 
 export default function LoginCompany() {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = data;
+
+  const changeHandler = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(data);
+
+    const login = "/api/login/company";
+
+    fetch(login, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+    });
+  };
+
   return (
     <div>
       <div>
@@ -8,15 +36,17 @@ export default function LoginCompany() {
           <h1 style={{ color: "#1976d2" }}>Company</h1>
         </div>
 
-        <form>
+        <form onSubmit={submitHandler}>
           <div>
-            Company:
+            Email:
             <br />
             <input
-              id="username"
-              name="username"
-              placeholder="Username"
+              type="text"
+              name="email"
+              placeholder="Email"
               required
+              value={email}
+              onChange={changeHandler}
             />
             <br />
           </div>
@@ -25,9 +55,10 @@ export default function LoginCompany() {
             <br />
             <input
               type="password"
-              id="password"
               name="password"
-              placeholder="Password"
+              placeholder="password"
+              value={password}
+              onChange={changeHandler}
             />
             <br />
           </div>

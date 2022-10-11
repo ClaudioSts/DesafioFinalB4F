@@ -10,21 +10,21 @@ import { addCompany } from "../../../src/data/SignUpLogin/companies"
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const {
+            username,
             email,
             NIF,
             password,
-            passwordConfirmation,
-            acceptsTerms,
+            passwordConfirmation
         } = req.body
 
         const validation = await validateFields(req.body)
         if (validation.success) {
             const id = await addCompany({
+                username,
                 email,
                 NIF,
                 password,
-                passwordConfirmation,
-                acceptsTerms
+                passwordConfirmation
             })
             res.status(201)
                 .json({
