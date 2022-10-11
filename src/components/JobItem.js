@@ -1,13 +1,13 @@
-import "./JobItem.css";
+import styles from "./JobItem.module.css";
 
 const JobItem = (props) => {
   // Properties of a job
   // TO DO: Probably better divs, for easier CSS
   return (
-    <div className="job-container">
+    <div className={styles.jobContainer}>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
-      <div className="salary">Salário: {props.salary}€</div>
+      <p>Location: {props.location}</p>
     </div>
   );
 };

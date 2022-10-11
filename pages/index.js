@@ -30,6 +30,7 @@ import Card from '@mui/material/Card';
 
 
 import { useState } from "react";
+import JobList from "../src/components/JobList";
 
 const theme = createTheme();
 
@@ -65,29 +66,29 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src='/img/logo.png' alt="logo" />
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>  
+          <Box sx={{ flexGrow: 1 }}>
           </Box>
-          
-          {loggedUser ? 
-          <div>Welcome, User! <a href="">Logout</a> </div> : 
-          <CustomButtonWithModal buttonTitle="Login" modalTitle="">
-          <Grid container spacing={2} display="flex"
-              justifyContent="center"
-              alignItems="center">
-            <Grid item xs={6} 
-              onMouseOver={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(true); } }
-              onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); } }
-              style={loginUserDisabled ? {pointerEvents: "none", opacity: "0.4"} : { }}>
-              <LoginUser></LoginUser>
-            </Grid>
-            <Grid item xs={2} 
-              onMouseOver={(e) => { setLoginUserDisabled(true); setLoginCompanyDisabled(false); } }
-              onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); } }
-              style={loginCompanyDisabled ? {pointerEvents: "none", opacity: "0.4"} : { }}>
-              <LoginCompany></LoginCompany>
-            </Grid>
-          </Grid>
-          </CustomButtonWithModal>
+
+          {loggedUser ?
+            <div>Welcome, User! <a href="">Logout</a> </div> :
+            <CustomButtonWithModal buttonTitle="Login" modalTitle="">
+              <Grid container spacing={2} display="flex"
+                justifyContent="center"
+                alignItems="center">
+                <Grid item xs={6}
+                  onMouseOver={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(true); }}
+                  onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); }}
+                  style={loginUserDisabled ? { pointerEvents: "none", opacity: "0.4" } : {}}>
+                  <LoginUser></LoginUser>
+                </Grid>
+                <Grid item xs={2}
+                  onMouseOver={(e) => { setLoginUserDisabled(true); setLoginCompanyDisabled(false); }}
+                  onMouseOut={(e) => { setLoginUserDisabled(false); setLoginCompanyDisabled(false); }}
+                  style={loginCompanyDisabled ? { pointerEvents: "none", opacity: "0.4" } : {}}>
+                  <LoginCompany></LoginCompany>
+                </Grid>
+              </Grid>
+            </CustomButtonWithModal>
           }
         </Toolbar>
       </AppBar>
@@ -109,10 +110,10 @@ export default function Home(props) {
               gutterBottom
             >
               {/* Album layout */}
-              <TextField fullWidth 
+              <TextField fullWidth
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
-                id="Search" 
+                id="Search"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -124,15 +125,16 @@ export default function Home(props) {
                 }}
               />
 
-            <Grid container 
-              display="flex"
-              justifyContent="center"
-              alignItems="center">
-              <CardsList loggedUser={loggedUser} filter={searchText} />
-            </Grid>
+              {/* <Grid container
+                display="flex"
+                justifyContent="center"
+                alignItems="center">
+                <CardsList loggedUser={loggedUser} filter={searchText} />
+              </Grid> */}
+              <JobList />
 
             </Typography>
-            
+
             <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -141,7 +143,7 @@ export default function Home(props) {
             >
               {/* <Button variant="contained">Main call to action</Button>
               <Button variant="outlined">Secondary action</Button> */}
-              
+
             </Stack>
           </Container>
         </Box>
@@ -149,7 +151,7 @@ export default function Home(props) {
           {/* End hero unit */}
 
           <Grid container spacing={4}>
-          
+
           </Grid>
         </Container>
       </main>
