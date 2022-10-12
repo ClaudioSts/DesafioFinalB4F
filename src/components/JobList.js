@@ -25,18 +25,15 @@ function JobList(props) {
 }
 
   const fetchData = () => {
-    console.log("FETCHING")
     fetch(list)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
         setData(result.filter(filterPredicate))
       })
       .catch((err) => console.log("error"));
   };
 
   useEffect(() => {
-    console.log("YES")
     fetchData();
   }, []);
 

@@ -27,7 +27,7 @@ export default function Home(props) {
 
   const [loginUserDisabled, setLoginUserDisabled] = useState(false);
   const [loginCompanyDisabled, setLoginCompanyDisabled] = useState(false);
-  
+
   const [loggedUser, setLoggedUser] = useState("");
   const [isCompany, setIsCompany] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -61,7 +61,7 @@ export default function Home(props) {
     }
 
     const isCompany = localStorage.getItem("isCompany");
-    if(isCompany){
+    if (isCompany) {
       setIsCompany(true)
     } else {
       setIsCompany(false)
@@ -77,12 +77,12 @@ export default function Home(props) {
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
           <Box sx={{ flexGrow: 1 }}>
-          
+
           </Box>
-          
-          
+
+
           {loggedUser ? (
-            
+
             <div>
               Welcome, {loggedUser}! &nbsp;
               <Link href="#" underline="always" color="#ffffff" onClick={handleLogout}>
@@ -151,7 +151,7 @@ export default function Home(props) {
           }}
         >
           <Container maxWidth="sm">
-            
+
           </Container>
           <Container maxWidth="sm">
             <Typography
@@ -161,29 +161,29 @@ export default function Home(props) {
               color="text.primary"
               gutterBottom
             >
-              {loggedUser ? 
-                  isCompany ? 
-                  <div style={{marginTop: "-10%", marginBottom: "5%"}}>
+              {loggedUser ?
+                isCompany ?
+                  <div style={{ marginTop: "-10%", marginBottom: "5%" }}>
                     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                      <Button style={{minWidth: "200px"}} onClick={handleOpenCompanyApplicationsModal}>Applications</Button>
-                      <Button style={{minWidth: "200px"}} onClick={handleOpenCompanyPostJobModal}>Post Job</Button>
+                      <Button style={{ minWidth: "200px" }} onClick={handleOpenCompanyApplicationsModal}>Applications</Button>
+                      <Button style={{ minWidth: "200px" }} onClick={handleOpenCompanyPostJobModal}>Post Job</Button>
                     </ButtonGroup>
-                  </div> : 
-                  <div style={{marginTop: "-15%", marginBottom: "5%"}}>
-                  <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                  <Button style={{minWidth: "200px"}} onClick={handleOpenUserApplicationsModal}>My Applications</Button>
-                  </ButtonGroup>
+                  </div> :
+                  <div style={{ marginTop: "-15%", marginBottom: "5%" }}>
+                    <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                      <Button style={{ minWidth: "200px" }} onClick={handleOpenUserApplicationsModal}>My Applications</Button>
+                    </ButtonGroup>
                   </div>
                 : ""
               }
-              
+
               <TextField
                 fullWidth
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
-                label="Search for a Job :)"   
-                sx={{ zIndex: 0}} 
+                label="Search for a Job :)"
+                sx={{ zIndex: 0 }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -198,10 +198,9 @@ export default function Home(props) {
               <Grid container
                 display="flex"
                 justifyContent="center"
-                alignItems="center">
-                <JobList loggedUser={loggedUser} filter={searchText} />
+                alignItems="center">  
+              <JobList loggedUser={loggedUser} filter={searchText} />
               </Grid>
-              
 
             </Typography>
 
@@ -244,7 +243,7 @@ export default function Home(props) {
         onRequestClose={handleCloseCompanyApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Company Applications"}
-        
+
       >
         <Box
           m={1}
@@ -264,7 +263,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"Company Applications"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
 
       {/* Company Post Job */}
@@ -273,7 +272,7 @@ export default function Home(props) {
         onRequestClose={handleCloseCompanyPostJobModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
-        
+
       >
         <Box
           m={1}
@@ -293,7 +292,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"Post Job"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
 
       {/* User Applications */}
@@ -302,7 +301,7 @@ export default function Home(props) {
         onRequestClose={handleCloseUserApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
-        
+
       >
         <Box
           m={1}
@@ -322,7 +321,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"My Applications"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
     </ThemeProvider>
   );

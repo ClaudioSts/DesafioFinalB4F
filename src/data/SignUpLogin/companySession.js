@@ -15,7 +15,7 @@ async function addSessionCompany(companyId) {
 async function getSessionByTokenC(token) {
     if (!ObjectId.isValid(token)) return null
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    const resultado = await collection.findOne({ _id: new ObjectId(token) })
+    const resultado = await collection.findOne({ companyId: new ObjectId(token) })
     return resultado
 }
 
