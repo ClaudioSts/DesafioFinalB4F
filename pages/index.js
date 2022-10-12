@@ -6,7 +6,7 @@ import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Grid } from "@mui/material";
+import { Grid, List } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -20,7 +20,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
 import Modal from "react-modal";
-import AppForm from "../src/components/applicationForm";
+import AppForm from "../src/components/JobPostForm";
 
 const theme = createTheme();
 
