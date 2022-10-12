@@ -5,15 +5,16 @@ import { createApplication, findAllApplications } from "../../../src/services/ap
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const jobs = await findAllApplications();
+    const session = await getSessionByToken(req.headers["authorization"])
+    const jobs = await findAllApplications(session.userId);
     res.status(200).json(jobs); //sucess list all jobs (get info from companyID in Mongo)
   } else {
     res.status(404);
   }
   if (req.method === "POST") {
     console.log(ObjectId.isValid(req.headers["authorization"]))
-    const user = await getSessionByToken(req.headers["authorization"])
-    const _id = await createApplication(req.body, user._id)
+    const session = await getSessionByToken(req.headers["authorization"])
+    const _id = await createApplication(req.body, session.userId)
     res.status(201).json({ _id })
   } else {
     res.status(404)

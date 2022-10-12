@@ -1,8 +1,8 @@
 import { getAllApplications, getApplicationById, insertApplication, removeApplicationById, updateApplicationById } from "../data/userApplications/userApplications"
 
 
-async function findAllApplications() {
-    const application = await getAllApplications()
+async function findAllApplications(userId) {
+    const application = await getAllApplications(userId)
     return application
 }
 
@@ -11,8 +11,8 @@ async function findApplicationById (id) {
     return application
 }
 
-async function createApplication(application) {
-    const createdApplication = await insertApplication(application)
+async function createApplication(application, userId) {
+    const createdApplication = await insertApplication(application, userId)
     return createdApplication
 }
 
