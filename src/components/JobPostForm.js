@@ -26,7 +26,9 @@ export default function JobPostForm() {
 
     const answer = await fetch(post, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" ,
+      "Authorization": localStorage.getItem("token")
+    },
       body: JSON.stringify({
         title: data.title,
         description: data.description,
@@ -34,13 +36,10 @@ export default function JobPostForm() {
       }),
     });
 
-    if (answer.status === 201) {
-      const json = await answer.json();
-      localStorage.setItem("token", json.token);
-      localStorage.setItem("username", json.username);
-      window.location = "/";
-    } else {
+    if (answer.status === 404) {
       alert("Invalid credentials!");
+    } else {
+      alert("Job Posted!")
     }
   };
   return (
