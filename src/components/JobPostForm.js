@@ -22,7 +22,7 @@ export default function JobPostForm() {
     e.preventDefault();
     console.log(data);
 
-    const post = "/api/company";
+    const post = "/api/company/";
 
     const answer = await fetch(post, {
       method: "POST",

@@ -80,6 +80,13 @@ export default function Home(props) {
     }
   }, []);
 
+  const inputFetch = (formData) =>
+    fetch("/api/users/applications", {
+      method: "POST",
+      body: formData,
+      header: { "content-type": "multipart/form-data" },
+    });
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -298,7 +305,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"Company Applications"}</h1>
-        <div>{ }</div>
+        <div>{}</div>
       </Modal>
 
       {/* Company Post Job */}
@@ -362,7 +369,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"My Applications"}</h1>
-        <div>{ }</div>
+        <div>{}</div>
       </Modal>
     </ThemeProvider>
   );
