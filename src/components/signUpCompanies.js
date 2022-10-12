@@ -41,7 +41,7 @@ export default function SignUpCompanies() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      alert(json);
+      alert("Invalid data. Please verify parameters.");
     }
 
     if (answer.status === 201) {

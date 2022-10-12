@@ -7,7 +7,7 @@ import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Grid } from "@mui/material";
+import { Grid, List } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -21,6 +21,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
 import Modal from "react-modal";
+import AppForm from "../src/components/JobPostForm";
 
 const theme = createTheme();
 
@@ -238,7 +239,7 @@ export default function Home(props) {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
-                label="Search for a company, location..."
+                label="Search for a Job :)"
                 sx={{ zIndex: 0 }}
                 InputProps={{
                   endAdornment: (
@@ -346,8 +347,16 @@ export default function Home(props) {
           </Button>
         </Box>
         <hr />
-        <h1>{"Post Job"}</h1>
-        <div>{}</div>
+        <Box
+          className="postBox"
+          m={1}
+          //margi
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <div>{<AppForm />}</div>
+        </Box>
       </Modal>
 
       {/* User Applications */}
