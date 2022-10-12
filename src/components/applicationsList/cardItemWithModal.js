@@ -44,11 +44,10 @@ export default function CardItemWithModal(props) {
       };
 
     const [open, setOpen] = React.useState(false);
-    const {loggedUser, isCompany} = props
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const { title, location, description} = props
+    const { title, location, description, loggedUser, isCompany} = props
     return (
         <>
         <Card sx={{ minWidth: 800 }} onClick={handleOpen}>

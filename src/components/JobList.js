@@ -51,7 +51,7 @@ function JobList(props) {
                   description={job.description}
                   location={job.location}
                   loggedUser={loggedUser}
-                  isCompany={{isCompany}} />
+                  isCompany={isCompany} />
           </div>
         ))}
       </ul>
