@@ -40,7 +40,8 @@ export default function SignUpUser() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      alert(json);
+      console.log("json")
+      alert("Invalid data. Please verify parameters.");
     }
 
     if (answer.status === 201) {

@@ -298,7 +298,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"Company Applications"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
 
       {/* Company Post Job */}
@@ -362,7 +362,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"My Applications"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
     </ThemeProvider>
   );
