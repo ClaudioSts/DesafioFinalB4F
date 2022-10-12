@@ -41,7 +41,13 @@ export default function SignUpCompanies() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      alert("Invalid data. Please verify parameters.");
+      var errorMessage = json.message + "\n";
+      var errors = json.errors;
+      for (const [key, value] of Object.entries(errors)) {
+        errorMessage += `\n${value}`;
+      }
+      alert(errorMessage);
+      // alert("Invalid data. Please verify parameters.");
     }
 
     if (answer.status === 201) {

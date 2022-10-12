@@ -40,14 +40,18 @@ export default function SignUpUser() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      console.log("json")
-      alert("Invalid data. Please verify parameters.");
+      var errorMessage = json.message + "\n";
+      var errors = json.errors;
+      for (const [key, value] of Object.entries(errors)) {
+        errorMessage += `\n${value}`;
+      }
+      alert(errorMessage);
     }
 
     if (answer.status === 201) {
       alert("User account created successfully!");
+      window.location = "/";
     }
-
 
   }
 
