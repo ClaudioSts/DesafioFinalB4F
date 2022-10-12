@@ -52,6 +52,7 @@ export default function SignUpCompanies() {
 
     if (answer.status === 201) {
       alert("Company account created successfully!");
+      window.location = "/";
     }
 
   }
