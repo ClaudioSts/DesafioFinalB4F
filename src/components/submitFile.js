@@ -18,6 +18,7 @@ export function inputSubmitType({ onSelect }) {
       "ficheiro-do-frontend", //nome da chave/propriedade
       e.target.files[0] //o valor, neste caso o ficheiro
     );
+    onSelect(formData);
 
     onSelect(formData);
     //Também é possivel adicionar o resto de um formulário ao formData,
