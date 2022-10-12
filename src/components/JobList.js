@@ -14,7 +14,6 @@ function JobList(props) {
   const list = "api/users"
 
   const filterPredicate = (el) => {
-    console.log("filter", filter)
     if (filter != "") {
         let filterUppercase = filter.toUpperCase();
         return el.title.toUpperCase().includes(filterUppercase) || 

@@ -76,7 +76,7 @@ export default function CardItemWithModal(props) {
               justifyContent="flex-end"
               alignItems="flex-end"
             >
-              <Button variant='outlined' color='inherit' sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
+              <Button variant='outlined' color="error" sx={ { borderRadius: 28 } } onClick={handleClose}>Close</Button>
             </Box>
             <hr />
             <h1>{location}</h1>

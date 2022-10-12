@@ -132,7 +132,7 @@ export default function Home(props) {
               </Link>
             </div>
           ) : (
-            <CustomButtonWithModal buttonTitle="Login" modalTitle="">
+            <CustomButtonWithModal buttonTitle="Login" modalTitle="" >
               <Grid
                 container
                 spacing={2}
@@ -142,7 +142,10 @@ export default function Home(props) {
               >
                 <Grid
                   item
-                  xs={6}
+                  xs={1}></Grid>
+                <Grid
+                  item
+                  xs={4}
                   onMouseOver={(e) => {
                     setLoginUserDisabled(false);
                     setLoginCompanyDisabled(true);
@@ -161,7 +164,7 @@ export default function Home(props) {
                 </Grid>
                 <Grid
                   item
-                  xs={2}
+                  xs={4}
                   onMouseOver={(e) => {
                     setLoginUserDisabled(true);
                     setLoginCompanyDisabled(false);
