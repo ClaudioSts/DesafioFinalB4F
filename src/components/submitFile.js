@@ -20,7 +20,6 @@ export function InputSubmitType({ onSelect }) {
     );
     onSelect(formData);
 
-    onSelect(formData);
     //Também é possivel adicionar o resto de um formulário ao formData,
     // basta adicionar outro par chave/valor.
   };
