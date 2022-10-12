@@ -6,11 +6,13 @@ import multer from "multer";
 export const config = {
   //Neste caso dizemos que na API
   api: {
-    //O NextJS não é fantástico com middlewares portanto criamos
-    //  uma função que recebe um middleware como argumento e retorna uma função
-    //   bodyParser: false,
+    bodyParser: false,
   },
 };
+
+//O NextJS não é fantástico com middlewares portanto criamos
+//  uma função que recebe um middleware como argumento e retorna uma função
+//
 export function correMiddleware(req, res, middleware) {
   return new Promise((resolve, reject) => {
     middleware(req, res, (result) => {
@@ -33,13 +35,14 @@ export default async function handler(req, res) {
 
     //O método 'single' serve para guardar um ficheiro, o argumento
     //  deve ser a chave do ficheiro no FormData que criaste no frontend
-    const a = await correMiddleware(
+    const answer = await correMiddleware(
       req,
       res,
       upload.single("ficheiro-do-frontend")
     );
-
-    console.log(a);
+    const cv = req.file.originalname;
+    console.log(cv);
+    console.log("o ficheiro é: ", req.file.originalname);
 
     //Neste caso não respondemos com nada.
     res.send("ok");

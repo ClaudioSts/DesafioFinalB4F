@@ -1,6 +1,7 @@
 import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
+import { inputSubmitType } from "../src/components/submitFile";
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
@@ -96,14 +97,14 @@ export default function Home(props) {
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
           <Box sx={{ flexGrow: 1 }}></Box>
-
+          <inputSubmitType onSelect={(formData) => inputFetch(formData)} />
           {loggedUser ? (
             <div>
               Welcome, {loggedUser}! &nbsp;
               <Link
                 href="#"
-                underline="always"
-                color="#ffffff"
+                underline="hover"
+                color="#fff"
                 onClick={handleLogout}
               >
                 Logout
@@ -181,33 +182,47 @@ export default function Home(props) {
             >
               {loggedUser ? (
                 isCompany ? (
-                  <div style={{ marginTop: "-10%", marginBottom: "5%" }}>
-                    <ButtonGroup
-                      variant="contained"
-                      aria-label="outlined primary button group"
-                    >
-                      <Button
-                        style={{ minWidth: "200px" }}
-                        onClick={handleOpenCompanyApplicationsModal}
+                  <Toolbar>
+                    <div style={{ marginTop: "-10%", marginBottom: "5%" }}>
+                      <ButtonGroup
+                        variant="contained"
+                        aria-label="outlined primary button group"
                       >
-                        Applications
-                      </Button>
-                      <Button
-                        style={{ minWidth: "200px" }}
-                        onClick={handleOpenCompanyPostJobModal}
-                      >
-                        Post Job
-                      </Button>
-                    </ButtonGroup>
-                  </div>
+                        <Button
+                          style={{ minWidth: "200px" }}
+                          onClick={handleOpenCompanyApplicationsModal}
+                        >
+                          Applications
+                        </Button>
+                        <Button
+                          style={{ minWidth: "200px" }}
+                          onClick={handleOpenCompanyPostJobModal}
+                        >
+                          Post Job
+                        </Button>
+                      </ButtonGroup>
+                    </div>
+                  </Toolbar>
                 ) : (
-                  <div style={{ marginTop: "-15%", marginBottom: "5%" }}>
+                  <div
+                    style={{
+                      marginTop: "-38%",
+                      marginBottom: "20%",
+                    }}
+                  >
                     <ButtonGroup
                       variant="contained"
                       aria-label="outlined primary button group"
                     >
                       <Button
-                        style={{ minWidth: "200px" }}
+                        style={{
+                          minWidth: "200px",
+
+                          backgroundColor: "#004AAD",
+                          color: "#fff",
+
+                          margin: "1rem",
+                        }}
                         onClick={handleOpenUserApplicationsModal}
                       >
                         My Applications

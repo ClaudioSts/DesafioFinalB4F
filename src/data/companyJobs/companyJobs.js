@@ -15,9 +15,9 @@ async function getJobById(id) {
     return await collection.findOne({ _id: new ObjectId(id) })
 }
 
-async function insertJob(jobOffer) {
+async function insertJob(jobOffer, companyID) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    await collection.insertOne(jobOffer)
+    await collection.insertOne({...jobOffer, companyID})
 }
 
 async function updateJobById(jobOffer, id) {

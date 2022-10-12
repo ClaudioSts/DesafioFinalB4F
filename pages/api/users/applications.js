@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     res.status(404);
   }
   if (req.method === "POST") {
-    console.log(ObjectId.isValid(req.headers["authorization"]))
+    // console.log(ObjectId.isValid(req.headers["authorization"]))
     const session = await getSessionByToken(req.headers["authorization"])
     const _id = await createApplication(req.body, session.userId)
     res.status(201).json({ _id })

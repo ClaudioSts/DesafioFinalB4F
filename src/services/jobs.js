@@ -12,7 +12,7 @@ async function findJobById (id) {
 }
 
 async function createJob(newJobOffer) {
-    const createdJobOffer = await insertJob(newJobOffer)
+    const createdJobOffer = await insertJob(newJobOffer, companyId)
     return createdJobOffer
 }
 

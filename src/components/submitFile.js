@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function inputSubmitType({ onSelect }) {
+export function inputSubmitType({ onSelect }) {
   const onFileSelect = async (e) => {
     //Tal como o valor de um input fica guardado em e.target.value
     //Os ficheiros ficam em e.target.files
@@ -20,14 +20,23 @@ export default function inputSubmitType({ onSelect }) {
     );
     onSelect(formData);
 
+    onSelect(formData);
     //Também é possivel adicionar o resto de um formulário ao formData,
     // basta adicionar outro par chave/valor.
-
-    /*fetch("/api/multer", {
-      method: "POST",
-      body: formData,
-    });*/
   };
+
+  // const onFileSubmit = async (e) => {
+  //   const formData = new FormData();
+  //   formData.append(
+  //     "ficheiro-do-frontend", //nome da chave/propriedade
+  //     e.target.files[0] //o valor, neste caso o ficheiro
+  //   );
+
+  //   // fetch("/api/users/applications", {
+  //   //   method: "POST",
+  //   //   body: formData,
+  //   // });
+  // };
 
   return (
     <div>
