@@ -44,14 +44,14 @@ export default function CardItemWithModal(props) {
       };
 
     const [open, setOpen] = React.useState(false);
-    const {loggedUser} = props
+    const {loggedUser, isCompany} = props
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     const { title, location, description} = props
     return (
         <>
-        <Card sx={{ minWidth: 500 }} onClick={handleOpen}>
+        <Card sx={{ minWidth: 800 }} onClick={handleOpen}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                 {location}
@@ -60,7 +60,7 @@ export default function CardItemWithModal(props) {
                 {title}
                 </Typography>
                 <Typography variant="body2">
-                {description.substring(0, 50)}...
+                {description.substring(0, 50)} {description.length > 50 ? "..." : ""}
                 </Typography>
             </CardContent>
         </Card>
@@ -90,6 +90,7 @@ export default function CardItemWithModal(props) {
               alignItems="left">
               {/* <Button variant='outlined' color='primary' sx={ { borderRadius: 28 } } >Apply</Button> */}
               
+              {!isCompany ?
               <div>
                 <Accordion>
                   <AccordionSummary
@@ -105,7 +106,7 @@ export default function CardItemWithModal(props) {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-              </div>
+              </div> : ""}
             </Grid>
         </Modal>
         </>

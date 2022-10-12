@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function inputSubmitType({ onSelect }) {
+export function InputSubmitType({ onSelect }) {
   const onFileSelect = async (e) => {
     //Tal como o valor de um input fica guardado em e.target.value
     //Os ficheiros ficam em e.target.files

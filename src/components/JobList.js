@@ -9,11 +9,12 @@ function JobList(props) {
     title: "", description: "", location: ""
   }])
 
-  const {loggedUser, filter} = props
+  const {loggedUser, filter, isCompany} = props
 
   const list = "api/users"
 
   const filterPredicate = (el) => {
+    console.log("filter", filter)
     if (filter != "") {
         let filterUppercase = filter.toUpperCase();
         return el.title.toUpperCase().includes(filterUppercase) || 
@@ -25,6 +26,7 @@ function JobList(props) {
 }
 
   const fetchData = () => {
+    console.log("filter", filter)
     fetch(list)
       .then((res) => res.json())
       .then((result) => {
@@ -49,7 +51,8 @@ function JobList(props) {
                   title={job.title}
                   description={job.description}
                   location={job.location}
-                  loggedUser={loggedUser} />
+                  loggedUser={loggedUser}
+                  isCompany={{isCompany}} />
           </div>
         ))}
       </ul>

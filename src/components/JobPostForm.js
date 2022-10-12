@@ -3,7 +3,8 @@ import { TextareaAutosize } from "@mui/material";
 import { red } from "@mui/material/colors";
 import { borderColor, color } from "@mui/system";
 import { useState } from "react";
-import Button from "./Button";
+import Button from "@mui/material/Button";
+import { Grid, List } from "@mui/material";
 
 export default function JobPostForm() {
   const [data, setData] = useState({
@@ -43,7 +44,7 @@ export default function JobPostForm() {
     }
   };
   return (
-    <div className="PostJob">
+    <div style={{marginLeft: "-30%"}}>
       <div>
         <h1 style={{ color: "#1976d2" }}>Post Job Form</h1>
       </div>
@@ -53,7 +54,7 @@ export default function JobPostForm() {
           <br />
           <TextareaAutosize
             onChange={changeHandler}
-            style={{ width: "150%", fontSize: "20px" }}
+            style={{ width: "125%", fontSize: "20px" }}
             name="title"
             type="text"
             placeholder="Title for Job"
@@ -66,7 +67,7 @@ export default function JobPostForm() {
           <br />
           <TextareaAutosize
             onChange={changeHandler}
-            style={{ width: "150%", fontSize: "20px" }}
+            style={{ width: "125%", fontSize: "20px" }}
             name="description"
             type="text"
             placeholder="Description for Job"
@@ -79,7 +80,7 @@ export default function JobPostForm() {
           <br />
           <TextareaAutosize
             onChange={changeHandler}
-            style={{ width: "150%", fontSize: "20px" }}
+            style={{ width: "125%", fontSize: "20px" }}
             name="location"
             type="text"
             placeholder="Location for Job"
@@ -88,17 +89,26 @@ export default function JobPostForm() {
           />
           <br />
           <br />
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedInherit MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-outlined MuiButton-outlinedInherit MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorInherit css-x7bzdv-MuiButtonBase-root-MuiButton-root"
-            style={{
-              minWidth: "200px",
-              color: "#1976d2",
-              borderColor: "#1976d2",
-            }}
-            type="submit"
-          >
-            Post
-          </button>
+          <Grid
+                container
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                style={{marginLeft: "10%"}}
+              >
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  sx={{ borderRadius: 28 }}
+                  style={{minWidth: "200px"}}
+                  
+                >
+                  Post
+                </Button>
+              </Grid>
+          
         </form>
       </div>
     </div>
