@@ -68,6 +68,7 @@ export default function CardItemWithModal(props) {
             isOpen={open}
             onRequestClose={handleClose}
             contentLabel={title}
+            ariaHideApp={false}
             style={modalStyle}>
             <Box
               m={1}
