@@ -40,8 +40,8 @@ export default function SignUpUser() {
 
     if (answer.status === 400) {
       const json = await answer.json()
-      var errorMessage = json.message + "\n";
-      var errors = json.errors;
+      let errorMessage = json.message + "\n";
+      let errors = json.errors;
       for (const [key, value] of Object.entries(errors)) {
         errorMessage += `\n${value}`;
       }
