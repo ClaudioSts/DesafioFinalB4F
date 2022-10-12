@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./searchBar.module.css";
+
 export const companies = [
   { name: "Belgium", continent: "Europe" },
   { name: "India", continent: "Asia" },
