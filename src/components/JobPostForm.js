@@ -38,9 +38,10 @@ export default function JobPostForm() {
     });
 
     if (answer.status === 404) {
-      alert("Invalid credentials!");
+      alert("Internal error!");
     } else {
       alert("Job Posted!")
+      window.location = "/";
     }
   };
   return (
