@@ -30,7 +30,7 @@ function JobList(props) {
     fetch(list)
       .then((res) => res.json())
       .then((result) => {
-        setData(result.filter(filterPredicate))
+        setData(result)
       })
       .catch((err) => console.log("error"));
   };
@@ -44,7 +44,7 @@ function JobList(props) {
   return (
     <div className={styles.listContainer}>
       <ul className={styles.jobsList}>
-        {data.map((job, index) => (
+        {data.filter(filterPredicate).map((job, index) => (
           <div key={index} style={{marginBottom: "1%"}}>
               <CardItemWithModal style={{marginBottom: "1%"}}
                   key={index}
