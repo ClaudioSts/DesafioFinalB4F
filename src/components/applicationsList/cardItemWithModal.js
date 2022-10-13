@@ -80,35 +80,39 @@ export default function CardItemWithModal(props) {
     <>
       <Card
         sx={{
-          minHeight: 150,
+          minHeight: 200,
           minWidth: 800,
-          backgroundColor: "#fff",
-          borderTop: "3px solid #3E6ADD",
+          backgroundColor: "#dae3f1",
+          borderTop: "8px solid #3E6ADD",
           borderRadius: "10px",
           boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
           cursor: "pointer",
         }}
+        s
         onClick={handleOpen}
       >
         <CardContent>
           <Typography
-            sx={{ fontSize: 14 }}
+            sx={{
+              fontSize: 14,
+              font: "Open Sans",
+            }}
             align="right"
-            color="text.secondary"
+            color="#000"
             gutterBottom
           >
             {location}
           </Typography>
           <Typography
-            sx={{ fontWeight: "bold", margin: "1rem" }}
+            sx={{ font: "Open Sans", fontWeight: "bold", margin: "1rem" }}
             align="left"
             variant="h5"
             component="div"
           >
             {title}
           </Typography>
-          <Typography align="bottom" variant="body2">
+          <Typography font="Open Sans" align="bottom" variant="body2">
             {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>

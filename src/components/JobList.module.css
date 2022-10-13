@@ -1,5 +1,10 @@
-.listContainer {
-  
+.botoes {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.job {
+  position: absolute;
 }
 
 .jobsList {
