@@ -28,6 +28,8 @@ export const companies = [
   { name: "Pakistan", continent: "Asia" },
 ];
 
+const ERRO = "No Results";
+
 export default function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
   if (searchInput.length > 0) {

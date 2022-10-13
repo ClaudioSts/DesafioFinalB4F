@@ -113,7 +113,7 @@ export default function CardItemWithModal(props) {
           >
             {title}
           </Typography>
-          <Typography font="Open Sans" align="bottom" variant="body2">
+          <Typography align="bottom" variant="body2">
             {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>

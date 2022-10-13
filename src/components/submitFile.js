@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useEffect } from "react";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 
 export function InputSubmitType({ onSelect }) {
   const onFileSelect = async (e) => {
@@ -32,7 +33,13 @@ export function InputSubmitType({ onSelect }) {
     <div>
       <input type={"file"} onChange={(e) => onFileSelect(e)} required />
       <br />
-      <Button
+      <br />
+      <FileUploadIcon
+        sx={{
+          color: "#3E6ADD",
+          size: "large",
+          cursor: "pointer",
+        }}
         type="Submit"
         name="SubmitCv"
         onClick={() => {
@@ -40,7 +47,7 @@ export function InputSubmitType({ onSelect }) {
         }}
       >
         Submit
-      </Button>
+      </FileUploadIcon>
     </div>
   );
 }
