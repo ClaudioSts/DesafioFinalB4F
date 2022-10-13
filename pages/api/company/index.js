@@ -5,7 +5,7 @@
 //res: status(200) {header: string, description: string, CompanyID: ObjectID}
 
 import { getSessionByTokenC } from "../../../src/data/SignUpLogin/companySession";
-import { createJob, deleteJobById, findAllJobs, findAllJobsByID } from "../../../src/services/jobs";
+import { changeJobById, createJob, deleteJobById, findAllJobs, findAllJobsByID } from "../../../src/services/jobs";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -29,5 +29,16 @@ export default async function handler(req, res) {
     res.status(200).json({ _id })
   } else {
     res.status(400);
+  }
+  if (req.method === "PUT") {
+    const jobOffer = {
+      title: req.body.title,
+      description: req.body.description,
+      location: req.body.location
+    }
+    const _id = await changeJobById(jobOffer, req.body._id)
+    res.status(201).json({ _id })
+  } else {
+    res.status(404);
   }
 }

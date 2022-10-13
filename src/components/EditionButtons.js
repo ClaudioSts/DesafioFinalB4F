@@ -1,12 +1,39 @@
+import React from "react";
+import Modal from "react-modal";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { ObjectID } from "bson";
+import AppForm from "./JobPostForm";
 
 export default function ShowButtons(props) {
         const { job } = props
+
+        const modalStyle = {
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0)",
+            width: "70rem",
+            height: "55rem",
+            marginLeft: "25%",
+            marginTop: "5%",
+            marginBottom: "5%",
+          },
+          content: {
+            // position: 'absolute',
+            // top: '0px',
+            // left: '0px',
+            // right: '100px',
+            // bottom: '0px',
+            background: "#ffffff",
+          },
+        };
         
+        const [openCompanyPostJobModal, setOpenCompanyPostJobModal] =
+          React.useState(false);
+        const handleOpenCompanyPostJobModal = () => setOpenCompanyPostJobModal(true);
+        const handleCloseCompanyPostJobModal = () => setOpenCompanyPostJobModal(false);
+
         const deleteJob = async () => {
           if(confirm(`Are you sure you want to delete the job: '${job.title}'?`) == true) {
             const answer = await fetch("api/company", {
@@ -34,10 +61,6 @@ export default function ShowButtons(props) {
           }
         }
 
-        const editJob = () => {
-          console.log(job._id)
-        }
-
         return (
             <div>
                 <ButtonGroup variant="outlined" aria-label="functions">
@@ -56,11 +79,50 @@ export default function ShowButtons(props) {
                     }}
                     cursor="pointer"
                     variant="outlined"
-                    onClick={(e) => editJob()}
+                    onClick={handleOpenCompanyPostJobModal}
                   >
                     Edit
                   </EditIcon>
                 </ButtonGroup>
+                <Modal
+                  isOpen={openCompanyPostJobModal}
+                  onRequestClose={handleCloseCompanyPostJobModal}
+                  ariaHideApp={false}
+                  contentLabel={"Post Job"}
+                  style={modalStyle}
+                >
+                  <Box
+                    m={1}
+                    //margin
+                    display="flex"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
+                  >
+                    <Button
+                      variant="outlined"
+                      color="error"
+                      sx={{ borderRadius: 28 }}
+                      onClick={handleCloseCompanyPostJobModal}
+                    >
+                      Close
+                    </Button>
+                  </Box>
+                  <hr />
+                  <Box
+                    className="postBox"
+                    m={1}
+                    //margi
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <div>{<AppForm 
+                      _id={job._id} 
+                      title={job.title} 
+                      location={job.location} 
+                      description={job.description} />}</div>
+                  </Box>
+                </Modal>
             </div>
         )
 }
