@@ -2,6 +2,7 @@ import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
 import CompanyApplications from "../src/components/companyApplications";
+import UserApplicationList from "../src/components/userApplication";
 import { InputSubmitType } from "../src/components/submitFile";
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -189,7 +190,7 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "background.paper",
+            bgcolor: "#fff",
             pt: 8,
             pb: 6,
           }}
@@ -335,6 +336,7 @@ export default function Home(props) {
         onRequestClose={handleCloseCompanyApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Company Applications"}
+        style={modalStyle}
       >
         <Box
           m={1}
@@ -410,7 +412,9 @@ export default function Home(props) {
         onRequestClose={handleCloseUserApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
+        style={modalStyle}
       >
+
         <Box
           m={1}
           //margin
@@ -429,7 +433,15 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"My Applications"}</h1>
-        <div>{ }</div>
+        <Grid
+          container
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          style={{ marginLeft: "-1%" }}
+        >
+          <UserApplicationList></UserApplicationList>
+        </Grid>
       </Modal>
     </ThemeProvider>
   );

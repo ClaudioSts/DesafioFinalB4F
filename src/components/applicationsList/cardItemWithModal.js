@@ -14,6 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { InputSubmitType } from "../submitFile";
+import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
   const modalStyle = {
@@ -80,29 +81,45 @@ export default function CardItemWithModal(props) {
     <>
       <Card
         sx={{
-          minHeight: 150,
+          minHeight: 200,
           minWidth: 800,
-          backgroundColor: "#fff",
-          border: "1px solid #3E6ADD",
+          backgroundColor: "#dae3f1",
+          borderTop: "8px solid #3E6ADD",
           borderRadius: "10px",
           boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
+          cursor: "pointer",
         }}
+        s
         onClick={handleOpen}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography
+            sx={{
+              fontSize: 14,
+              font: "Open Sans",
+            }}
+            align="right"
+            color="#000"
+            gutterBottom
+          >
             {location}
           </Typography>
-          <Typography variant="h6" component="div">
+          <Typography
+            sx={{ font: "Open Sans", fontWeight: "bold", margin: "1rem" }}
+            align="left"
+            variant="h5"
+            component="div"
+          >
             {title}
           </Typography>
-          <Typography variant="body2">
+          <Typography font="Open Sans" align="bottom" variant="body2">
             {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>
         </CardContent>
       </Card>
+
       <Modal
         isOpen={open}
         onRequestClose={handleClose}
@@ -126,13 +143,20 @@ export default function CardItemWithModal(props) {
             Close
           </Button>
         </Box>
-        <hr />
-        <h1>{location}</h1>
-        <h2>{title}</h2>
-        <div>{description}</div>
-        <br />
+        <div className="job-card">
+          <hr />
+          <h5>{location}</h5>
+          <h1>{title}</h1>
+          <div>{description}</div>
+          <br />
+        </div>
 
-        <Grid container display="flex" justifyContent="left" alignItems="left">
+        <Grid
+          container
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
           {/* <Button variant='outlined' color='primary' sx={ { borderRadius: 28 } } >Apply</Button> */}
 
           {!isCompany ? (

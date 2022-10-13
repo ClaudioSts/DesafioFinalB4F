@@ -6,12 +6,23 @@ export default function ShowButtons() {
         return (
             <div>
                 <ButtonGroup variant="outlined" aria-label="functions">
-                    <Button variant="outlined">
-                        Delete
-                    </Button>
-                    <Button variant="outlined">
-                        Edit
-                    </Button>
+                  <DeleteIcon
+                    sx={{ color: "#3E6ADD" }}
+                    cursor="pointer"
+                    variant="outlined"
+                  >
+                    Delete
+                  </DeleteIcon>
+                  <EditIcon
+                    sx={{
+                      color: "#3E6ADD",
+                      marginLeft: "1rem",
+                    }}
+                    cursor="pointer"
+                    variant="outlined"
+                  >
+                    Edit
+                  </EditIcon>
                 </ButtonGroup>
             </div>
         )
