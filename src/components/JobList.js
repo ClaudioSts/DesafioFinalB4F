@@ -5,7 +5,8 @@ import CardItemWithModal from './applicationsList/cardItemWithModal';
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/material/IconButton";
 import IconButton from "@mui/material/IconButton";
-import ButtonGroup from '@mui/material/ButtonGroup'
+import ButtonGroup from '@mui/material/ButtonGroup';
+import ShowButtons from './EditionButtons';
 
 
 
@@ -14,6 +15,7 @@ function JobList(props) {
   const [data, setData] = useState([{
     title: "", description: "", location: ""
   }])
+
 
   const { loggedUser, filter, isCompany } = props
 
@@ -35,6 +37,7 @@ function JobList(props) {
 
     if (props.isCompany == false) {
       console.log('company is false')
+
       const fetchData = () => {
 
         fetch(list)
@@ -49,7 +52,10 @@ function JobList(props) {
     if (props.isCompany == true) {
       console.log('company is true')
 
+      const buttons = localStorage.getItem('companyId')
+
       const fetchData = () => {
+
         fetch(jobsByCompany, {
           method: "GET",
           headers: {
@@ -75,27 +81,26 @@ function JobList(props) {
   return (
     <div className={styles.listContainer}>
       <ul className={styles.jobsList}>
-        {data.filter(filterPredicate).map((job, index) => (
-          <div key={index} style={{ marginBottom: "1%" }}>
-            <CardItemWithModal style={{ marginBottom: "1%" }}
-              key={index}
-              title={job.title}
-              description={job.description}
-              location={job.location}
-              loggedUser={loggedUser}
-              isCompany={isCompany}
-
-            />
-            <ButtonGroup variant="outlined" aria-label="functions">
-            <Button variant="outlined">
-              Delete
-            </Button>
-            <Button variant="outlined">
-              Edit
-            </Button>
-            </ButtonGroup>
-          </div>
-        ))}
+        <div>
+          {data.filter(filterPredicate).map((job, index) => (
+            <div>
+              <div key={index} style={{ marginBottom: "1%" }}>
+                <CardItemWithModal style={{ marginBottom: "1%" }}
+                  key={index}
+                  title={job.title}
+                  description={job.description}
+                  location={job.location}
+                  loggedUser={loggedUser}
+                  isCompany={isCompany}
+                />
+                {props.isCompany &&
+                  <ShowButtons
+                  />
+                }
+              </div>
+            </div>
+          ))}
+        </div>
       </ul>
     </div>
   );
