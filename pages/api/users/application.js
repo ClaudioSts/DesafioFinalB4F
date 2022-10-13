@@ -4,6 +4,7 @@ import {
   findAllApplications,
 } from "../../../src/services/applications";
 import multer from "multer";
+import { getUserById } from "../../../src/data/SignUpLogin/users";
 
 export const config = {
   api: {
@@ -43,6 +44,9 @@ export default async function handler(req, res) {
     const cv = req.file.originalname;
 
     const session = await getSessionByToken(req.headers["authorization"]);
+    const user = await getUserById(session.userId)
+
+    if (!session) res.status(403)
 
     console.log(session);
     await createApplication({ filename, cv }, session);

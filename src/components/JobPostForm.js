@@ -21,15 +21,14 @@ export default function JobPostForm() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(data);
 
-    const post = "/api/company/";
-
+    const post = "/api/company";
     const answer = await fetch(post, {
       method: "POST",
-      headers: { "Content-Type": "application/json" ,
-      "Authorization": localStorage.getItem("token")
-    },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token")
+      },
       body: JSON.stringify({
         title: data.title,
         description: data.description,
@@ -45,7 +44,7 @@ export default function JobPostForm() {
     }
   };
   return (
-    <div style={{marginLeft: "-30%"}}>
+    <div style={{ marginLeft: "-30%" }}>
       <div>
         <h1 style={{ color: "#1976d2" }}>Post Job Form</h1>
       </div>
@@ -91,25 +90,25 @@ export default function JobPostForm() {
           <br />
           <br />
           <Grid
-                container
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                style={{marginLeft: "10%"}}
-              >
-                <Button
-                  type="submit"
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                  sx={{ borderRadius: 28 }}
-                  style={{minWidth: "200px"}}
-                  
-                >
-                  Post
-                </Button>
-              </Grid>
-          
+            container
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{ marginLeft: "10%" }}
+          >
+            <Button
+              type="submit"
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{ borderRadius: 28 }}
+              style={{ minWidth: "200px" }}
+
+            >
+              Post
+            </Button>
+          </Grid>
+
         </form>
       </div>
     </div>

@@ -11,6 +11,7 @@ export default function LoginCompany() {
     password: "",
   });
 
+
   const { email, password } = data;
 
   const changeHandler = (e) => {

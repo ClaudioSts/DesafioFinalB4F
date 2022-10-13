@@ -35,6 +35,7 @@ export default function Home(props) {
   const [isCompany, setIsCompany] = useState(false);
   const [searchText, setSearchText] = useState("");
 
+
   // Company Modals
   const [openCompanyApplicationsModal, setOpenCompanyApplicationsModal] =
     React.useState(false);
@@ -91,14 +92,14 @@ export default function Home(props) {
       marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
-    },content: {
+    }, content: {
       // position: 'absolute',
       // top: '0px',
       // left: '0px',
       // right: '100px',
       // bottom: '0px',
       background: "#ffffff",
-      
+
     },
   };
 
@@ -281,7 +282,7 @@ export default function Home(props) {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                style={{marginLeft: "-5%"}}
+                style={{ marginLeft: "-5%" }}
               >
                 <JobList loggedUser={loggedUser} filter={searchText} isCompany={isCompany} />
               </Grid>
@@ -346,19 +347,19 @@ export default function Home(props) {
         <hr />
         <h1>{"Company Applications"}</h1>
         <div>
-        <Grid
+          <Grid
             container
             display="flex"
             justifyContent="center"
             alignItems="center"
-            style={{marginLeft: "-5%"}}
+            style={{ marginLeft: "-5%" }}
           >
-          <CompanyApplications />
-        </Grid>
-        
+            <CompanyApplications />
+          </Grid>
+
         </div>
       </Modal>
-      
+
       {/* Company Post Job */}
       <Modal
         isOpen={openCompanyPostJobModal}
@@ -421,7 +422,7 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"My Applications"}</h1>
-        <div>{}</div>
+        <div>{ }</div>
       </Modal>
     </ThemeProvider>
   );
