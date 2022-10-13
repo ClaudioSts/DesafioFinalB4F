@@ -33,7 +33,9 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     const upload = multer({ dest: "uploads/" });
-
+    console.debug("file", req.file)
+    console.debug("files", req.files)
+    console.debug("body", req.body)
     const answer = await correMiddleware(
       req,
       res,
@@ -43,13 +45,13 @@ export default async function handler(req, res) {
     const filename = req.file.filename;
     const cv = req.file.originalname;
 
-    const session = await getSessionByToken(req.headers["authorization"]);
-    const user = await getUserById(session.userId)
+    const session = await getSessionByToken(req.headers["Authorization"]);
 
     if (!session) res.status(403)
 
-    console.log(session);
-    await createApplication({ filename, cv }, session);
+    const companyJobID = req.body.companyJobID
+    
+    await createApplication({ filename, cv, companyJobID }, session.userId);
     res.status(201);
   } else {
     res.status(404);

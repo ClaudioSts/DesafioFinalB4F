@@ -15,6 +15,7 @@ function JobList(props) {
   const [data, setData] = useState([
     {
       _id: ObjectID(),
+      companyID: ObjectID(),
       title: "",
       description: "",
       location: "",
@@ -85,21 +86,20 @@ function JobList(props) {
       <ul className={styles.jobsList}>
         <div>
           {data.filter(filterPredicate).map((job, index) => (
-            <div>
-              <div key={index} style={{ marginBottom: "1%" }}>
-                <CardItemWithModal style={{ marginBottom: "1%" }}
-                  key={index}
-                  title={job.title}
-                  description={job.description}
-                  location={job.location}
-                  loggedUser={loggedUser}
-                  isCompany={isCompany}
-                />
-                {props.isCompany ?
-                  <ShowButtons job={job} /> : 
-                  ""
-                }
-              </div>
+            <div key={index} style={{ marginBottom: "1%" }}>
+              <CardItemWithModal style={{ marginBottom: "1%" }}
+                key={index}
+                _id={job._id}
+                title={job.title}
+                description={job.description}
+                location={job.location}
+                loggedUser={loggedUser}
+                isCompany={isCompany}
+              />
+              {props.isCompany ?
+                <ShowButtons job={job} /> : 
+                ""
+              }
             </div>
           ))}
         </div>

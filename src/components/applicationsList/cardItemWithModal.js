@@ -53,29 +53,7 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { title, location, description, loggedUser, isCompany } = props;
-
-  const inputFetch = async (formData) =>
-    await fetch("/api/users/application", {
-      method: "POST",
-      body: formData,
-      header: {
-        "content-type": "multipart/form-data",
-        Authorization: localStorage.getItem("token"),
-      },
-    });
-
-  console.log(inputFetch.status);
-
-  if (inputFetch.status === 400) {
-    alert("There was an error processing your application. Please try again.");
-    // alert("Invalid data. Please verify parameters.");
-  }
-
-  if (inputFetch.status === 201) {
-    alert("Application created successfully!");
-    window.location = "/";
-  }
+  const { companyID, title, location, description, loggedUser, isCompany } = props;
 
   return (
     <>
@@ -83,14 +61,13 @@ export default function CardItemWithModal(props) {
         sx={{
           minHeight: 200,
           minWidth: 800,
-          backgroundColor: "#dae3f1",
+          backgroundColor: "#fff",
           borderTop: "8px solid #3E6ADD",
           borderRadius: "10px",
           boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
           cursor: "pointer",
         }}
-        s
         onClick={handleOpen}
       >
         <CardContent>
@@ -113,7 +90,7 @@ export default function CardItemWithModal(props) {
           >
             {title}
           </Typography>
-          <Typography font="Open Sans" align="bottom" variant="body2">
+          <Typography font="Open Sans" variant="body2">
             {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>
@@ -172,9 +149,7 @@ export default function CardItemWithModal(props) {
                 <AccordionDetails>
                   <Typography>
                     {loggedUser ? (
-                      <InputSubmitType
-                        onSelect={(formData) => inputFetch(formData)}
-                      />
+                      <InputSubmitType companyID={companyID} />
                     ) : (
                       <Alert severity="warning">
                         Operation allowed only for logged users!
