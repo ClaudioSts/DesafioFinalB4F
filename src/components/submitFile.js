@@ -20,7 +20,7 @@ export function InputSubmitType({ onSelect }, props) {
     }
     
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("ficheiro-do-frontend", file);
     formData.append("companyJobID", companyID);
 
     console.log("token", localStorage.getItem("token"))
