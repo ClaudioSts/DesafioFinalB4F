@@ -117,14 +117,12 @@ export default function CardItemWithModal(props) {
                   {loggedUser ? (
                     <InputSubmitType
                       onSelect={(formData) => inputFetch(formData)}
-                    
-                    <Alert severity="warning">File Submited</Alert>/>
-                  ) : (
+                  ): (
                     <Alert severity="warning">
                       Operation allowed only for logged users!
                     </Alert>
                   )}
-          
+                  
                 </Typography>
               </AccordionDetails>
             </Accordion>
