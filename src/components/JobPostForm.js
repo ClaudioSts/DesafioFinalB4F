@@ -21,15 +21,13 @@ export default function JobPostForm() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(data);
 
-    const post = "/api/company/";
-
+    const post = "/api/company";
     const answer = await fetch(post, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
+        "Authorization": localStorage.getItem("token")
       },
       body: JSON.stringify({
         title: data.title,

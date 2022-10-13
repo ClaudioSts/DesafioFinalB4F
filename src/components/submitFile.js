@@ -1,20 +1,11 @@
+import { Button } from "@material-ui/core";
 import { useEffect } from "react";
 
 export function InputSubmitType({ onSelect }) {
   const onFileSelect = async (e) => {
-    //Tal como o valor de um input fica guardado em e.target.value
-    //Os ficheiros ficam em e.target.files
-    //console.log(e.target.files) -> FileList {0: File, length: 1}
-
-    //Para podermos enviar um ficheiro num pedido http
-    // o corpo do pedido não pode ser em Json,
-    // neste caso vamos recorrer a FormData
-    // que também funciona por pares chave/valor
-    // https://developer.mozilla.org/en-US/docs/Web/API/FormData
     const formData = new FormData();
 
     formData.append(
-      //Adicionar um par chave/valor
       "ficheiro-do-frontend", //nome da chave/propriedade
       e.target.files[0] //o valor, neste caso o ficheiro
     );
@@ -40,6 +31,16 @@ export function InputSubmitType({ onSelect }) {
   return (
     <div>
       <input type={"file"} onChange={(e) => onFileSelect(e)} />
+      <br />
+      <Button
+        type="Submit"
+        name="SubmitCv"
+        onClick={() => {
+          alert("Application Submited");
+        }}
+      >
+        Submit
+      </Button>
     </div>
   );
 }

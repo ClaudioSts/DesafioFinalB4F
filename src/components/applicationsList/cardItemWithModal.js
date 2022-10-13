@@ -176,15 +176,6 @@ export default function CardItemWithModal(props) {
                     )}
                   </Typography>
                 </AccordionDetails>
-                <Button
-                  type="Submit"
-                  name="SubmitCv"
-                  onClick={() => {
-                    alert("Application Submited");
-                  }}
-                >
-                  Submit
-                </Button>
               </Accordion>
             </div>
           ) : (
