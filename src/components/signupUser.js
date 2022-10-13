@@ -2,30 +2,28 @@ import Head from "next/head";
 import Image from "next/image";
 //import signUpUser from "../styles/signUpUser.css";
 import React from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 export default function SignUpUser() {
-
-
   const [data, setData] = React.useState({
     username: "",
     email: "",
     password: "",
-    passwordConfirmation: ""
-  })
+    passwordConfirmation: "",
+  });
 
-  const { username, email, password, passwordConfirmation } = data
+  const { username, email, password, passwordConfirmation } = data;
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-  }
+  };
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     console.log(data);
 
-    const login = "/api/signup/user"
+    const login = "/api/signup/user";
 
     const answer = await fetch(login, {
       method: "POST",
@@ -34,12 +32,12 @@ export default function SignUpUser() {
         username: data.username,
         email: data.email,
         password: data.password,
-        passwordConfirmation: data.passwordConfirmation
-      })
-    })
+        passwordConfirmation: data.passwordConfirmation,
+      }),
+    });
 
     if (answer.status === 400) {
-      const json = await answer.json()
+      const json = await answer.json();
       let errorMessage = json.message + "\n";
       let errors = json.errors;
       for (const [key, value] of Object.entries(errors)) {
@@ -52,11 +50,10 @@ export default function SignUpUser() {
       alert("User account created successfully!");
       window.location = "/";
     }
-
-  }
+  };
 
   return (
-    <div>
+    <div style={modalStyle}>
       <div>
         <div>
           <form onSubmit={submitHandler}>
@@ -86,7 +83,7 @@ export default function SignUpUser() {
               />
               <br />
             </div>
-            <div >
+            <div>
               Password:
               <br />
               <input
@@ -113,7 +110,15 @@ export default function SignUpUser() {
               <br />
             </div>
             <div>
-              <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Create Account</Button>
+              <Button
+                type="submit"
+                variant="outlined"
+                color="primary"
+                size="small"
+                sx={{ borderRadius: 28 }}
+              >
+                Create Account
+              </Button>
             </div>
           </form>
         </div>
