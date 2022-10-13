@@ -39,7 +39,7 @@ export default function CardItemWithModal(props) {
       // left: '0px',
       // right: '0px',
       // bottom: '0px',
-      background: "#ffffff",
+      background: "#fff",
       // overflow: 'auto',
       // WebkitOverflowScrolling: 'touch',
       // padding: '10px',
@@ -78,7 +78,18 @@ export default function CardItemWithModal(props) {
 
   return (
     <>
-      <Card sx={{ minWidth: 800 }} onClick={handleOpen}>
+      <Card
+        sx={{
+          minHeight: 150,
+          minWidth: 800,
+          backgroundColor: "#fff",
+          border: "1px solid #3E6ADD",
+          borderRadius: "10px",
+          boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
+          marginTop: "1rem",
+        }}
+        onClick={handleOpen}
+      >
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {location}
@@ -87,7 +98,7 @@ export default function CardItemWithModal(props) {
             {title}
           </Typography>
           <Typography variant="body2">
-            {description.substring(0, 50)}{" "}
+            {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>
         </CardContent>

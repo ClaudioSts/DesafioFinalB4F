@@ -266,7 +266,7 @@ export default function Home(props) {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
-                label="Search for a Job :)"
+                label="Search for company name, location ..."
                 sx={{ zIndex: 0 }}
                 InputProps={{
                   endAdornment: (
