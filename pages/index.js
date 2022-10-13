@@ -1,7 +1,7 @@
 import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
-import CompanyApplications from "../src/components/companyApplications"
+import CompanyApplications from "../src/components/companyApplications";
 import { InputSubmitType } from "../src/components/submitFile";
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
@@ -23,7 +23,6 @@ import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
 import Modal from "react-modal";
 import AppForm from "../src/components/JobPostForm";
-
 
 const theme = createTheme();
 
@@ -87,19 +86,19 @@ export default function Home(props) {
   const modalStyle = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      width: "800px",
-      height: "80%",
+      width: "70rem",
+      height: "55rem",
       marginLeft: "25%",
-      marginTop: "10%",
+      marginTop: "5%",
       marginBottom: "5%",
-    }, content: {
+    },
+    content: {
       // position: 'absolute',
       // top: '0px',
       // left: '0px',
       // right: '100px',
       // bottom: '0px',
       background: "#ffffff",
-
     },
   };
 
@@ -133,7 +132,7 @@ export default function Home(props) {
               </Link>
             </div>
           ) : (
-            <CustomButtonWithModal buttonTitle="Login" modalTitle="" >
+            <CustomButtonWithModal buttonTitle="Login" modalTitle="">
               <Grid
                 container
                 spacing={2}
@@ -141,9 +140,7 @@ export default function Home(props) {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Grid
-                  item
-                  xs={1}></Grid>
+                <Grid item xs={1}></Grid>
                 <Grid
                   item
                   xs={4}
@@ -208,7 +205,13 @@ export default function Home(props) {
               {loggedUser ? (
                 isCompany ? (
                   <Toolbar>
-                    <div style={{ marginTop: "-10%", marginBottom: "5%", marginLeft: "10%" }}>
+                    <div
+                      style={{
+                        marginTop: "-10%",
+                        marginBottom: "5%",
+                        marginLeft: "10%",
+                      }}
+                    >
                       <ButtonGroup
                         variant="contained"
                         aria-label="outlined primary button group"
@@ -264,7 +267,7 @@ export default function Home(props) {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 id="Search"
-                label="Search for a Job :)"
+                label="Search for company name, location ..."
                 sx={{ zIndex: 0 }}
                 InputProps={{
                   endAdornment: (
@@ -284,7 +287,11 @@ export default function Home(props) {
                 alignItems="center"
                 style={{ marginLeft: "-5%" }}
               >
-                <JobList loggedUser={loggedUser} filter={searchText} isCompany={isCompany} />
+                <JobList
+                  loggedUser={loggedUser}
+                  filter={searchText}
+                  isCompany={isCompany}
+                />
               </Grid>
             </Typography>
 
@@ -356,7 +363,6 @@ export default function Home(props) {
           >
             <CompanyApplications />
           </Grid>
-
         </div>
       </Modal>
 

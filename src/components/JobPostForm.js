@@ -39,7 +39,7 @@ export default function JobPostForm() {
     if (answer.status === 404) {
       alert("Internal error!");
     } else {
-      alert("Job Posted!")
+      alert("Job Posted!");
       window.location = "/";
     }
   };
@@ -103,12 +103,10 @@ export default function JobPostForm() {
               size="small"
               sx={{ borderRadius: 28 }}
               style={{ minWidth: "200px" }}
-
             >
               Post
             </Button>
           </Grid>
-
         </form>
       </div>
     </div>
