@@ -7,9 +7,10 @@ const DB_NAME = "DesafioFinal"
 const COLLECTION_NAME = "UserSession"
 
 async function getSessionByToken(token) {
-    if (!ObjectId.isValid(token)) return null
+    //if (!ObjectId.isValid(token)) return null
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     const resultado = await collection.findOne({ _id: new ObjectId(token) })
+    console.log(resultado)
     return resultado
 }
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // Button is missing it's styling, but it can be easily be edited as we need. Can be made primary or secondary button.
 
-const Button = ({ children, ...props }) => {
+const Buttons = ({ children, ...props }) => {
   return (
     <div>
       <button {...props} className="button">
@@ -12,4 +12,4 @@ const Button = ({ children, ...props }) => {
   );
 };
 
-export default Button;
+export default Buttons;
