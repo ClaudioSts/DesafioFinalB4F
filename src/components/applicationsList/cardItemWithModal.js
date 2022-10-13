@@ -27,6 +27,11 @@ export default function CardItemWithModal(props) {
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
+      width: "70rem",
+      height: "55rem",
+      marginLeft: "25%",
+      marginTop: "5%",
+      marginBottom: "5%",
     },
     content: {
       // position: 'absolute',
@@ -142,6 +147,15 @@ export default function CardItemWithModal(props) {
                     )}
                   </Typography>
                 </AccordionDetails>
+                <Button
+                  type="Submit"
+                  name="SubmitCv"
+                  onClick={() => {
+                    alert("Applicatioo Submited");
+                  }}
+                >
+                  Submit
+                </Button>
               </Accordion>
             </div>
           ) : (
