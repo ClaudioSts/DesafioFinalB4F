@@ -35,7 +35,6 @@ export default function Home(props) {
   const [isCompany, setIsCompany] = useState(false);
   const [searchText, setSearchText] = useState("");
 
-
   // Company Modals
   const [openCompanyApplicationsModal, setOpenCompanyApplicationsModal] =
     React.useState(false);
@@ -111,7 +110,6 @@ export default function Home(props) {
     });
 
   return (
-
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
@@ -414,7 +412,6 @@ export default function Home(props) {
         contentLabel={"Post Job"}
         style={modalStyle}
       >
-
         <Box
           m={1}
           //margin
