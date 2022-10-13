@@ -1,9 +1,7 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import CustomLinkWithModal from './modal/customLinkWithModal';
-import SignUpCompanies from './signUpCompanies';
-
-
+import CustomLinkWithModal from "./modal/customLinkWithModal";
+import SignUpCompanies from "./signUpCompanies";
 
 export default function LoginCompany() {
   const [data, setData] = useState({
@@ -33,11 +31,11 @@ export default function LoginCompany() {
     });
 
     if (answer.status === 200) {
-      const json = await answer.json()
-      localStorage.setItem('token', json.token)
-      localStorage.setItem('username', json.username)
-      localStorage.setItem('isCompany', true)
-      window.location = "/"
+      const json = await answer.json();
+      localStorage.setItem("token", json.token);
+      localStorage.setItem("username", json.username);
+      localStorage.setItem("isCompany", true);
+      window.location = "/";
     } else {
       alert("Invalid credentials!");
     }
@@ -89,11 +87,15 @@ export default function LoginCompany() {
           <br />
           <br />
           <span>
-            <CustomLinkWithModal linkTitle="Forgot your password?" modalTitle="Forgot Password">
-
-            </CustomLinkWithModal>
+            <CustomLinkWithModal
+              linkTitle="Forgot your password?"
+              modalTitle="Forgot Password"
+            ></CustomLinkWithModal>
             <br />
-            <CustomLinkWithModal linkTitle="Not an user?" modalTitle="Sign Up Company">
+            <CustomLinkWithModal
+              linkTitle="Not an user?"
+              modalTitle="SignUp Company"
+            >
               <SignUpCompanies></SignUpCompanies>
             </CustomLinkWithModal>
           </span>

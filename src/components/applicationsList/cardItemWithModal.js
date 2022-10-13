@@ -14,6 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { InputSubmitType } from "../submitFile";
+import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
   const modalStyle = {
@@ -103,6 +104,7 @@ export default function CardItemWithModal(props) {
           </Typography>
         </CardContent>
       </Card>
+
       <Modal
         isOpen={open}
         onRequestClose={handleClose}

@@ -11,14 +11,13 @@ export default function CustomDivWithModal(props) {
   // React Component: http://reactcommunity.org/react-modal/
   const modalStyle = {
     overlay: {
-      // position: 'absolute',
-      // top: '95px',
-      // bottom: '70px',
-      // left: '50%',
-      // marginLeft: '35px',
-      // marginRight: 'auto',
-      // transform: 'translate(-50%, -0%)',
+      width: "70rem",
+      height: "55rem",
+      marginLeft: "25%",
+      marginTop: "5%",
+      marginBottom: "5%",
       backgroundColor: "rgba(0, 0, 0, 0.75)",
+
       // border: 'none',
     },
     content: {
@@ -44,14 +43,13 @@ export default function CustomDivWithModal(props) {
   }
 
   return (
-    <div>
+    <div style={modalStyle}>
       <h1>Custom Div With Modal</h1> {/* TODO: remove */}
       <div onClick={openModal}>{divText ?? "Set Div Text"}</div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel={modalTitle ?? "Set Modal Title"}
-        style={modalStyle}
       >
         <button onClick={closeModal}>close</button>
         <h1>{modalTitle ?? "Set Modal Title"}</h1>

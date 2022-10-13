@@ -30,7 +30,7 @@ export function InputSubmitType({ onSelect }) {
 
   return (
     <div>
-      <input type={"file"} onChange={(e) => onFileSelect(e)} />
+      <input type={"file"} onChange={(e) => onFileSelect(e)} required />
       <br />
       <Button
         type="Submit"

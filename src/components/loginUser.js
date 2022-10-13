@@ -93,7 +93,7 @@ export default function LoginUser() {
             <br />
             <CustomLinkWithModal
               linkTitle="Not an user?"
-              modalTitle="Sign Up User"
+              modalTitle="SignUp User"
             >
               <SignUpUser></SignUpUser>
             </CustomLinkWithModal>
