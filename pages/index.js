@@ -85,10 +85,10 @@ export default function Home(props) {
   const modalStyle = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      width: "800px",
-      height: "80%",
+      width: "70rem",
+      height: "55rem",
       marginLeft: "25%",
-      marginTop: "10%",
+      marginTop: "5%",
       marginBottom: "5%",
     },
     content: {

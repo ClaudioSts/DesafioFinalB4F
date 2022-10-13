@@ -27,9 +27,10 @@ export default function JobPostForm() {
 
     const answer = await fetch(post, {
       method: "POST",
-      headers: { "Content-Type": "application/json" ,
-      "Authorization": localStorage.getItem("token")
-    },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
       body: JSON.stringify({
         title: data.title,
         description: data.description,
@@ -40,12 +41,12 @@ export default function JobPostForm() {
     if (answer.status === 404) {
       alert("Internal error!");
     } else {
-      alert("Job Posted!")
+      alert("Job Posted!");
       window.location = "/";
     }
   };
   return (
-    <div style={{marginLeft: "-30%"}}>
+    <div style={{ marginLeft: "-30%" }}>
       <div>
         <h1 style={{ color: "#1976d2" }}>Post Job Form</h1>
       </div>
@@ -91,25 +92,23 @@ export default function JobPostForm() {
           <br />
           <br />
           <Grid
-                container
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                style={{marginLeft: "10%"}}
-              >
-                <Button
-                  type="submit"
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                  sx={{ borderRadius: 28 }}
-                  style={{minWidth: "200px"}}
-                  
-                >
-                  Post
-                </Button>
-              </Grid>
-          
+            container
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{ marginLeft: "10%" }}
+          >
+            <Button
+              type="submit"
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{ borderRadius: 28 }}
+              style={{ minWidth: "200px" }}
+            >
+              Post
+            </Button>
+          </Grid>
         </form>
       </div>
     </div>
