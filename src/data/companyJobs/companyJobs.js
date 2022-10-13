@@ -10,9 +10,9 @@ async function getAllJobs() {
     return await collection.find().toArray()
 }
 
-async function getAllJobsByID(companyId) {
+async function getAllJobsByID(companyID) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    return await collection.find(companyId).toArray()
+    return await collection.find({companyID}).toArray()
 }
 
 async function getJobById(id) {

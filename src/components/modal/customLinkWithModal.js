@@ -23,6 +23,11 @@ export default function CustomLinkWithModal(props) {
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
+      width: "70%",
+      height: "70%",
+      marginLeft: "15%",
+      marginTop: "10%",
+      marginBottom: "5%",
     },
     content: {
       // position: 'absolute',
@@ -36,11 +41,6 @@ export default function CustomLinkWithModal(props) {
       // padding: '10px',
       // border: 'none',
       // maxWidth: "800px"
-      width: "70%",
-      height: "70%",
-      marginLeft: "15%",
-      marginTop: "10%",
-      marginBottom: "5%",
     },
   };
 

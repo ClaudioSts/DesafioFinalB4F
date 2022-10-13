@@ -111,6 +111,7 @@ export default function Home(props) {
     });
 
   return (
+
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
@@ -189,7 +190,7 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "background.paper",
+            bgcolor: "#fff",
             pt: 8,
             pb: 6,
           }}
@@ -335,6 +336,7 @@ export default function Home(props) {
         onRequestClose={handleCloseCompanyApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Company Applications"}
+        style={modalStyle}
       >
         <Box
           m={1}
@@ -410,6 +412,7 @@ export default function Home(props) {
         onRequestClose={handleCloseUserApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
+        style={modalStyle}
       >
 
         <Box
