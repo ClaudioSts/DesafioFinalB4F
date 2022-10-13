@@ -5,7 +5,7 @@
 //res: status(200) {header: string, description: string, CompanyID: ObjectID}
 
 import { getSessionByTokenC } from "../../../src/data/SignUpLogin/companySession";
-import { createJob, findAllJobs, findAllJobsByID } from "../../../src/services/jobs";
+import { createJob, deleteJobById, findAllJobs, findAllJobsByID } from "../../../src/services/jobs";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -22,5 +22,12 @@ export default async function handler(req, res) {
     res.status(201).json({ _id })
   } else {
     res.status(404);
+  }
+  if (req.method === "DELETE") {
+    const session = await getSessionByTokenC(req.headers["authorization"])
+    const _id = await deleteJobById(req.body._id)
+    res.status(200).json({ _id })
+  } else {
+    res.status(400);
   }
 }

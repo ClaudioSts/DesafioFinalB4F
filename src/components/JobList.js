@@ -7,12 +7,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import ShowButtons from './EditionButtons';
+import { ObjectID } from "bson";
 
 
 
 function JobList(props) {
   const [data, setData] = useState([
     {
+      _id: ObjectID(),
       title: "",
       description: "",
       location: "",
@@ -67,8 +69,11 @@ function JobList(props) {
           .then((res) => res.json())
           .then((result) => {
             setData(result);
+            console.error(data)
           })
           .catch((err) => console.log("error"));
+
+          
       };
       fetchData();
     }
@@ -90,9 +95,9 @@ function JobList(props) {
                   loggedUser={loggedUser}
                   isCompany={isCompany}
                 />
-                {props.isCompany &&
-                  <ShowButtons
-                  />
+                {props.isCompany ?
+                  <ShowButtons job={job} /> : 
+                  ""
                 }
               </div>
             </div>
