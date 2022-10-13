@@ -10,6 +10,7 @@ import { createJob, findAllJobs, findAllJobsByID } from "../../../src/services/j
 export default async function handler(req, res) {
   if (req.method === "GET") {
     const session = await getSessionByTokenC(req.headers["authorization"])
+    console.log('session', session)
     const jobs = await findAllJobsByID(session.companyId);
     res.status(200).json(jobs); //sucess list all jobs (get info from companyID in Mongo)
   } else {

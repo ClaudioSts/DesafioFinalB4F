@@ -110,6 +110,7 @@ export default function Home(props) {
     });
 
   return (
+
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
