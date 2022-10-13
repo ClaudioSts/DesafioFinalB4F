@@ -1,5 +1,10 @@
-import { getAllJobs, getJobById, insertJob, removeJobById, updateJobById } from "../data/companyJobs/companyJobs"
+import { getAllJobs, getAllJobsByID, getJobById, insertJob, removeJobById, updateJobById } from "../data/companyJobs/companyJobs"
 
+
+async function findAllJobsByID(companyId) {
+    const jobOffer = await getAllJobsByID(companyId)
+    return jobOffer
+}
 
 async function findAllJobs() {
     const jobOffer = await getAllJobs()
@@ -11,8 +16,8 @@ async function findJobById (id) {
     return jobOffer
 }
 
-async function createJob(newJobOffer) {
-    const createdJobOffer = await insertJob(newJobOffer, companyId)
+async function createJob(jobOffer, companyId) {
+    const createdJobOffer = await insertJob(jobOffer, companyId)
     return createdJobOffer
 }
 
@@ -31,5 +36,6 @@ export {
     findJobById,
     createJob,
     changeJobById,
-    deleteJobById
+    deleteJobById,
+    findAllJobsByID
 }

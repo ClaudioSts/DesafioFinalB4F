@@ -1,7 +1,8 @@
 import LoginCompany from "../src/components/loginCompany";
 import LoginUser from "../src/components/loginUser";
 import CustomButtonWithModal from "../src/components/modal/customButtonWithModal";
-import { inputSubmitType } from "../src/components/submitFile";
+import CompanyApplications from "../src/components/companyApplications"
+import { InputSubmitType } from "../src/components/submitFile";
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
@@ -22,6 +23,7 @@ import JobList from "../src/components/JobList";
 import Link from "@mui/material/Link";
 import Modal from "react-modal";
 import AppForm from "../src/components/JobPostForm";
+
 
 const theme = createTheme();
 
@@ -81,6 +83,25 @@ export default function Home(props) {
     }
   }, []);
 
+  const modalStyle = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      width: "800px",
+      height: "80%",
+      marginLeft: "25%",
+      marginTop: "10%",
+      marginBottom: "5%",
+    },content: {
+      // position: 'absolute',
+      // top: '0px',
+      // left: '0px',
+      // right: '100px',
+      // bottom: '0px',
+      background: "#ffffff",
+      
+    },
+  };
+
   const inputFetch = (formData) =>
     fetch("/api/users/applications", {
       method: "POST",
@@ -97,7 +118,7 @@ export default function Home(props) {
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
           <Box sx={{ flexGrow: 1 }}></Box>
-          <inputSubmitType onSelect={(formData) => inputFetch(formData)} />
+          {/* <InputSubmitType onSelect={(formData) => inputFetch(formData)} /> */}
           {loggedUser ? (
             <div>
               Welcome, {loggedUser}! &nbsp;
@@ -111,7 +132,7 @@ export default function Home(props) {
               </Link>
             </div>
           ) : (
-            <CustomButtonWithModal buttonTitle="Login" modalTitle="">
+            <CustomButtonWithModal buttonTitle="Login" modalTitle="" >
               <Grid
                 container
                 spacing={2}
@@ -121,7 +142,10 @@ export default function Home(props) {
               >
                 <Grid
                   item
-                  xs={6}
+                  xs={1}></Grid>
+                <Grid
+                  item
+                  xs={4}
                   onMouseOver={(e) => {
                     setLoginUserDisabled(false);
                     setLoginCompanyDisabled(true);
@@ -140,7 +164,7 @@ export default function Home(props) {
                 </Grid>
                 <Grid
                   item
-                  xs={2}
+                  xs={4}
                   onMouseOver={(e) => {
                     setLoginUserDisabled(true);
                     setLoginCompanyDisabled(false);
@@ -183,7 +207,7 @@ export default function Home(props) {
               {loggedUser ? (
                 isCompany ? (
                   <Toolbar>
-                    <div style={{ marginTop: "-10%", marginBottom: "5%" }}>
+                    <div style={{ marginTop: "-10%", marginBottom: "5%", marginLeft: "10%" }}>
                       <ButtonGroup
                         variant="contained"
                         aria-label="outlined primary button group"
@@ -257,8 +281,9 @@ export default function Home(props) {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                style={{marginLeft: "-5%"}}
               >
-                <JobList loggedUser={loggedUser} filter={searchText} />
+                <JobList loggedUser={loggedUser} filter={searchText} isCompany={isCompany} />
               </Grid>
             </Typography>
 
@@ -320,15 +345,27 @@ export default function Home(props) {
         </Box>
         <hr />
         <h1>{"Company Applications"}</h1>
-        <div>{}</div>
+        <div>
+        <Grid
+            container
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{marginLeft: "-5%"}}
+          >
+          <CompanyApplications />
+        </Grid>
+        
+        </div>
       </Modal>
-
+      
       {/* Company Post Job */}
       <Modal
         isOpen={openCompanyPostJobModal}
         onRequestClose={handleCloseCompanyPostJobModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
+        style={modalStyle}
       >
         <Box
           m={1}

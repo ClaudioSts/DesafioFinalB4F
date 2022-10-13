@@ -29,6 +29,7 @@ export default async function handler(req, res) {
   } else {
     res.status(404);
   }
+
   if (req.method === "POST") {
     const upload = multer({ dest: "uploads/" });
 
@@ -41,9 +42,10 @@ export default async function handler(req, res) {
     const filename = req.file.filename;
     const cv = req.file.originalname;
 
-    console.log(cv);
+    const session = await getSessionByToken(req.headers["authorization"]);
 
-    await createApplication({ filename, cv });
+    console.log(session);
+    await createApplication({ filename, cv }, session);
     res.status(201);
   } else {
     res.status(404);

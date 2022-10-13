@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function InputSubmitType({ onSelect }) {
+export function InputSubmitType({ onSelect }) {
   const onFileSelect = async (e) => {
     //Tal como o valor de um input fica guardado em e.target.value
     //Os ficheiros ficam em e.target.files
@@ -20,7 +20,6 @@ export default function InputSubmitType({ onSelect }) {
     );
     onSelect(formData);
 
-    onSelect(formData);
     //Também é possivel adicionar o resto de um formulário ao formData,
     // basta adicionar outro par chave/valor.
   };

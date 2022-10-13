@@ -27,37 +27,37 @@ function checkRequiredValueMissing(value) {
 
 async function getEmailErrors(email) {
     if (checkRequiredValueMissing(email)) {
-        return "Por favor introduza o seu endereço de email."
+        return "Please enter a valid email address."
     }
     if (!validateEmail(email)) {
-        return "Por favor introduza um endereço de email válido."
+        return "please enter a valid email address."
     }
     if ((await checkIfUserEmailExists(email)).length > 0) {
-        return "O endereço introduzido já está registado."
+        return "The email address is already in use by another account."
     }
     if ((await checkIfCompanyEmailExists(email)).length > 0) {
-        return "O endereço introduzido já está registado."
+        return "The email address is already in use by another account"
     }
 }
 
 function getPasswordErrors(password) {
     if (checkRequiredValueMissing(password)) {
-        return "Por favor introduza a sua password."
+        return "Please enter a valid password."
     }
     if (password.length < 8) {
-        return "A sua password deve ter no mínimo 8 caracteres."
+        return "Password must be at least 8 characters long."
     }
-    if (checkPasswordStrength(password) < 4) {
-        return "A sua password deve ter pelo menos um número, uma mínuscula, uma maiúscula e um símbolo."
-    }
+    //if (checkPasswordStrength(password) < 4) {
+      //  return "A sua password deve ter pelo menos um número, uma mínuscula, uma maiúscula e um símbolo."
+    //}
 }
 
 function getPasswordConfirmationErrors(passwordConfirmation, password) {
     if (checkRequiredValueMissing(passwordConfirmation)) {
-        return "Por favor introduza novamente a sua password."
+        return "Please confirm your password."
     }
     if (password !== passwordConfirmation) {
-        return "As passwords não coincidem."
+        return "The passwords specified must be identical."
     }
 }
 

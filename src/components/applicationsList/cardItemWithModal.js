@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import InputSubmitType from "../submitFile";
+import { InputSubmitType } from "../submitFile";
 
 export default function CardItemWithModal(props) {
   const modalStyle = {
@@ -44,22 +44,36 @@ export default function CardItemWithModal(props) {
   };
 
   const [open, setOpen] = React.useState(false);
-  const { loggedUser } = props;
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { title, location, description } = props;
+  const { title, location, description, loggedUser, isCompany } = props;
 
-  const inputFetch = (formData) =>
-    fetch("/api/users/application", {
+  const inputFetch = async (formData) =>
+    await fetch("/api/users/application", {
       method: "POST",
       body: formData,
-      header: { "content-type": "multipart/form-data" },
+      header: {
+        "content-type": "multipart/form-data",
+        Authorization: localStorage.getItem("token"),
+      },
     });
+
+  console.log(inputFetch.status);
+
+  if (inputFetch.status === 400) {
+    alert("There was an error processing your application. Please try again.");
+    // alert("Invalid data. Please verify parameters.");
+  }
+
+  if (inputFetch.status === 201) {
+    alert("Application created successfully!");
+    window.location = "/";
+  }
 
   return (
     <>
-      <Card sx={{ minWidth: 500 }} onClick={handleOpen}>
+      <Card sx={{ minWidth: 800 }} onClick={handleOpen}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {location}
@@ -68,7 +82,8 @@ export default function CardItemWithModal(props) {
             {title}
           </Typography>
           <Typography variant="body2">
-            {description.substring(0, 50)}...
+            {description.substring(0, 50)}{" "}
+            {description.length > 50 ? "..." : ""}
           </Typography>
         </CardContent>
       </Card>
@@ -76,6 +91,7 @@ export default function CardItemWithModal(props) {
         isOpen={open}
         onRequestClose={handleClose}
         contentLabel={title}
+        ariaHideApp={false}
         style={modalStyle}
       >
         <Box
@@ -87,7 +103,7 @@ export default function CardItemWithModal(props) {
         >
           <Button
             variant="outlined"
-            color="inherit"
+            color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleClose}
           >
@@ -103,30 +119,34 @@ export default function CardItemWithModal(props) {
         <Grid container display="flex" justifyContent="left" alignItems="left">
           {/* <Button variant='outlined' color='primary' sx={ { borderRadius: 28 } } >Apply</Button> */}
 
-          <div>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>Apply</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  {loggedUser ? (
-                    <InputSubmitType
-                      onSelect={(formData) => inputFetch(formData)}
-                  ): (
-                    <Alert severity="warning">
-                      Operation allowed only for logged users!
-                    </Alert>
-                  )}
-                  
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </div>
+          {!isCompany ? (
+            <div>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>Apply</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    {loggedUser ? (
+                      <InputSubmitType
+                        onSelect={(formData) => inputFetch(formData)}
+                      />
+                    ) : (
+                      <Alert severity="warning">
+                        Operation allowed only for logged users!
+                      </Alert>
+                    )}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+          ) : (
+            ""
+          )}
         </Grid>
       </Modal>
     </>

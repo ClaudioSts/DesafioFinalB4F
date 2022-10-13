@@ -9,7 +9,7 @@ function JobList(props) {
     title: "", description: "", location: ""
   }])
 
-  const {loggedUser, filter} = props
+  const {loggedUser, filter, isCompany} = props
 
   const list = "api/users"
 
@@ -25,10 +25,11 @@ function JobList(props) {
 }
 
   const fetchData = () => {
+    console.log("filter", filter)
     fetch(list)
       .then((res) => res.json())
       .then((result) => {
-        setData(result.filter(filterPredicate))
+        setData(result)
       })
       .catch((err) => console.log("error"));
   };
@@ -42,14 +43,15 @@ function JobList(props) {
   return (
     <div className={styles.listContainer}>
       <ul className={styles.jobsList}>
-        {data.map((job, index) => (
+        {data.filter(filterPredicate).map((job, index) => (
           <div key={index} style={{marginBottom: "1%"}}>
               <CardItemWithModal style={{marginBottom: "1%"}}
                   key={index}
                   title={job.title}
                   description={job.description}
                   location={job.location}
-                  loggedUser={loggedUser} />
+                  loggedUser={loggedUser}
+                  isCompany={isCompany} />
           </div>
         ))}
       </ul>
