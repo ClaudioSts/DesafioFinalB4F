@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import ButtonGroup from '@mui/material/ButtonGroup';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function ShowButtons() {
 

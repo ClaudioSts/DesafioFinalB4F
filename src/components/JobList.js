@@ -5,8 +5,10 @@ import CardItemWithModal from "./applicationsList/cardItemWithModal";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import EditIcon from "@mui/icons-material/Edit";
+import ButtonGroup from '@mui/material/ButtonGroup';
+import ShowButtons from './EditionButtons';
+
+
 
 function JobList(props) {
   const [data, setData] = useState([
