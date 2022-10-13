@@ -187,7 +187,7 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "background.paper",
+            bgcolor: "#fff",
             pt: 8,
             pb: 6,
           }}

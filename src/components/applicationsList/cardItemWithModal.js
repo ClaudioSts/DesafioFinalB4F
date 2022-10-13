@@ -83,21 +83,32 @@ export default function CardItemWithModal(props) {
           minHeight: 150,
           minWidth: 800,
           backgroundColor: "#fff",
-          border: "1px solid #3E6ADD",
+          borderTop: "3px solid #3E6ADD",
           borderRadius: "10px",
           boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
+          cursor: "pointer",
         }}
         onClick={handleOpen}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Typography
+            sx={{ fontSize: 14 }}
+            align="right"
+            color="text.secondary"
+            gutterBottom
+          >
             {location}
           </Typography>
-          <Typography variant="h6" component="div">
+          <Typography
+            sx={{ fontWeight: "bold", margin: "1rem" }}
+            align="left"
+            variant="h5"
+            component="div"
+          >
             {title}
           </Typography>
-          <Typography variant="body2">
+          <Typography align="bottom" variant="body2">
             {description.substring(0, 200)}{" "}
             {description.length > 50 ? "..." : ""}
           </Typography>
@@ -126,13 +137,20 @@ export default function CardItemWithModal(props) {
             Close
           </Button>
         </Box>
-        <hr />
-        <h1>{location}</h1>
-        <h2>{title}</h2>
-        <div>{description}</div>
-        <br />
+        <div className="job-card">
+          <hr />
+          <h5>{location}</h5>
+          <h1>{title}</h1>
+          <div>{description}</div>
+          <br />
+        </div>
 
-        <Grid container display="flex" justifyContent="left" alignItems="left">
+        <Grid
+          container
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
           {/* <Button variant='outlined' color='primary' sx={ { borderRadius: 28 } } >Apply</Button> */}
 
           {!isCompany ? (
@@ -162,7 +180,7 @@ export default function CardItemWithModal(props) {
                   type="Submit"
                   name="SubmitCv"
                   onClick={() => {
-                    alert("Applicatioo Submited");
+                    alert("Application Submited");
                   }}
                 >
                   Submit
