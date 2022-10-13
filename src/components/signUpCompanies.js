@@ -1,31 +1,30 @@
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 //import signUpCompanies from "../styles/signUpCompanies.css";
 
 export default function SignUpCompanies() {
-
   const [data, setData] = React.useState({
     username: "",
     email: "",
     NIF: "",
     password: "",
-    passwordConfirmation: ""
-  })
+    passwordConfirmation: "",
+  });
 
-  const { username, email, NIF, password, passwordConfirmation } = data
+  const { username, email, NIF, password, passwordConfirmation } = data;
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-  }
+  };
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     console.log(data);
 
-    const login = "/api/signup/company"
+    const login = "/api/signup/company";
 
     const answer = await fetch(login, {
       method: "POST",
@@ -35,12 +34,12 @@ export default function SignUpCompanies() {
         email: data.email,
         NIF: data.NIF,
         password: data.password,
-        passwordConfirmation: data.passwordConfirmation
-      })
+        passwordConfirmation: data.passwordConfirmation,
+      }),
     });
 
     if (answer.status === 400) {
-      const json = await answer.json()
+      const json = await answer.json();
       let errorMessage = json.message + "\n";
       let errors = json.errors;
       for (const [key, value] of Object.entries(errors)) {
@@ -54,13 +53,11 @@ export default function SignUpCompanies() {
       alert("Company account created successfully!");
       window.location = "/";
     }
-
-  }
+  };
 
   return (
     <div>
       <div>
-        
         <form onSubmit={submitHandler}>
           <div>
             Name:
@@ -75,7 +72,7 @@ export default function SignUpCompanies() {
             />
             <br />
           </div>
-          <div >
+          <div>
             Email:
             <br />
             <input
@@ -83,20 +80,22 @@ export default function SignUpCompanies() {
               placeholder="email"
               required
               value={email}
-              onChange={changeHandler} />
+              onChange={changeHandler}
+            />
             <br />
           </div>
-          <div >
+          <div>
             NIF:
             <br />
             <input
               name="NIF"
-              type="text" 
+              type="text"
               maxLength="9"
               placeholder="NIF"
               required
               value={NIF}
-              onChange={changeHandler} />
+              onChange={changeHandler}
+            />
             <br />
           </div>
           <div>
@@ -126,9 +125,16 @@ export default function SignUpCompanies() {
             <br />
           </div>
           <div>
-          <Button type="submit" variant='outlined' color='primary' size="small" sx={{ borderRadius: 28 }} >Create Account</Button>
+            <Button
+              type="submit"
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{ borderRadius: 28 }}
+            >
+              Create Account
+            </Button>
           </div>
-      
         </form>
       </div>
     </div>

@@ -335,6 +335,7 @@ export default function Home(props) {
         onRequestClose={handleCloseCompanyApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Company Applications"}
+        style={modalStyle}
       >
         <Box
           m={1}
@@ -410,6 +411,7 @@ export default function Home(props) {
         onRequestClose={handleCloseUserApplicationsModal}
         ariaHideApp={false}
         contentLabel={"Post Job"}
+        style={modalStyle}
       >
         <Box
           m={1}
