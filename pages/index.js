@@ -100,14 +100,7 @@ export default function Home(props) {
       marginBottom: "5%",
     },
   };
-
-  const inputFetch = (formData) =>
-    fetch("/api/users/applications", {
-      method: "POST",
-      body: formData,
-      header: { "content-type": "multipart/form-data" },
-    });
-
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
