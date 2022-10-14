@@ -53,7 +53,7 @@ export default function SignUpUser() {
   };
 
   return (
-    <div style={modalStyle}>
+    <div>
       <div>
         <div>
           <form onSubmit={submitHandler}>

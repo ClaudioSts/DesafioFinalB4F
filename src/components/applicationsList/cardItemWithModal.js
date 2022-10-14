@@ -53,7 +53,7 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { companyID, title, location, description, loggedUser, isCompany } = props;
+  const { _id, title, location, description, loggedUser, isCompany } = props;
 
   return (
     <>
@@ -149,7 +149,8 @@ export default function CardItemWithModal(props) {
                 <AccordionDetails>
                   <Typography>
                     {loggedUser ? (
-                      <InputSubmitType companyID={companyID} />
+                      <InputSubmitType
+                        jobId={_id} />
                     ) : (
                       <Alert severity="warning">
                         Operation allowed only for logged users!

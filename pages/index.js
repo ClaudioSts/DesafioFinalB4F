@@ -437,7 +437,9 @@ export default function Home(props) {
           alignItems="center"
           style={{ marginLeft: "-1%" }}
         >
-          <UserApplicationList></UserApplicationList>
+          <UserApplicationList
+            loggedUser={loggedUser}
+            isCompany={isCompany} />
         </Grid>
       </Modal>
     </ThemeProvider>
