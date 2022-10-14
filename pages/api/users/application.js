@@ -20,9 +20,9 @@ export default async function handler(req, res) {
     const jobs = []
     const jobApp = await applications.forEach(async application => {
       const job = await findJobById(application.jobID)
-      console.log('job', job)
       jobs.push(job)  
-    }).then(console.log("jobs", jobs))
+    })
+    console.log(jobs)
     
     //const jobs = await findAllJobsByJobID(applications.jobID)
     //const job = await findJobById(applications.jobID)
