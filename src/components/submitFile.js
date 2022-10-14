@@ -20,12 +20,12 @@ export default function InputSubmitType(props) {
 
     const formData = new FormData();
     formData.append("ficheiro-do-frontend", file);
-    formData.append("jobId", jobId);
+   
 
     console.log('jobId', jobId)
 
     const inputFetch =
-      await fetch('/api/users/application/' + jobId, {
+      await fetch('/api/users/applications/' + jobId, {
         method: "POST",
         body: formData,
         headers: {

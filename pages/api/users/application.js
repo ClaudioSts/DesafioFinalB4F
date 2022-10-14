@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
 
-
+/* 
   if (req.method === "POST") {
 
     const upload = multer({ dest: "uploads/" });
@@ -46,5 +46,5 @@ export default async function handler(req, res) {
     res.status(201);
   } else {
     res.status(404);
-  }
+  } */
 }

@@ -1,6 +1,7 @@
 import { getSessionByToken } from "../../../../src/data/SignUpLogin/userSessions";
 import { changeApplicationById, createApplication, deleteApplicationById, findApplicationById } from "../../../../src/services/applications";
 import { findJobById } from "../../../../src/services/jobs";
+import multer from "multer";
 
 export const config = {
   api: {
@@ -57,9 +58,9 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
+    console.log(req.query)
+    const jobId = await findJobById(req.query.id);
 
-    const jobOffer = await findJobById(req.params.id);
-    console.log(req.body.companyJobID)
 
     const upload = multer({ dest: "uploads/" });
     const answer = await correMiddleware(
@@ -67,22 +68,19 @@ export default async function handler(req, res) {
       res,
       upload.single("ficheiro-do-frontend")
     );
-
-
-
+    const jobID = jobId._id
     const filename = req.file.filename;
     const cv = req.file.originalname;
 
-    console.log('jobofferid', jobOffer)
     const session = await getSessionByToken(req.headers["authorization"]);
 
     if (!session) res.status(403)
 
-    const jobId = req.body.jobId
+    //const jobId = req.body.jobId
     console.log('filename', filename)
     console.log('cv', cv)
 
-    await createApplication({ filename, cv, jobId }, session.userId);
+    await createApplication({ filename, cv, jobID }, session.userId);
     res.status(201);
   } else {
     res.status(404);
