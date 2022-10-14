@@ -116,6 +116,7 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
+          <h1 className="jobName">Job Junior Search</h1>
           <Box sx={{ flexGrow: 1 }}></Box>
           {/* <InputSubmitType onSelect={(formData) => inputFetch(formData)} /> */}
           {loggedUser ? (
@@ -437,9 +438,7 @@ export default function Home(props) {
           alignItems="center"
           style={{ marginLeft: "-1%" }}
         >
-          <UserApplicationList
-            loggedUser={loggedUser}
-            isCompany={isCompany} />
+          <UserApplicationList></UserApplicationList>
         </Grid>
       </Modal>
     </ThemeProvider>

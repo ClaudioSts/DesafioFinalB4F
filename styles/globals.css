@@ -22,10 +22,8 @@ body {
   margin: 0vh;
 }
 
-.logo {
-  justify-content: flex;
-  margin-left: 5vh;
-  height: 19vh;
+.jobName {
+  font-size: 500%;
 }
 
 .log {
