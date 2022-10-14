@@ -11,10 +11,10 @@ export default function CustomDivWithModal(props) {
   // React Component: http://reactcommunity.org/react-modal/
   const modalStyle = {
     overlay: {
-      width: "70rem",
-      height: "55rem",
-      marginLeft: "25%",
-      marginTop: "5%",
+      width: "60rem",
+      height: "50rem",
+      marginLeft: "31%",
+      marginTop: "10%",
       marginBottom: "5%",
       backgroundColor: "rgba(0, 0, 0, 0.75)",
 
