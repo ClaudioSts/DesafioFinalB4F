@@ -22,10 +22,9 @@ export default function CustomButtonWithModal(props) {
       // border: 'none',
       width: "60rem",
       height: "50rem",
-      marginLeft: "31%",
+      marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
-      fontSize: "120%",
     },
     content: {
       // position: 'absolute',

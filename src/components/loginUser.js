@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import { height } from "@mui/system";
 import { useState } from "react";
 import CustomLinkWithModal from "./modal/customLinkWithModal";
+import ResetPassword from "./reset password";
 import SignUpUser from "./signupUser";
 
 export default function LoginUser() {
@@ -101,8 +102,10 @@ export default function LoginUser() {
           <span display="flex" justifyContent="center" alignItems="center">
             <CustomLinkWithModal
               linkTitle="Forgot your password?"
-              modalTitle="Forgot Password"
-            ></CustomLinkWithModal>
+              modalTitle=""
+            >
+              <ResetPassword />
+            </CustomLinkWithModal>
             <br />
             <div className="linkSignup">
               <CustomLinkWithModal linkTitle="Not an user?" modalTitle="">

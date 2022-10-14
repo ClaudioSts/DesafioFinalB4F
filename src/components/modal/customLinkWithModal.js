@@ -37,8 +37,8 @@ export default function CustomLinkWithModal(props) {
       // border: 'none',
       // maxWidth: "800px"
       width: "60rem",
-      height: "50rem",
-      marginLeft: "31%",
+      height: "45rem",
+      marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
     },

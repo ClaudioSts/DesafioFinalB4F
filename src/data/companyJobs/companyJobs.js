@@ -12,7 +12,12 @@ async function getAllJobs() {
 
 async function getAllJobsByID(companyID) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    return await collection.find({companyID}).toArray()
+    return await collection.find({ companyID }).toArray()
+}
+
+async function getAllJobsByJobID(jobID) {
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
+    return await collection.find({ _id: jobID }).toArray()
 }
 
 async function getJobById(id) {
@@ -22,7 +27,7 @@ async function getJobById(id) {
 
 async function insertJob(jobOffer, companyID) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
-    await collection.insertOne({...jobOffer, companyID})
+    await collection.insertOne({ ...jobOffer, companyID })
 }
 
 async function updateJobById(jobOffer, id) {
@@ -44,6 +49,7 @@ export {
     insertJob,
     updateJobById,
     removeJobById,
-    getAllJobsByID
+    getAllJobsByID,
+    getAllJobsByJobID
 }
 

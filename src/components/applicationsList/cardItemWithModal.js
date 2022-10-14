@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { InputSubmitType } from "../submitFile";
+import InputSubmitType from "../submitFile";
 import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
@@ -30,7 +30,7 @@ export default function CardItemWithModal(props) {
       // border: 'none',
       width: "60rem",
       height: "50rem",
-      marginLeft: "29%",
+      marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
     },
@@ -53,8 +53,7 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { companyID, title, location, description, loggedUser, isCompany } =
-    props;
+  const { _id, title, location, description, loggedUser, isCompany } = props;
 
   return (
     <>
@@ -180,7 +179,7 @@ export default function CardItemWithModal(props) {
                 <AccordionDetails>
                   <Typography>
                     {loggedUser ? (
-                      <InputSubmitType companyID={companyID} />
+                      <InputSubmitType jobId={_id} />
                     ) : (
                       <Alert severity="warning">
                         Operation allowed only for logged users!

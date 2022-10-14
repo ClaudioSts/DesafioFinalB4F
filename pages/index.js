@@ -95,16 +95,15 @@ export default function Home(props) {
       // bottom: '0px',
       width: "60rem",
       height: "50rem",
+<<<<<<< HEAD
+=======
+      marginLeft: "25%",
+      marginTop: "10%",
+      marginBottom: "5%",
+>>>>>>> 41fae08404bcb024270acc292de24ea453bb9d22
     },
   };
-
-  const inputFetch = (formData) =>
-    fetch("/api/users/applications", {
-      method: "POST",
-      body: formData,
-      header: { "content-type": "multipart/form-data" },
-    });
-
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -113,6 +112,7 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
+          <h1 className="jobName">Job Junior Search</h1>
           <Box sx={{ flexGrow: 1 }}></Box>
           {/* <InputSubmitType onSelect={(formData) => inputFetch(formData)} /> */}
           {loggedUser ? (

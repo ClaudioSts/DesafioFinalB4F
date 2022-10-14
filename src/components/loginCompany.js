@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import CustomLinkWithModal from "./modal/customLinkWithModal";
+import ResetPassword from "./reset password";
 import SignUpCompanies from "./signUpCompanies";
 
 export default function LoginCompany() {
@@ -17,7 +18,6 @@ export default function LoginCompany() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(data);
 
     const login = "/api/login/company";
 
@@ -100,8 +100,10 @@ export default function LoginCompany() {
           <span>
             <CustomLinkWithModal
               linkTitle="Forgot your password?"
-              modalTitle="Forgot Password"
-            ></CustomLinkWithModal>
+              modalTitle=""
+            >
+              <ResetPassword />
+            </CustomLinkWithModal>
             <br />
             <CustomLinkWithModal linkTitle="Not an user?" modalTitle="">
               <SignUpCompanies></SignUpCompanies>
