@@ -30,7 +30,7 @@ export default function CardItemWithModal(props) {
       // border: 'none',
       width: "60rem",
       height: "50rem",
-      marginLeft: "31%",
+      marginLeft: "29%",
       marginTop: "10%",
       marginBottom: "5%",
     },
@@ -60,13 +60,17 @@ export default function CardItemWithModal(props) {
     <>
       <Card
         sx={{
-          minHeight: 200,
-          minWidth: 900,
-          backgroundColor: "#f5f2f2",
+          minHeight: 250,
+          minWidth: 1000,
+          backgroundColor: "#f2f5f7",
           borderTop: "8px solid #2d85fa",
           borderRadius: "10px",
           marginTop: "1rem",
           cursor: "pointer",
+          "&:hover": {
+            transform: "scale(1.09)",
+            transition: "150ms ease-in-out",
+          },
         }}
         onClick={handleOpen}
       >
@@ -84,7 +88,7 @@ export default function CardItemWithModal(props) {
             </Typography>
             <Typography
               sx={{ fontWeight: "bold", margin: "1rem" }}
-              align="left"
+              align="center"
               variant="h5"
               component="div"
             >

@@ -95,9 +95,6 @@ export default function Home(props) {
       // bottom: '0px',
       width: "60rem",
       height: "50rem",
-      marginLeft: "31%",
-      marginTop: "10%",
-      marginBottom: "5%",
     },
   };
 
@@ -187,10 +184,9 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "#e6eef7",
+            backgroundColor: "#e6eef7",
             pt: 10,
             pb: 6,
-            height: "100vh",
           }}
         >
           <Container maxWidth="sm"></Container>
@@ -249,7 +245,6 @@ export default function Home(props) {
                           minWidth: "200px",
                           backgroundColor: "#004AAD",
                           color: "#fff",
-                          margin: "1rem",
                         }}
                         onClick={handleOpenUserApplicationsModal}
                       >
@@ -438,7 +433,6 @@ export default function Home(props) {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{ marginLeft: "-1%" }}
         >
           <UserApplicationList></UserApplicationList>
         </Grid>
