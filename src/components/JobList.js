@@ -7,12 +7,15 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import ShowButtons from './EditionButtons';
+import { ObjectID } from "bson";
 
 
 
 function JobList(props) {
   const [data, setData] = useState([
     {
+      _id: ObjectID(),
+      companyID: ObjectID(),
       title: "",
       description: "",
       location: "",
@@ -67,8 +70,11 @@ function JobList(props) {
           .then((res) => res.json())
           .then((result) => {
             setData(result);
+            console.error(data)
           })
           .catch((err) => console.log("error"));
+
+          
       };
       fetchData();
     }
@@ -80,21 +86,20 @@ function JobList(props) {
       <ul className={styles.jobsList}>
         <div>
           {data.filter(filterPredicate).map((job, index) => (
-            <div>
-              <div key={index} style={{ marginBottom: "1%" }}>
-                <CardItemWithModal style={{ marginBottom: "1%" }}
-                  key={index}
-                  title={job.title}
-                  description={job.description}
-                  location={job.location}
-                  loggedUser={loggedUser}
-                  isCompany={isCompany}
-                />
-                {props.isCompany &&
-                  <ShowButtons
-                  />
-                }
-              </div>
+            <div key={index} style={{ marginBottom: "1%" }}>
+              <CardItemWithModal style={{ marginBottom: "1%" }}
+                key={index}
+                _id={job._id}
+                title={job.title}
+                description={job.description}
+                location={job.location}
+                loggedUser={loggedUser}
+                isCompany={isCompany}
+              />
+              {props.isCompany ?
+                <ShowButtons job={job} /> : 
+                ""
+              }
             </div>
           ))}
         </div>

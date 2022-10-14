@@ -1,37 +1,59 @@
 import { Button } from "@material-ui/core";
+<<<<<<< HEAD
 import { useEffect } from "react";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
+=======
+import { useState } from "react";
+>>>>>>> 489569d0cb39f6c64790c6e23d49ef9ed5be35e3
 
-export function InputSubmitType({ onSelect }) {
-  const onFileSelect = async (e) => {
-    const formData = new FormData();
+export function InputSubmitType({ onSelect }, props) {
 
-    formData.append(
-      "ficheiro-do-frontend", //nome da chave/propriedade
-      e.target.files[0] //o valor, neste caso o ficheiro
-    );
-    onSelect(formData);
+  const [file, setFile] = useState(null);
 
-    //Também é possivel adicionar o resto de um formulário ao formData,
-    // basta adicionar outro par chave/valor.
+  
+  const { companyID } = props
+
+  const onFileSelect = async (e) => {    
+    setFile(e.target.files[0])
   };
 
-  // const onFileSubmit = async (e) => {
-  //   const formData = new FormData();
-  //   formData.append(
-  //     "ficheiro-do-frontend", //nome da chave/propriedade
-  //     e.target.files[0] //o valor, neste caso o ficheiro
-  //   );
+  const onFileSubmit = async (e) => {
 
-  //   // fetch("/api/users/applications", {
-  //   //   method: "POST",
-  //   //   body: formData,
-  //   // });
-  // };
+    if(file === null){
+      alert("Please select a file.");
+      return;
+    }
+    
+    const formData = new FormData();
+    formData.append("ficheiro-do-frontend", file);
+    formData.append("companyJobID", companyID);
+
+    console.log("token", localStorage.getItem("token"))
+    const inputFetch = 
+      await fetch("/api/users/application", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data;boundary=MyBoundary",
+          "Authorization": localStorage.getItem("token")
+        },
+      });
+
+    console.log(inputFetch.status);
+
+    if (inputFetch.status === 400) {
+      alert("There was an error processing your application. Please try again.");
+    }
+
+    if (inputFetch.status === 201) {
+      alert("Application created successfully!");
+      window.location = "/";
+    }
+  };
 
   return (
     <div>
-      <input type={"file"} onChange={(e) => onFileSelect(e)} required />
+      <input type={"file"} name="ficheiro-do-frontend" onChange={(e) => onFileSelect(e)} required />
       <br />
       <br />
       <FileUploadIcon
@@ -42,9 +64,7 @@ export function InputSubmitType({ onSelect }) {
         }}
         type="Submit"
         name="SubmitCv"
-        onClick={() => {
-          alert("Application Submited");
-        }}
+        onClick={onFileSubmit}
       >
         Submit
       </FileUploadIcon>
