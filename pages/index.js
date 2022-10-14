@@ -95,15 +95,12 @@ export default function Home(props) {
       // bottom: '0px',
       width: "60rem",
       height: "50rem",
-<<<<<<< HEAD
-=======
       marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
->>>>>>> 41fae08404bcb024270acc292de24ea453bb9d22
     },
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
