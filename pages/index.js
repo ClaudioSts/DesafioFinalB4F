@@ -188,9 +188,10 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "#fff",
-            pt: 8,
+            bgcolor: "#e6eef7",
+            pt: 10,
             pb: 6,
+            height: "100vh",
           }}
         >
           <Container maxWidth="sm"></Container>
@@ -207,6 +208,7 @@ export default function Home(props) {
                   <Toolbar>
                     <div
                       style={{
+                        border: "0px",
                         marginTop: "-10%",
                         marginBottom: "5%",
                         marginLeft: "10%",
@@ -234,8 +236,9 @@ export default function Home(props) {
                 ) : (
                   <div
                     style={{
-                      marginTop: "-38%",
-                      marginBottom: "20%",
+                      marginTop: "-15%",
+                      marginBottom: "5%",
+                      marginLeft: "10%",
                     }}
                   >
                     <ButtonGroup
@@ -245,11 +248,8 @@ export default function Home(props) {
                       <Button
                         style={{
                           minWidth: "200px",
-
                           backgroundColor: "#004AAD",
                           color: "#fff",
-
-                          margin: "1rem",
                         }}
                         onClick={handleOpenUserApplicationsModal}
                       >

@@ -53,48 +53,49 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { companyID, title, location, description, loggedUser, isCompany } = props;
+  const { companyID, title, location, description, loggedUser, isCompany } =
+    props;
 
   return (
     <>
       <Card
         sx={{
           minHeight: 200,
-          minWidth: 800,
-          backgroundColor: "#fff",
-          borderTop: "8px solid #3E6ADD",
+          minWidth: 900,
+          backgroundColor: "#f5f2f2",
+          borderTop: "8px solid #2d85fa",
           borderRadius: "10px",
-          boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
           cursor: "pointer",
         }}
         onClick={handleOpen}
       >
-        <CardContent>
-          <Typography
-            sx={{
-              fontSize: 14,
-              font: "Open Sans",
-            }}
-            align="right"
-            color="#000"
-            gutterBottom
-          >
-            {location}
-          </Typography>
-          <Typography
-            sx={{ font: "Open Sans", fontWeight: "bold", margin: "1rem" }}
-            align="left"
-            variant="h5"
-            component="div"
-          >
-            {title}
-          </Typography>
-          <Typography font="Open Sans" variant="body2">
-            {description.substring(0, 200)}{" "}
-            {description.length > 50 ? "..." : ""}
-          </Typography>
-        </CardContent>
+        <div className="jobcard">
+          <CardContent>
+            <Typography
+              sx={{
+                fontSize: 14,
+              }}
+              align="right"
+              color="#000"
+              gutterBottom
+            >
+              {location}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: "bold", margin: "1rem" }}
+              align="left"
+              variant="h5"
+              component="div"
+            >
+              {title}
+            </Typography>
+            <Typography variant="body2">
+              {description.substring(0, 200)}{" "}
+              {description.length > 50 ? "..." : ""}
+            </Typography>
+          </CardContent>
+        </div>
       </Card>
 
       <Modal
