@@ -11,9 +11,20 @@ async function getAllApplications(userId) {
     return await collection.find({ userID: userId }).toArray()
 }
 
+/* async function getAllAppl() {
+    // console.log(userId)
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
+    return await collection.find().toArray()
+} */
+
 async function getApplicationById(id) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
     return await collection.findOne({ _id: new ObjectId(id) })
+}
+
+async function getApplicationByJobId(jobID) {
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_NAME)
+    return await collection.findOne({ jobID: new ObjectId(jobID) })
 }
 
 async function insertApplication(application, userID) {
@@ -39,5 +50,6 @@ export {
     getApplicationById,
     insertApplication,
     updateApplicationById,
-    removeApplicationById
+    removeApplicationById,
+    getApplicationByJobId
 }

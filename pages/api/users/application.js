@@ -16,18 +16,18 @@ export default async function handler(req, res) {
     if (!session) res.status(403)
     const applications = await findAllApplications(ObjectId(session.userId));
     if (!applications) res.status(403)
-    
+
     const jobs = []
-    const jobApp = await applications.forEach(async application => {
+    for (const application of applications) {
       const job = await findJobById(application.jobID)
       console.log('job', job)
-      jobs.push(job)  
-    }).then(console.log("jobs", jobs))
-    
+      jobs.push(job)
+    }
+
+    console.log('jobs', jobs)
     //const jobs = await findAllJobsByJobID(applications.jobID)
     //const job = await findJobById(applications.jobID)
-      
-
+    
     res.status(200).json(jobs);
   } else {
     res.status(404);

@@ -1,14 +1,23 @@
 import { getAllJobsByID } from "../data/companyJobs/companyJobs"
-import { getAllApplications, getApplicationById, insertApplication, removeApplicationById, updateApplicationById } from "../data/userApplications/userApplications"
+import { getAllApplications, getApplicationById, getApplicationByJobId, insertApplication, removeApplicationById, updateApplicationById } from "../data/userApplications/userApplications"
 
 
 async function findAllApplications(userId) {
     const application = await getAllApplications(userId)
     return application
 }
+/* async function findAllAppl() {
+    const application = await getAllAppl()
+    return application
+} */
 
 async function findApplicationById (id) {
     const application = await getApplicationById(id)
+    return application
+}
+
+async function findApplicationByJobId(id) {
+    const application = await getApplicationByJobId(id)
     return application
 }
 
@@ -32,5 +41,6 @@ export {
     findApplicationById,
     createApplication,
     changeApplicationById,
-    deleteApplicationById
+    deleteApplicationById,
+    findApplicationByJobId
 }
