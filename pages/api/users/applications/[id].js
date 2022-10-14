@@ -79,9 +79,9 @@ export default async function handler(req, res) {
 
 
     await createApplication({ filename, cv, jobID }, session.userId);
-    res.status(201);
+    res.status(201).json();
   } else {
-    res.status(404);
+    res.status(404).json();
   }
 
 }

@@ -95,7 +95,7 @@ export default function Home(props) {
       // bottom: '0px',
       width: "60rem",
       height: "50rem",
-      marginLeft: "31%",
+      marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
     },

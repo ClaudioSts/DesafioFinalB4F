@@ -18,8 +18,7 @@ export default async function handler(req, res) {
     if (!applications) res.status(403)
     
     const jobs = []
-    applications.forEach(async application => {
-      
+    const jobApp = await applications.forEach(async application => {
       const job = await findJobById(application.jobID)
       console.log('job', job)
       jobs.push(job)  

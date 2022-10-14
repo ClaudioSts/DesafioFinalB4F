@@ -40,7 +40,7 @@ export default function CardsList(props) {
     <>
       {applications.filter(filterPredicate).map((el, index) => {
         return (
-          <div key={index} style={{ marginBottom: "1%" }}>
+          <div key={index} style={{ marginBottom: "1%" }} className="card">
             <CardItemWithModal
               style={{ marginBottom: "1%" }}
               key={index}

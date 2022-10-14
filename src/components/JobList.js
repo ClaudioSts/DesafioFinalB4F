@@ -92,7 +92,7 @@ function JobList(props) {
                 loggedUser={loggedUser}
                 isCompany={isCompany}
               />
-              {props.isCompany ? <ShowButtons /> : ""}
+              {props.isCompany ? <ShowButtons job={job} /> : ""}
             </div>
           ))}
         </div>
