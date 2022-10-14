@@ -37,7 +37,8 @@ export default async function handler(req, res) {
 
     if (!session) res.status(403)
 
-    const jobId = req.body.jobId
+    const jobId = req.query["id"].toString()
+    console.debug("id", jobId)
     console.log('filename', filename)
     console.log('cv', cv)
 

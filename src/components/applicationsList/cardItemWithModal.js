@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { InputSubmitType } from "../submitFile";
+import InputSubmitType from "../submitFile"
 import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
@@ -174,14 +174,14 @@ export default function CardItemWithModal(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {loggedUser ? (
+                    {loggedUser ? 
                       <InputSubmitType
                         jobId={_id} />
-                    ) : (
+                     : 
                       <Alert severity="warning">
                         Operation allowed only for logged users!
                       </Alert>
-                    )}
+                    }
                   </Typography>
                 </AccordionDetails>
               </Accordion>
