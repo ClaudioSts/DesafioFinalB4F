@@ -1,10 +1,7 @@
 import { Button } from "@material-ui/core";
-<<<<<<< HEAD
-import { useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
-=======
-import { useState } from "react";
->>>>>>> 489569d0cb39f6c64790c6e23d49ef9ed5be35e3
 
 export function InputSubmitType({ onSelect }, props) {
 
