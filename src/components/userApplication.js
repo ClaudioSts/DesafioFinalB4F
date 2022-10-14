@@ -5,36 +5,29 @@ import { ObjectID } from "bson";
 
 export default function UserApplicationList(props) {
 
-    const [data, setData] = React.useState([
-        {
-            _id: localStorage.getItem("token"),
-            companyID: ObjectID(),
-            title: "",
-            description: "",
-            location: "",
-        },
-    ]);
+    const [data, setData] = React.useState([]);
 
     const { loggedUser, isCompany } = props;
 
     const applicationList = "api/users/application";
 
-
-    const fetchData = () => {
-        fetch(applicationList, {
-            method: "GET",
-            headers: {
-                Authorization: localStorage.getItem("token"),
-            },
-        })
-            .then((res) => res.json())
-            .then((result) => {
-                setData(result);
-                console.error(data);
+    React.useEffect(() => {
+        const fetchData = () => {
+            fetch(applicationList, {
+                method: "GET",
+                headers: {
+                    Authorization: localStorage.getItem("token"),
+                },
             })
-            .catch((err) => console.log("error"));
-    };
-    fetchData();
+                .then((res) => res.json())
+                .then((result) => {
+                    setData(result);
+                    console.error(data);
+                })
+                .catch((err) => console.log("error"));
+        };
+        fetchData();
+    }, []);
 
     return (
         <>

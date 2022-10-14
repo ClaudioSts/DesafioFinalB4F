@@ -22,8 +22,7 @@ export default function SignUpCompanies() {
   const submitHandler = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(data);
-
+    
     const login = "/api/signup/company";
 
     const answer = await fetch(login, {

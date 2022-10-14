@@ -39,7 +39,6 @@ export default async function handler(req, res) {
       return res.status(404);
     }
     const application = await changeApplicationById(req.body, req.params.id);
-    console.log(application);
     if (!application) {
       return res.status(404);
     }
@@ -58,7 +57,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    console.log(req.query)
+    
     const jobId = await findJobById(req.query.id);
 
 
@@ -77,8 +76,7 @@ export default async function handler(req, res) {
     if (!session) res.status(403)
 
     //const jobId = req.body.jobId
-    console.log('filename', filename)
-    console.log('cv', cv)
+
 
     await createApplication({ filename, cv, jobID }, session.userId);
     res.status(201).json();
