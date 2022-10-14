@@ -13,7 +13,7 @@ export default function UserApplicationItem(props) {
     overlay: {
       width: "60rem",
       height: "50rem",
-      marginLeft: "31%",
+      marginLeft: "25%",
       marginTop: "10%",
       marginBottom: "5%",
     },
