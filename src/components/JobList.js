@@ -5,11 +5,9 @@ import CardItemWithModal from "./applicationsList/cardItemWithModal";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-import ButtonGroup from '@mui/material/ButtonGroup';
-import ShowButtons from './EditionButtons';
+import ButtonGroup from "@mui/material/ButtonGroup";
+import ShowButtons from "./EditionButtons";
 import { ObjectID } from "bson";
-
-
 
 function JobList(props) {
   const [data, setData] = useState([
@@ -22,7 +20,7 @@ function JobList(props) {
     },
   ]);
 
-  const { loggedUser, filter, isCompany } = props
+  const { loggedUser, filter, isCompany } = props;
 
   const list = "api/users";
   const jobsByCompany = "api/company";
@@ -42,7 +40,7 @@ function JobList(props) {
 
   useEffect(() => {
     if (props.isCompany == false) {
-      console.log('company is false')
+      console.log("company is false");
 
       const fetchData = () => {
         fetch(list)
@@ -57,10 +55,9 @@ function JobList(props) {
     if (props.isCompany == true) {
       console.log("company is true");
 
-      const buttons = localStorage.getItem('companyId')
+      const buttons = localStorage.getItem("companyId");
 
       const fetchData = () => {
-
         fetch(jobsByCompany, {
           method: "GET",
           headers: {
@@ -70,11 +67,9 @@ function JobList(props) {
           .then((res) => res.json())
           .then((result) => {
             setData(result);
-            console.error(data)
+            console.error(data);
           })
           .catch((err) => console.log("error"));
-
-          
       };
       fetchData();
     }
@@ -87,7 +82,8 @@ function JobList(props) {
         <div>
           {data.filter(filterPredicate).map((job, index) => (
             <div key={index} style={{ marginBottom: "1%" }}>
-              <CardItemWithModal style={{ marginBottom: "1%" }}
+              <CardItemWithModal
+                style={{ marginBottom: "1%" }}
                 key={index}
                 _id={job._id}
                 title={job.title}
@@ -96,10 +92,7 @@ function JobList(props) {
                 loggedUser={loggedUser}
                 isCompany={isCompany}
               />
-              {props.isCompany ?
-                <ShowButtons job={job} /> : 
-                ""
-              }
+              {props.isCompany ? <ShowButtons job={job} /> : ""}
             </div>
           ))}
         </div>
