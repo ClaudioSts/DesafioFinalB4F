@@ -1,17 +1,18 @@
 import { Button } from "@material-ui/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 
-export function InputSubmitType({ onSelect }, props) {
+export default function InputSubmitType(props) {
   const [file, setFile] = useState(null);
 
-  const { companyID } = props;
-
+  const { jobId } = props
+  console.log('props', jobId)
   const onFileSelect = async (e) => {
-    setFile(e.target.files[0]);
+    setFile(e.target.files[0])
   };
 
   const onFileSubmit = async (e) => {
+
     if (file === null) {
       alert("Please select a file.");
       return;
@@ -19,19 +20,19 @@ export function InputSubmitType({ onSelect }, props) {
 
     const formData = new FormData();
     formData.append("ficheiro-do-frontend", file);
-    formData.append("companyJobID", companyID);
+   
 
-    console.log("token", localStorage.getItem("token"));
-    const inputFetch = await fetch("/api/users/application", {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "multipart/form-data;boundary=MyBoundary",
-        Authorization: localStorage.getItem("token"),
-      },
-    });
+    console.log('jobId', jobId)
 
-    console.log(inputFetch.status);
+    const inputFetch =
+      await fetch('/api/users/applications/' + jobId, {
+        method: "POST",
+        body: formData,
+        headers: {
+          //   "Content-Type": "multipart",
+          "Authorization": localStorage.getItem("token")
+        },
+      });
 
     if (inputFetch.status === 400) {
       alert(
