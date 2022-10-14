@@ -17,7 +17,6 @@ export default function LoginCompany() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(data);
 
     const login = "/api/login/company";
 

@@ -6,7 +6,6 @@ export default function InputSubmitType(props) {
   const [file, setFile] = useState(null);
 
   const { jobId } = props
-  console.log('props', jobId)
   const onFileSelect = async (e) => {
     setFile(e.target.files[0])
   };
@@ -22,8 +21,6 @@ export default function InputSubmitType(props) {
     formData.append("ficheiro-do-frontend", file);
    
 
-    console.log('jobId', jobId)
-
     const inputFetch =
       await fetch('/api/users/applications/' + jobId, {
         method: "POST",
@@ -33,7 +30,7 @@ export default function InputSubmitType(props) {
           "Authorization": localStorage.getItem("token")
         },
       });
-
+      
     if (inputFetch.status === 400) {
       alert(
         "There was an error processing your application. Please try again."
