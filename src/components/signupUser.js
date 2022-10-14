@@ -3,6 +3,7 @@ import Image from "next/image";
 //import signUpUser from "../styles/signUpUser.css";
 import React from "react";
 import Button from "@mui/material/Button";
+import { display } from "@mui/system";
 
 export default function SignUpUser() {
   const [data, setData] = React.useState({
@@ -53,10 +54,20 @@ export default function SignUpUser() {
   };
 
   return (
-    <div>
+    <div className="signupUser">
       <div>
         <div>
           <form onSubmit={submitHandler}>
+            <h1
+              style={{
+                color: "#1976d2",
+                display: "flex",
+
+                flexDirection: "column",
+              }}
+            >
+              SignUp User
+            </h1>
             <div>
               Name:
               <br />
@@ -67,6 +78,7 @@ export default function SignUpUser() {
                 required
                 value={username}
                 onChange={changeHandler}
+                style={{ width: "70%", height: "2rem" }}
               />
               <br />
             </div>
@@ -80,6 +92,7 @@ export default function SignUpUser() {
                 required
                 value={email}
                 onChange={changeHandler}
+                style={{ width: "70%", height: "2rem" }}
               />
               <br />
             </div>
@@ -93,6 +106,7 @@ export default function SignUpUser() {
                 required
                 value={password}
                 onChange={changeHandler}
+                style={{ width: "70%", height: "2rem" }}
               />
               <br />
             </div>
@@ -105,6 +119,7 @@ export default function SignUpUser() {
                 placeholder="Confirm Password"
                 value={passwordConfirmation}
                 onChange={changeHandler}
+                style={{ width: "70%", height: "2rem" }}
               />
               <br />
               <br />
