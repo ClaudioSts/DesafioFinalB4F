@@ -101,13 +101,6 @@ export default function Home(props) {
     },
   };
 
-  const inputFetch = (formData) =>
-    fetch("/api/users/applications", {
-      method: "POST",
-      body: formData,
-      header: { "content-type": "multipart/form-data" },
-    });
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -116,6 +109,7 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
+          <h1 className="jobName">Job Junior Search</h1>
           <Box sx={{ flexGrow: 1 }}></Box>
           {/* <InputSubmitType onSelect={(formData) => inputFetch(formData)} /> */}
           {loggedUser ? (
@@ -187,8 +181,8 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "#fff",
-            pt: 8,
+            backgroundColor: "#e6eef7",
+            pt: 10,
             pb: 6,
           }}
         >
@@ -206,6 +200,7 @@ export default function Home(props) {
                   <Toolbar>
                     <div
                       style={{
+                        border: "0px",
                         marginTop: "-10%",
                         marginBottom: "5%",
                         marginLeft: "10%",
@@ -233,8 +228,9 @@ export default function Home(props) {
                 ) : (
                   <div
                     style={{
-                      marginTop: "-38%",
-                      marginBottom: "20%",
+                      marginTop: "-15%",
+                      marginBottom: "5%",
+                      marginLeft: "10%",
                     }}
                   >
                     <ButtonGroup
@@ -246,7 +242,6 @@ export default function Home(props) {
                           minWidth: "200px",
                           backgroundColor: "#004AAD",
                           color: "#fff",
-                          margin: "1rem",
                         }}
                         onClick={handleOpenUserApplicationsModal}
                       >
@@ -435,11 +430,8 @@ export default function Home(props) {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{ marginLeft: "-1%" }}
         >
-          <UserApplicationList
-            loggedUser={loggedUser}
-            isCompany={isCompany} />
+          <UserApplicationList></UserApplicationList>
         </Grid>
       </Modal>
     </ThemeProvider>

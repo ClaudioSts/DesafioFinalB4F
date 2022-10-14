@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import InputSubmitType from "../submitFile"
+import InputSubmitType from "../submitFile";
 import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
@@ -59,42 +59,46 @@ export default function CardItemWithModal(props) {
     <>
       <Card
         sx={{
-          minHeight: 200,
-          minWidth: 800,
-          backgroundColor: "#fff",
-          borderTop: "8px solid #3E6ADD",
+          minHeight: 250,
+          minWidth: 1000,
+          backgroundColor: "#f2f5f7",
+          borderTop: "8px solid #2d85fa",
           borderRadius: "10px",
-          boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
           cursor: "pointer",
+          "&:hover": {
+            transform: "scale(1.09)",
+            transition: "150ms ease-in-out",
+          },
         }}
         onClick={handleOpen}
       >
-        <CardContent>
-          <Typography
-            sx={{
-              fontSize: 14,
-              font: "Open Sans",
-            }}
-            align="right"
-            color="#000"
-            gutterBottom
-          >
-            {location}
-          </Typography>
-          <Typography
-            sx={{ font: "Open Sans", fontWeight: "bold", margin: "1rem" }}
-            align="left"
-            variant="h5"
-            component="div"
-          >
-            {title}
-          </Typography>
-          <Typography font="Open Sans" variant="body2">
-            {description.substring(0, 200)}{" "}
-            {description.length > 50 ? "..." : ""}
-          </Typography>
-        </CardContent>
+        <div className="jobcard">
+          <CardContent>
+            <Typography
+              sx={{
+                fontSize: 14,
+              }}
+              align="right"
+              color="#000"
+              gutterBottom
+            >
+              {location}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: "bold", margin: "1rem" }}
+              align="center"
+              variant="h5"
+              component="div"
+            >
+              {title}
+            </Typography>
+            <Typography variant="body2">
+              {description.substring(0, 200)}{" "}
+              {description.length > 50 ? "..." : ""}
+            </Typography>
+          </CardContent>
+        </div>
       </Card>
 
       <Modal
@@ -174,14 +178,13 @@ export default function CardItemWithModal(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {loggedUser ? 
-                      <InputSubmitType
-                        jobId={_id} />
-                     : 
+                    {loggedUser ? (
+                      <InputSubmitType jobId={_id} />
+                    ) : (
                       <Alert severity="warning">
                         Operation allowed only for logged users!
                       </Alert>
-                    }
+                    )}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
