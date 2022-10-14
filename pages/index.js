@@ -86,11 +86,6 @@ export default function Home(props) {
   const modalStyle = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      width: "70rem",
-      height: "55rem",
-      marginLeft: "25%",
-      marginTop: "5%",
-      marginBottom: "5%",
     },
     content: {
       // position: 'absolute',
@@ -98,7 +93,11 @@ export default function Home(props) {
       // left: '0px',
       // right: '100px',
       // bottom: '0px',
-      background: "#ffffff",
+      width: "60rem",
+      height: "50rem",
+      marginLeft: "25%",
+      marginTop: "10%",
+      marginBottom: "5%",
     },
   };
 
@@ -245,10 +244,8 @@ export default function Home(props) {
                       <Button
                         style={{
                           minWidth: "200px",
-
                           backgroundColor: "#004AAD",
                           color: "#fff",
-
                           margin: "1rem",
                         }}
                         onClick={handleOpenUserApplicationsModal}
@@ -348,6 +345,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyApplicationsModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -387,6 +385,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyPostJobModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -424,6 +423,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseUserApplicationsModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -437,7 +437,9 @@ export default function Home(props) {
           alignItems="center"
           style={{ marginLeft: "-1%" }}
         >
-          <UserApplicationList></UserApplicationList>
+          <UserApplicationList
+            loggedUser={loggedUser}
+            isCompany={isCompany} />
         </Grid>
       </Modal>
     </ThemeProvider>

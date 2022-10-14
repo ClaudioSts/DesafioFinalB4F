@@ -1,45 +1,43 @@
 import { Button } from "@material-ui/core";
-
 import { useEffect, useState } from "react";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 
-export function InputSubmitType({ onSelect }, props) {
-
+export default function InputSubmitType(props) {
   const [file, setFile] = useState(null);
 
-  
-  const { companyID } = props
-
-  const onFileSelect = async (e) => {    
+  const { jobId } = props
+  console.log('props', jobId)
+  const onFileSelect = async (e) => {
     setFile(e.target.files[0])
   };
 
   const onFileSubmit = async (e) => {
 
-    if(file === null){
+    if (file === null) {
       alert("Please select a file.");
       return;
     }
-    
+
     const formData = new FormData();
     formData.append("ficheiro-do-frontend", file);
-    formData.append("companyJobID", companyID);
+   
 
-    console.log("token", localStorage.getItem("token"))
-    const inputFetch = 
-      await fetch("/api/users/application", {
+    console.log('jobId', jobId)
+
+    const inputFetch =
+      await fetch('/api/users/applications/' + jobId, {
         method: "POST",
         body: formData,
         headers: {
-          "Content-Type": "multipart/form-data;boundary=MyBoundary",
+          //   "Content-Type": "multipart",
           "Authorization": localStorage.getItem("token")
         },
       });
 
-    console.log(inputFetch.status);
-
     if (inputFetch.status === 400) {
-      alert("There was an error processing your application. Please try again.");
+      alert(
+        "There was an error processing your application. Please try again."
+      );
     }
 
     if (inputFetch.status === 201) {
@@ -50,7 +48,12 @@ export function InputSubmitType({ onSelect }, props) {
 
   return (
     <div>
-      <input type={"file"} name="ficheiro-do-frontend" onChange={(e) => onFileSelect(e)} required />
+      <input
+        type={"file"}
+        name="ficheiro-do-frontend"
+        onChange={(e) => onFileSelect(e)}
+        required
+      />
       <br />
       <br />
       <FileUploadIcon

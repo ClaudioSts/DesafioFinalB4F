@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import { height } from "@mui/system";
 import { useState } from "react";
 import CustomLinkWithModal from "./modal/customLinkWithModal";
 import SignUpUser from "./signupUser";
@@ -44,7 +45,17 @@ export default function LoginUser() {
     <div>
       <div>
         <div>
-          <h1 style={{ color: "#1976d2" }}> User</h1>
+          <h1
+            style={{
+              color: "#1976d2",
+              display: "flex",
+              alignItems: "left",
+              justifyContent: "left",
+            }}
+          >
+            {" "}
+            User
+          </h1>
         </div>
         <form onSubmit={submitHandler}>
           <div>
@@ -57,6 +68,7 @@ export default function LoginUser() {
               required
               value={email}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -70,6 +82,7 @@ export default function LoginUser() {
               required
               value={password}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -85,18 +98,17 @@ export default function LoginUser() {
           </Button>
           <br />
           <br />
-          <span>
+          <span display="flex" justifyContent="center" alignItems="center">
             <CustomLinkWithModal
               linkTitle="Forgot your password?"
               modalTitle="Forgot Password"
             ></CustomLinkWithModal>
             <br />
-            <CustomLinkWithModal
-              linkTitle="Not an user?"
-              modalTitle="SignUp User"
-            >
-              <SignUpUser></SignUpUser>
-            </CustomLinkWithModal>
+            <div className="linkSignup">
+              <CustomLinkWithModal linkTitle="Not an user?" modalTitle="">
+                <SignUpUser></SignUpUser>
+              </CustomLinkWithModal>
+            </div>
           </span>
         </form>
       </div>

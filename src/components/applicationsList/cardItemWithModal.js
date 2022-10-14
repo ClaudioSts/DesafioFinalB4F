@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { InputSubmitType } from "../submitFile";
+import InputSubmitType from "../submitFile"
 import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
@@ -28,10 +28,10 @@ export default function CardItemWithModal(props) {
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
-      width: "70rem",
-      height: "55rem",
+      width: "60rem",
+      height: "50rem",
       marginLeft: "25%",
-      marginTop: "5%",
+      marginTop: "10%",
       marginBottom: "5%",
     },
     content: {
@@ -53,7 +53,7 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { companyID, title, location, description, loggedUser, isCompany } = props;
+  const { _id, title, location, description, loggedUser, isCompany } = props;
 
   return (
     <>
@@ -116,15 +116,41 @@ export default function CardItemWithModal(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleClose}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
         </Box>
-        <div className="job-card">
-          <hr />
-          <h5>{location}</h5>
-          <h1>{title}</h1>
-          <div>{description}</div>
+
+        <hr />
+        <div className="job-card" style={{ marginTop: "20%" }}>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {title}
+          </h1>
+          <h4
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {location}
+          </h4>
+          <h5
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {description}
+          </h5>
           <br />
         </div>
 
@@ -148,13 +174,14 @@ export default function CardItemWithModal(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {loggedUser ? (
-                      <InputSubmitType companyID={companyID} />
-                    ) : (
+                    {loggedUser ? 
+                      <InputSubmitType
+                        jobId={_id} />
+                     : 
                       <Alert severity="warning">
                         Operation allowed only for logged users!
                       </Alert>
-                    )}
+                    }
                   </Typography>
                 </AccordionDetails>
               </Accordion>

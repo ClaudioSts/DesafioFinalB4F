@@ -9,7 +9,6 @@ export default function LoginCompany() {
     password: "",
   });
 
-
   const { email, password } = data;
 
   const changeHandler = (e) => {
@@ -46,7 +45,16 @@ export default function LoginCompany() {
     <div>
       <div>
         <div>
-          <h1 style={{ color: "#1976d2" }}>Company</h1>
+          <h1
+            style={{
+              color: "#1976d2",
+              display: "flex",
+              alignItems: "left",
+              justifyContent: "left",
+            }}
+          >
+            Company
+          </h1>
         </div>
 
         <form onSubmit={submitHandler}>
@@ -60,6 +68,7 @@ export default function LoginCompany() {
               required
               value={email}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -72,6 +81,7 @@ export default function LoginCompany() {
               placeholder="password"
               value={password}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -93,10 +103,7 @@ export default function LoginCompany() {
               modalTitle="Forgot Password"
             ></CustomLinkWithModal>
             <br />
-            <CustomLinkWithModal
-              linkTitle="Not an user?"
-              modalTitle="SignUp Company"
-            >
+            <CustomLinkWithModal linkTitle="Not an user?" modalTitle="">
               <SignUpCompanies></SignUpCompanies>
             </CustomLinkWithModal>
           </span>

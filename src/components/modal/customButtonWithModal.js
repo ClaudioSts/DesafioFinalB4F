@@ -20,10 +20,10 @@ export default function CustomButtonWithModal(props) {
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
-      width: "70rem",
-      height: "55rem",
+      width: "60rem",
+      height: "50rem",
       marginLeft: "25%",
-      marginTop: "5%",
+      marginTop: "10%",
       marginBottom: "5%",
     },
     content: {
