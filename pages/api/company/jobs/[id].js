@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       return res.status(404);
     }
     const jobOffer = await changeJobById(req.body, req.params.id);
-    console.log(jobOffer);
+
     if (!jobOffer) {
       return res.status(404);
     }

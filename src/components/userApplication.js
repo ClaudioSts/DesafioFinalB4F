@@ -1,34 +1,49 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import UserApplicationItem from './userApplicationItem';
+import { ObjectID } from "bson";
 
 export default function UserApplicationList(props) {
-    
-    const applications = [
-        { location: "Location 1", title: "Full-Stack Developer", "description": "description 2121212", status: "In Review", statusId: 1 },
-        { location: "Location 2", title: "Title 2", "description": "description 2121212", status: "In Review", statusId: 1 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Paused", statusId: 3 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Cancelled", statusId: 5 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "In Review", statusId: 1 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Paused", statusId: 3 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Interview Scheduled", statusId: 2 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Completed", statusId: 4 },
-        { location: "Location 3", title: "Title 3", "description": "description 2121212", status: "Cancelled", statusId: 5 }
-    ]
+
+    const [data, setData] = React.useState([]);
+
+    const { loggedUser, isCompany } = props;
+
+    const applicationList = "api/users/application";
+
+    React.useEffect(() => {
+        const fetchData = () => {
+            fetch(applicationList, {
+                method: "GET",
+                headers: {
+                    Authorization: localStorage.getItem("token"),
+                },
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    setData(result);
+                    console.error(data);
+                })
+                .catch((err) => console.log("error"));
+        };
+        fetchData();
+    }, []);
 
     return (
         <>
             {
-                applications.map((el, index) => {
+                data.map((el, index) => {
                     return (
-                        <div key={index} style={{marginBottom: "1%", padding: "0.5%"}}>
-                            <UserApplicationItem style={{marginBottom: "1%"}}
-                                key={index} 
+                        <div key={index} style={{ marginBottom: "1%", padding: "0.5%" }}>
+                            <UserApplicationItem style={{ marginBottom: "1%" }}
+                                key={index}
                                 location={el.location}
                                 title={el.title}
                                 status={el.status}
                                 statusId={el.statusId}
-                                description={el.description} />
+                                description={el.description}
+                                loggedUser={loggedUser}
+                                isCompany={isCompany} />
                         </div>
                     );
                 })

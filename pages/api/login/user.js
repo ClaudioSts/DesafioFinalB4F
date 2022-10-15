@@ -9,8 +9,6 @@ import { addSessionUser } from "../../../src/data/SignUpLogin/userSessions"
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        console.log(req.body)
-
         const {
             email,
             password

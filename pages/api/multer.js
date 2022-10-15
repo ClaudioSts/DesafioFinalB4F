@@ -41,8 +41,7 @@ export default async function handler(req, res) {
       upload.single("ficheiro-do-frontend")
     );
     const cv = req.file.originalname;
-    console.log(cv);
-    console.log("o ficheiro é: ", req.file.originalname);
+    
 
     //Neste caso não respondemos com nada.
     res.send("ok");

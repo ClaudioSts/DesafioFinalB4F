@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import CustomLinkWithModal from "./modal/customLinkWithModal";
+import ResetPassword from "./reset password";
 import SignUpCompanies from "./signUpCompanies";
 
 export default function LoginCompany() {
@@ -8,7 +9,6 @@ export default function LoginCompany() {
     email: "",
     password: "",
   });
-
 
   const { email, password } = data;
 
@@ -18,7 +18,6 @@ export default function LoginCompany() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(data);
 
     const login = "/api/login/company";
 
@@ -46,7 +45,16 @@ export default function LoginCompany() {
     <div>
       <div>
         <div>
-          <h1 style={{ color: "#1976d2" }}>Company</h1>
+          <h1
+            style={{
+              color: "#1976d2",
+              display: "flex",
+              alignItems: "left",
+              justifyContent: "left",
+            }}
+          >
+            Company
+          </h1>
         </div>
 
         <form onSubmit={submitHandler}>
@@ -60,6 +68,7 @@ export default function LoginCompany() {
               required
               value={email}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -72,6 +81,7 @@ export default function LoginCompany() {
               placeholder="password"
               value={password}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -90,13 +100,12 @@ export default function LoginCompany() {
           <span>
             <CustomLinkWithModal
               linkTitle="Forgot your password?"
-              modalTitle="Forgot Password"
-            ></CustomLinkWithModal>
-            <br />
-            <CustomLinkWithModal
-              linkTitle="Not an user?"
-              modalTitle="SignUp Company"
+              modalTitle=""
             >
+              <ResetPassword />
+            </CustomLinkWithModal>
+            <br />
+            <CustomLinkWithModal linkTitle="Not an user?" modalTitle="">
               <SignUpCompanies></SignUpCompanies>
             </CustomLinkWithModal>
           </span>

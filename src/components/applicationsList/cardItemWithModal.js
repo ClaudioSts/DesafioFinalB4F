@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { InputSubmitType } from "../submitFile";
+import InputSubmitType from "../submitFile";
 import { flexbox } from "@mui/system";
 
 export default function CardItemWithModal(props) {
@@ -28,10 +28,10 @@ export default function CardItemWithModal(props) {
       // transform: 'translate(-50%, -0%)',
       backgroundColor: "rgba(0, 0, 0, 0)",
       // border: 'none',
-      width: "70rem",
-      height: "55rem",
+      width: "60rem",
+      height: "50rem",
       marginLeft: "25%",
-      marginTop: "5%",
+      marginTop: "10%",
       marginBottom: "5%",
     },
     content: {
@@ -53,48 +53,52 @@ export default function CardItemWithModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { companyID, title, location, description, loggedUser, isCompany } = props;
+  const { _id, title, location, description, loggedUser, isCompany } = props;
 
   return (
     <>
       <Card
         sx={{
-          minHeight: 200,
-          minWidth: 800,
-          backgroundColor: "#fff",
-          borderTop: "8px solid #3E6ADD",
+          minHeight: 250,
+          minWidth: 1000,
+          backgroundColor: "#f2f5f7",
+          borderTop: "8px solid #2d85fa",
           borderRadius: "10px",
-          boxShadow: "10px 10px 17px -10px rgba(0,0,0,0.75)",
           marginTop: "1rem",
           cursor: "pointer",
+          "&:hover": {
+            transform: "scale(1.09)",
+            transition: "150ms ease-in-out",
+          },
         }}
         onClick={handleOpen}
       >
-        <CardContent>
-          <Typography
-            sx={{
-              fontSize: 14,
-              font: "Open Sans",
-            }}
-            align="right"
-            color="#000"
-            gutterBottom
-          >
-            {location}
-          </Typography>
-          <Typography
-            sx={{ font: "Open Sans", fontWeight: "bold", margin: "1rem" }}
-            align="left"
-            variant="h5"
-            component="div"
-          >
-            {title}
-          </Typography>
-          <Typography font="Open Sans" variant="body2">
-            {description.substring(0, 200)}{" "}
-            {description.length > 50 ? "..." : ""}
-          </Typography>
-        </CardContent>
+        <div className="jobcard">
+          <CardContent>
+            <Typography
+              sx={{
+                fontSize: 14,
+              }}
+              align="right"
+              color="#000"
+              gutterBottom
+            >
+              {location}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: "bold", margin: "1rem" }}
+              align="center"
+              variant="h5"
+              component="div"
+            >
+              {title}
+            </Typography>
+            <Typography variant="body2">
+              {description.substring(0, 200)}{" "}
+              {description.length > 50 ? "..." : ""}
+            </Typography>
+          </CardContent>
+        </div>
       </Card>
 
       <Modal
@@ -116,15 +120,41 @@ export default function CardItemWithModal(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleClose}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
         </Box>
-        <div className="job-card">
-          <hr />
-          <h5>{location}</h5>
-          <h1>{title}</h1>
-          <div>{description}</div>
+
+        <hr />
+        <div className="job-card" style={{ marginTop: "20%" }}>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {title}
+          </h1>
+          <h4
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {location}
+          </h4>
+          <h5
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {description}
+          </h5>
           <br />
         </div>
 
@@ -149,7 +179,7 @@ export default function CardItemWithModal(props) {
                 <AccordionDetails>
                   <Typography>
                     {loggedUser ? (
-                      <InputSubmitType companyID={companyID} />
+                      <InputSubmitType jobId={_id} />
                     ) : (
                       <Alert severity="warning">
                         Operation allowed only for logged users!

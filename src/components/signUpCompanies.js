@@ -22,8 +22,7 @@ export default function SignUpCompanies() {
   const submitHandler = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(data);
-
+    
     const login = "/api/signup/company";
 
     const answer = await fetch(login, {
@@ -56,9 +55,19 @@ export default function SignUpCompanies() {
   };
 
   return (
-    <div>
+    <div className="signupCompany">
       <div>
         <form onSubmit={submitHandler}>
+          <h1
+            style={{
+              color: "#1976d2",
+              display: "flex",
+
+              flexDirection: "column",
+            }}
+          >
+            SignUp Company
+          </h1>
           <div>
             Name:
             <br />
@@ -69,6 +78,7 @@ export default function SignUpCompanies() {
               required
               value={username}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -81,6 +91,7 @@ export default function SignUpCompanies() {
               required
               value={email}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -95,6 +106,7 @@ export default function SignUpCompanies() {
               required
               value={NIF}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -108,6 +120,7 @@ export default function SignUpCompanies() {
               required
               value={password}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
             <br />
           </div>
@@ -121,7 +134,9 @@ export default function SignUpCompanies() {
               required
               value={passwordConfirmation}
               onChange={changeHandler}
+              style={{ width: "70%", height: "2rem" }}
             />
+            <br />
             <br />
           </div>
           <div>

@@ -86,11 +86,6 @@ export default function Home(props) {
   const modalStyle = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      width: "70rem",
-      height: "55rem",
-      marginLeft: "25%",
-      marginTop: "5%",
-      marginBottom: "5%",
     },
     content: {
       // position: 'absolute',
@@ -98,16 +93,13 @@ export default function Home(props) {
       // left: '0px',
       // right: '100px',
       // bottom: '0px',
-      background: "#ffffff",
+      width: "60rem",
+      height: "50rem",
+      marginLeft: "25%",
+      marginTop: "10%",
+      marginBottom: "5%",
     },
   };
-
-  const inputFetch = (formData) =>
-    fetch("/api/users/applications", {
-      method: "POST",
-      body: formData,
-      header: { "content-type": "multipart/form-data" },
-    });
 
   return (
     <ThemeProvider theme={theme}>
@@ -117,6 +109,7 @@ export default function Home(props) {
           <Typography variant="h6" color="inherit" noWrap>
             <img className="logo" src="/img/logo.png" alt="logo" />
           </Typography>
+          <h1 className="jobName">Junior Job Search</h1>
           <Box sx={{ flexGrow: 1 }}></Box>
           {/* <InputSubmitType onSelect={(formData) => inputFetch(formData)} /> */}
           {loggedUser ? (
@@ -188,8 +181,8 @@ export default function Home(props) {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "#fff",
-            pt: 8,
+            backgroundColor: "#e6eef7",
+            pt: 10,
             pb: 6,
           }}
         >
@@ -207,6 +200,7 @@ export default function Home(props) {
                   <Toolbar>
                     <div
                       style={{
+                        border: "0px",
                         marginTop: "-10%",
                         marginBottom: "5%",
                         marginLeft: "10%",
@@ -234,8 +228,9 @@ export default function Home(props) {
                 ) : (
                   <div
                     style={{
-                      marginTop: "-38%",
-                      marginBottom: "20%",
+                      marginTop: "-15%",
+                      marginBottom: "5%",
+                      marginLeft: "10%",
                     }}
                   >
                     <ButtonGroup
@@ -245,11 +240,8 @@ export default function Home(props) {
                       <Button
                         style={{
                           minWidth: "200px",
-
                           backgroundColor: "#004AAD",
                           color: "#fff",
-
-                          margin: "1rem",
                         }}
                         onClick={handleOpenUserApplicationsModal}
                       >
@@ -348,6 +340,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyApplicationsModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -387,6 +380,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseCompanyPostJobModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -424,6 +418,7 @@ export default function Home(props) {
             color="error"
             sx={{ borderRadius: 28 }}
             onClick={handleCloseUserApplicationsModal}
+            style={{ marginBottom: "1rem" }}
           >
             Close
           </Button>
@@ -435,7 +430,6 @@ export default function Home(props) {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{ marginLeft: "-1%" }}
         >
           <UserApplicationList></UserApplicationList>
         </Grid>
